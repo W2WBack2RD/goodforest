@@ -1,6 +1,7 @@
 import request from 'superagent';
 import { handleSuccess, handleError } from '_utils/api';
 
+
 export const getUser = () =>
   request.get('/api/user')
     .then(handleSuccess)
@@ -17,3 +18,10 @@ export const putUserPassword = passwordInfo =>
     .send(passwordInfo)
     .then(handleSuccess)
     .catch(handleError);
+
+
+export const getExample = () =>
+  request.get('/api/example/')
+    .send()
+    .then()
+    .catch();
