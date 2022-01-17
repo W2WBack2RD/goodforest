@@ -19,9 +19,16 @@ export const putUserPassword = passwordInfo =>
     .then(handleSuccess)
     .catch(handleError);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1a08c3e38a1387a8e702fda8e1b56970efda011a
 export const getExample = () =>
   request.get('/api/example/')
     .send()
     .then()
+<<<<<<< HEAD
     .catch();
+=======
+    .catch();
+>>>>>>> 1a08c3e38a1387a8e702fda8e1b56970efda011a
