@@ -32,7 +32,7 @@ export default function WelcomePage() {
   return (
     <div className="welcome-page page">
       <div className="top">
-        <img id="open-pic"></img>
+        <div id="open-pic"></div>
         <Title id="website-title">יער האקלים</Title>
         <h2 id="sub-title">שותלים עצים, מפריחים ערים</h2>
         <Button id="btn-login">התחברות</Button>
