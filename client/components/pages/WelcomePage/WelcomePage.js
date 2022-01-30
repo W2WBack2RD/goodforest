@@ -1,12 +1,13 @@
 import React from "react";
 import Title from "react-bulma-companion/lib/Title";
 import Button from "react-bulma-companion/lib/Button";
+import Image from "react-bulma-companion/lib/Image";
 
 export default function WelcomePage() {
   return (
-    <div className="welcome-page page">
+    <div className="welcome-page">
       <div className="top">
-        <div id="open-pic"></div>
+        <Image id="open-pic" />
         <Title id="website-title">יער האקלים</Title>
         <h2 id="sub-title">שותלים עצים, מפריחים ערים</h2>
         <Button id="btn-login">התחברות</Button>
@@ -14,7 +15,7 @@ export default function WelcomePage() {
           הרשמה
         </a>
       </div>
-      <Title id="welcome" size="4">
+      <Title id="welcome-website-title" size="4">
         ברוכים הבאים ליער האקלים
       </Title>
       <p id="paragraph">
