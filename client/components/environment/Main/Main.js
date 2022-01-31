@@ -15,8 +15,8 @@ import TodoPage from '_pages/TodoPage';
 import SettingsPage from '_pages/SettingsPage';
 import LostPage from '_pages/LostPage';
 
-import Navigation from '_organisms/Navigation';
-import Footer from '_organisms/Footer';
+// import Navigation from '_organisms/Navigation';
+// import Footer from '_organisms/Footer';
 
 export default function Main({ location }) {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ export default function Main({ location }) {
   return !loading && (
     <div>
       <ReactNotification />
-      <Navigation pathname={location.pathname} />
+      {/* <Navigation pathname={location.pathname} /> */}
       <div className="main">
         <Switch>
           <Route exact path="/" component={WelcomePage} />
@@ -51,7 +51,7 @@ export default function Main({ location }) {
           <Route path="*" component={LostPage} />
         </Switch>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

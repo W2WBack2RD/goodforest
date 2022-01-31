@@ -1,6 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap');
+
 .login-page {
   .box {
-    margin: 0 auto;
-    max-width: 25rem;
+    position: absolute;
+    width: 335px;
+    height: 563px;
+    left: 20px;
+    top: 104px;
+    background: #FFFFFF;
+    border-radius: 30px 30px 0px 0px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20.56px;
+    text-align: right;
   }
+  ::-webkit-input-placeholder {
+    text-align: right;
+    position: absolute;
+    width: 295px;
+    height: 40px;
+    text-align: right;
+    font-family: 'Heebo', sans-serif !important;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 23.5px;
+    text-align: right; 
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+
+  .pointer-link {
+    cursor: pointer;
+  }
+  .formInput{
+    font-family: 'Heebo', sans-serif;
+    margin-top: 6px;
+  }
+  .is-pulled-right{
+    background-color:#3B5A16;
+    width: 105px;
+    height: 37px;
+    color: #FFFFFF;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    padding:8px, 12px, 8px, 12px;
+  }
+
+  .operators {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+  .forget-password {
+    color: #000000;
+    text-decoration: underline;
+  }
+
+  .user-email-label {
+    margin-top: 20px;
+  }
+
+  .user-password-label {
+    margin-top: 10px;
+  }
+
 }
+
+
+

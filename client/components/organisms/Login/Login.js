@@ -11,6 +11,7 @@ import Block from 'react-bulma-companion/lib/Block';
 import Title from 'react-bulma-companion/lib/Title';
 import Control from 'react-bulma-companion/lib/Control';
 import Button from 'react-bulma-companion/lib/Button';
+import Input from 'react-bulma-companion/lib/Input';
 import Checkbox from 'react-bulma-companion/lib/Checkbox';
 
 import useKeyPress from '_hooks/useKeyPress';
@@ -54,45 +55,41 @@ export default function Login() {
   const updatePassword = e => setPassword(e.target.value);
 
   return (
+
     <Box className="login">
-      <Title size="3">
-        Login
-      </Title>
-      <hr className="separator" />
-      <Block>
-        Not Registered Yet?&nbsp;
-        <Link to="/register">
-          Create an account.
-        </Link>
-      </Block>
-      <FormInput
-        onChange={updateUsername}
-        placeholder="Username"
-        value={username}
-        leftIcon={faUser}
+
+      <label className='user-email-label'>
+        כתובת דואר אלקטרוני
+      </label>
+      <FormInput className="formInput"
+        // onChange={updateUsername}
+        placeholder="email@..."
+        // value={username}
+        type="email"
       />
-      <FormInput
-        onChange={updatePassword}
-        placeholder="Password"
-        value={password}
-        leftIcon={faLock}
+
+      <label className='user-password-label'>
+        סיסמה
+      </label>
+      <FormInput className="formInput"
+        // onChange={updatePassword}
+        placeholder="לפחות 8 תווים, לפחות ספרה אחת"
+        // value={password}
         type="password"
       />
-      <Block>
-        <Link to="/recovery">
-          Forgot your password?
-        </Link>
-      </Block>
-      <hr className="separator" />
-      <Control className="is-clearfix">
-        <Button className="is-pulled-right" color="success" onClick={login}>
-          Login
+
+      <div className="operators">
+        <Button className="is-pulled-right" onClick={login}>
+          כניסה
         </Button>
-        <Checkbox>
-          <input type="checkbox" onChange={rememberMe} checked={remember} />
-          <span>&nbsp; Remember me</span>
-        </Checkbox>
-      </Control>
-    </Box>
+        <Link to="/Login" className='forget-password'>
+          שכחתי סיסמה
+        </Link>
+
+      </div>
+
+
+    </Box >
+
   );
 }
