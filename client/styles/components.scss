@@ -1,36 +1,39 @@
+$font-stack: url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap");
+
+
 .dropdown {
   min-width: 20rem;
-  padding: .5rem 0;
-  position: absolute;
-  right: .75rem;
-  top: 4rem;
+  padding  : .5rem 0;
+  position : absolute;
+  right    : .75rem;
+  top      : 4rem;
 
   .dropdown-list {
     width: 100%;
   }
 
   .dropdown-header {
-    padding: 0 1rem;
+    padding   : 0 1rem;
     text-align: center;
   }
 
   .dropdown-item {
-    font-size: 1rem;
+    font-size  : 1rem;
     font-weight: $weight-semibold;
-    padding: 0 1rem;
-    text-align: left;
+    padding    : 0 1rem;
+    text-align : left;
 
     a {
-      color: $black;
+      color  : $black;
       display: block;
       padding: .5rem 1rem;
-      width: 100%;
+      width  : 100%;
     }
 
     a:hover {
       background-color: $mern-primary;
-      color: $white;
-      cursor: pointer;
+      color           : $white;
+      cursor          : pointer;
     }
   }
 
@@ -40,9 +43,57 @@
 }
 
 .dropdown-caret {
-  border: 4px solid $white;
+  border             : 4px solid $white;
   border-bottom-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  margin-left: .25rem;
+  border-left-color  : transparent;
+  border-right-color : transparent;
+  margin-left        : .25rem;
+}
+
+.layoutBG {
+  position        : relative;
+  width           : 375px;
+  height          : 667px;
+  background-color: #D1D2AE;
+}
+
+#treesIcon {
+  background     : url(/client/assets/icons/trees.svg);
+  justify-content: center;
+  align-items    : center;
+  position       : absolute;
+  width          : 239px;
+  height         : 239px;
+  // ask what's the exact distance "margin-top"
+  margin-top     : 30px;
+  margin-left    : 68px;
+}
+
+#menuIcon {
+  background: url(/client/assets/icons/icon_menu.svg);
+
+  position: absolute;
+  width   : 40px;
+  height  : 40px;
+  left    : 10px;
+  top     : 10px;
+
+}
+
+#pageTitle {
+  position: absolute;
+  width   : 157px;
+  height  : 59px;
+  left    : calc(50% - 157px/2 + 89px);
+  top     : 30px;
+
+  font-family: $font-stack;
+  font-style : normal;
+  font-weight: bold;
+  font-size  : 40px;
+  line-height: 59px;
+  /* identical to box height */
+  text-align : right;
+
+  color: #000000;
 }

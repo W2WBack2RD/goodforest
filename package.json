@@ -116,7 +116,7 @@
     "less-loader": "^10.0.1",
     "mini-css-extract-plugin": "^2.3.0",
     "nodemon": "^2.0.12",
-    "sass": "^1.42.1",
+    "sass": "^1.49.0",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.0",
     "superagent": "^6.1.0",
