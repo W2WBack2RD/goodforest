@@ -1,76 +1,93 @@
-.navbar {
-  background-color: $mern-primary;
+// .navbar {
+//   background-color: whitesmoke;
 
-  &.has-shadow {
-    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.3);
-  }
+//   &.has-shadow {
+//     box-shadow: 0 2px 3px rgba(10, 10, 10, 0.3);
+//   }
 
-  .navbar-brand-right {
-    margin-left: auto;
-    display: flex;
-  }
+//   .navbar-brand-right {
+//     margin-left: auto;
+//     display: flex;
+//   }
 
-  .navbar-end .navbar-item:hover {
-    background: $mern-hover;
-  }
+//   .navbar-item {
+//     min-height: 44px;
+//   }
 
-  .navbar-item {
-    min-height: 44px;
-  }
+//   .navbar-item.is-hoverable:hover {
+//     background-color: $mern-hover;
+//   }
 
-  .navbar-item.is-hoverable:hover {
-    background-color: $mern-hover;
-  }
+//   .navbar-item .dropdown-caret {
+//     border-top-color: $lightest-grey;
+//   }
 
-  .navbar-item .dropdown-caret {
-    border-top-color: $lightest-grey;
-  }
+//   .navbar-item:not(.button).is-tab:hover {
+//     border-bottom: 1px solid $white;
+//   }
 
-  .navbar-item:not(.button).is-tab:hover {
-    border-bottom: 1px solid $white;
-  }
+//   .navbar-item:not(.button).is-tab.is-active {
+//     border-bottom: 3px solid $white;
+//     color: $white;
+//   }
 
-  .navbar-item:not(.button).is-tab.is-active {
-    border-bottom: 3px solid $white;
-    color: $white;
-  }
+//   .navbar-item:focus-within {
+//     background-color: inherit;
+//     color: inherit;
+//   }
 
-  .navbar-item:focus-within {
-    background-color: inherit;
-    color: inherit;
-  }
+//   .navbar-item img {
+//     max-height: none;
+//   }
 
-  .navbar-item img {
-    max-height: none;
-  }
+//   .profile-img {
+//     height: 32px;
+//     width: 32px;
+//     border: 1px solid $mern-hover;
+//     border-radius: 3px;
+//     max-height: none;
+//   }
 
-  .profile-img {
-    height: 32px;
-    width: 32px;
-    border: 1px solid $mern-hover;
-    border-radius: 3px;
-    max-height: none;
-  }
+//   .button {
+//     font-weight: $weight-semibold;
+//   }
 
-  .button {
-    font-weight: $weight-semibold;
-  }
+//   .title {
+//     color: $white;
+//     font-weight: $weight-semibold;
+//   }
 
-  .title {
-    color: $white;
-    font-weight: $weight-semibold;
-  }
+//   .logo {
+//     color: $white;
+//     font: initial;
+//     font-size: 1.5rem;
+//     font-weight: 800;
+//   }
 
-  .logo {
-    color: $white;
-    font: initial;
-    font-size: 1.5rem;
-    font-weight: 800;
-  }
+//   .dropdown {
+//     .title {
+//       color: $black;
+//     }
 
-  .dropdown {
-    .title {
-      color: $black;
-    }
-  }
-}
+//   .button{
+
+//     margin-top: 50px;
+
+// justify-content: center;
+// align-items: center;
+// width: 105px;
+// height: 37px;
+// background: #3B5A16;
+// border-radius: 5px;
+// font-family: Heebo;
+// font-style: normal;
+// font-weight: normal;
+// font-size: 14px;
+// line-height: 21px;
+// text-align: right;
+// color: #FFFFFF;
+
+//   }
+
+//   }
+// }

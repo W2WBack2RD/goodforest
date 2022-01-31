@@ -1,6 +1,110 @@
-.register-page {
-  .box {
-    margin: 0 auto;
-    max-width: 25rem;
-  }
+//.register-page {}
+.box {
+  margin: auto;
+  position: absolute;
+  width: 335px;
+  height: 700px;
+  left: 20px;
+  right: 20px;
+  top: 104px;
+  background: #ffffff;
+  border-radius: 30px 30px 0px 0px;
 }
+// #insideBox {
+//   background-color: yellow;
+//   margin-left: 20px;
+//   margin-right: 20px;
+// }
+.register {
+  background: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.inputStyle {
+  height: 40px;
+  width: 295px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background: #ffffff;
+  line-height: normal;
+}
+
+.userNameLabel Label {
+  height: 21px;
+  width: 295px;
+  top: 20px;
+  margin-bottom: 6px;
+  font-family: "Heebo", sans-serif;
+}
+
+.phoneLabel Label {
+  height: 21px;
+  width: 295px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-family: "Heebo", sans-serif;
+}
+
+.ageLabel Label {
+  height: 21px;
+  width: 295px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-family: "Heebo", sans-serif;
+}
+
+.formCheck {
+  width: 24px;
+  height: 24px;
+  margin-top: 30px;
+}
+
+.spantxt {
+  font-size: 16px;
+  margin-right: 10px;
+  margin-left: 25px;
+  margin-top: 30px;
+  position: absolute;
+  width: 256px;
+  height: 24px;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 23px;
+  /* identical to box height */
+  text-align: right;
+  color: #000000;
+}
+
+.button {
+  position: absolute;
+  width: 105px;
+  height: 37px;
+  background-color: #3b5a16;
+  color: #ffffff;
+  border-radius: 5px;
+  left: 30px;
+  top: 633px;
+
+  font-size: 14px;
+  font-family: "Heebo", sans-serif;
+}
+
+.button:hover {
+  color: black;
+  background-color: #abae2c;
+}
+
+// select option:checked {
+//   background: linear-gradient(#d6d6d6, #d6d6d6);
+//   background-color: #d6d6d6 !important; /* for IE */
+//   color: #000000 !important;
+// }

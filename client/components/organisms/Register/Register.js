@@ -22,6 +22,7 @@ import { postCheckUsername } from '_api/users';
 import { validateUsername, validatePassword } from '_utils/validation';
 import { attemptRegister } from '_thunks/auth';
 
+
 export default function Register() {
   const dispatch = useDispatch();
 
@@ -88,84 +89,75 @@ export default function Register() {
   useKeyPress('Enter', register);
 
   return (
-    <Box className="register">
-      <Title size="3">
-        Sign Up
-      </Title>
-      <hr className="separator" />
-      <p className="has-space-below">
-        Already a member?&nbsp;
-        <Link to="/login">
-          Login
-        </Link>
-      </p>
-      <Field>
-        <Label htmlFor="username">
-          Username
-        </Label>
-        <Control iconsRight>
-          <Input
-            id="username"
-            placeholder="Username"
-            color={username ? (usernameAvailable ? 'success' : 'danger') : undefined}
-            value={username}
-            onChange={handleUsernameChange}
+    <div dir="rtl">
+      <Box className="register">
+        <div id="box1">
+          <Field class="userNameLabel">
+            <Label >
+              שם משתמש:
+            </Label>
+          </Field>
+          <Input type="text" class="inputStyle" pattern=".{8,}" placeholder=" הקלד/י שם משתמש" required />
+          
+          <Field class="phoneLabel">
+            <Label>
+              מספר טלפון:
+            </Label>
+          </Field>
+          <Input class="inputStyle" pattern="[0-9]+" placeholder="ספרות בלבד"required 
           />
-          {username && (
-            <Icon
-              size="small"
-              align="right"
-              color={usernameAvailable ? 'success' : 'danger'}
-            >
-              <FontAwesomeIcon
-                icon={usernameAvailable ? faCheck : faExclamationTriangle}
-              />
-            </Icon>
-          )}
-        </Control>
-        {username && (
-          <Help color={usernameAvailable ? 'success' : 'danger'}>
-            {usernameMessage}
-          </Help>
-        )}
-      </Field>
-      <Field>
-        <Label htmlFor="password">
-          Password
-        </Label>
-        <Control iconsRight>
-          <Input
-            id="password"
-            placeholder="Password"
-            type="password"
-            color={password ? (passwordValid ? 'success' : 'danger') : undefined}
-            value={password}
-            onChange={handlePasswordChange}
-          />
-          {password && (
-            <Icon
-              size="small"
-              align="right"
-              color={passwordValid ? 'success' : 'danger'}
-            >
-              <FontAwesomeIcon
-                icon={passwordValid ? faCheck : faExclamationTriangle}
-              />
-            </Icon>
-          )}
-        </Control>
-        {password && (
-          <Help color={passwordValid ? 'success' : 'danger'}>
-            {passwordMessage}
-          </Help>
-        )}
-      </Field>
-      <hr className="separator" />
-      <div className="has-text-right">
-        <Button color="success" onClick={register} disabled={!passwordValid || !usernameAvailable}>
-          Create Account
-        </Button>
-      </div>
-    </Box>
+          <Field class="ageLabel">
+            <Label htmlFor="username">
+              שנת לידה:
+            </Label>
+          </Field>
+ 
+          <select class="inputStyle"  >
+            <option value="">בחירה</option>
+            <option value="">1984</option>
+            <option value="">1986</option>
+          </select>
+         
+          <Field class="phoneLabel">
+            <Label >
+              כתובת דואר אלקטרוני
+            </Label>
+          </Field>
+          <Input class="inputStyle" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="...@email" required/>
+          <Field class="phoneLabel">
+            <Label>
+              סיסמה
+            </Label>
+          </Field>
+          <Input class="inputStyle" type="text" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  placeholder="לפחות 8 תווים, לפחות ספרה אחת" required />
+          <Field class="ageLabel">
+            <Label htmlFor="username">
+              עיר:
+            </Label>
+          </Field>
+          <select class="inputStyle" >
+            <option value="">עיר</option>
+            <option value="">ירושלים</option>
+            <option value="">תל אביב</option>
+          </select>
+          <Field class="ageLabel">
+            <Label htmlFor="username">
+              חורשה:
+            </Label>
+          </Field>
+          <select class="inputStyle" >
+            <option value="">חורשה</option>
+            <option value="">חורשה</option>
+            <option value="">חורשה</option>
+          </select>
+        </div>
+        <label for="checkbox1" >
+          <input class="formCheck" type="checkbox" /><span class="spantxt">אשמח לקבל מידע ועדכונים על אירועים</span>
+        </label>
+        {/* <div class="divBtn"> */}
+          <button class="button" >שמירה</button>
+        {/* </div> */}
+      </Box>
+    </div >
   );
 }
