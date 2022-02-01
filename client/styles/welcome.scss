@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap");
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   display: flex;
   justify-content: center;
@@ -9,6 +13,7 @@ body {
 .welcome-page {
   position: absolute;
   width: 375px;
+  // width: 395px;
   height: 800px;
   background-color: rgba(78, 63, 40, 1);
 }
@@ -20,7 +25,6 @@ body {
 }
 
 #open-pic {
-  background: url(/client/assets/images/yaar.png);
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -148,6 +152,11 @@ body {
   line-height: 21px;
   text-align: right;
   color: #4e3f28;
+}
+
+button:focus {
+  border: none;
+  outline: none;
 }
 
 #btn-website-organization:hover {
