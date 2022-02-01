@@ -16,10 +16,13 @@ export default function PageLayout(props) {
                 <img src={treesIcon} id='treesIcon' />
 
                 <p id='pageTitle'>
-                    {props.pageTitle}
+                    {props.title}
                 </p>
-                <main>{props.children}</main>
+                <div className='innerPageLayout'>
+                    {props.children}
+                </div>
             </Container>
+
         </div>
 
     );
