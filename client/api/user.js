@@ -1,4 +1,5 @@
-import request from 'superagent';
+import { request } from '_api/request';
+
 import { handleSuccess, handleError } from '_utils/api';
 
 export const getUser = () =>
