@@ -10,8 +10,10 @@ export default function WelcomePage() {
         <img src={logo} id="open-pic" />
         <Title id="website-title">יער האקלים</Title>
         <h2 id="sub-title">שותלים עצים, מפריחים ערים</h2>
-        <Button id="btn-login">התחברות</Button>
-        <a id="sign-in" href="#">
+        <a href="/client/components/pages/LoginPage">
+          <Button id="btn-login">התחברות</Button>
+        </a>
+        <a href="/client/components/pages/RegisterPage" id="sign-in">
           הרשמה
         </a>
       </div>
