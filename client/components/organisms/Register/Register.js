@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import R from 'ramda';
 
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
@@ -81,13 +82,27 @@ export default function Register() {
         password,
       };
 
+      
+
       dispatch(attemptRegister(newUser))
         .catch(R.identity);
     }
   };
 
-  useKeyPress('Enter', register);
+  const generateYearOptions = () => {
+    const arr = [];
+  
+    const startYear = 1940;
+    const endYear = new Date().getFullYear();
+  
+    for (let i = endYear; i >= startYear; i--) {
+      arr.push(<option value={i}>{i}</option>);
+    }
+  
+    return arr;
+  };
 
+  useKeyPress('Enter', register);
   return (
     <div dir="rtl">
       <Box className="register">
@@ -111,12 +126,12 @@ export default function Register() {
               שנת לידה:
             </Label>
           </Field>
- 
-          <select class="inputStyle"  >
-            <option value="">בחירה</option>
-            <option value="">1984</option>
-            <option value="">1986</option>
+
+          <select id="year" class="inputStyle"  >
+          <option value='0'>בחירה</option>
+              {generateYearOptions()}
           </select>
+          
          
           <Field class="phoneLabel">
             <Label >
@@ -152,11 +167,9 @@ export default function Register() {
           </select>
         </div>
         <label for="checkbox1" >
-          <input class="formCheck" type="checkbox" /><span class="spantxt">אשמח לקבל מידע ועדכונים על אירועים</span>
+          <input class="formCheck" type="checkbox" /><span class="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>
         </label>
-        {/* <div class="divBtn"> */}
           <button class="button" >שמירה</button>
-        {/* </div> */}
       </Box>
     </div >
   );

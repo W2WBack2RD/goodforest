@@ -20,9 +20,5 @@ export const putUserPassword = passwordInfo =>
     .catch(handleError);
 
 
-export const getExample = () =>
-  request.get('/api/example/')
-    .send()
-    .then()
-    .catch();
+
 
