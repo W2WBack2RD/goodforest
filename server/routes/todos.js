@@ -6,7 +6,6 @@ const router = express.Router();
 
 module.exports = router;
 
-//DBהבאת כל המידע מהטבלה ב
 router.get('/', requireAuth, (req, res) => {
   Todo.find({ user: req.user.id }, { __v: 0, user: 0 }, (err, todos) => {
     if (err) {
