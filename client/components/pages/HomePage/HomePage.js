@@ -22,7 +22,7 @@ export default function HomePage() {
       <Section>
         <Container>
           <Title size="1">
-            Home page
+            Home Page
           </Title>
           new text
         </Container>
