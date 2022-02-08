@@ -7,13 +7,13 @@ A Full MERN Stack app based on [this boilerplate](https://github.com/djizco/mern
 
 ## Requirements
 
-* [Node.js](https://nodejs.org/)
-* Mongo Db (Install the msi from here - https://www.mongodb.com/try/download/community)
-
+- [Node.js](https://nodejs.org/)
+- Mongo Db (Install the msi from here - https://www.mongodb.com/try/download/community)
 
 ## Quick Start
 
 #### Setup
+
 ```bash
 npm install
 ```
@@ -24,7 +24,9 @@ npm install
 brew tap mongodb/brew
 brew install mongodb-community
 ```
+
 Start the database
+
 ```bash
 brew services start mongodb-community
 ```
@@ -32,14 +34,18 @@ brew services start mongodb-community
 #### for Development
 
 Start the client
+
 ```bash
 npm run dev
 ```
 
 Start the server
+
 ```bash
 npm start
 ```
+
+And go to `http://localhost:8080`
 
 #### for Production
 
@@ -59,13 +65,15 @@ npm run test:watch-client
 npm run test:watch-server
 ```
 
-## Git cheat-sheet for a new feature 
+## Git cheat-sheet for a new feature
+
 ```bash
 git checkout -b add-info-to-readme
 git add .
 git commit -m "add info to readme"
 git push #(On the first time  - git push --set-upstream origin add-info-to-readme)
 ```
+
 Open a new pull request
 Move issue in Trello to "in review"
 

@@ -8,7 +8,7 @@
     "build:prd": "webpack --mode=production --config ./client/config/webpack.prd.config.js",
     "build:dev": "webpack --mode=development --config ./client/config/webpack.dev.config.js",
     "start": "node server/index.js",
-    "dev": "webpack --mode=development --config ./client/config/webpack.dev.config.js --watch",
+    "dev": "webpack serve --open --mode=development --config ./client/config/webpack.dev.config.js",
     "lint": "eslint client server",
     "lint:fix": "eslint client server --fix",
     "test:client": "jest client --config=./client/config/jest.config.js",
@@ -57,6 +57,7 @@
     "connect-mongo": "^4.6.0",
     "connected-react-router": "^6.9.1",
     "core-js": "^3.18.0",
+    "cors": "^2.8.5",
     "date-fns": "^2.24.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
@@ -84,6 +85,7 @@
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.9",
     "seamless-immutable": "^7.1.4",
+    "superagent-absolute": "^1.0.1",
     "terser-webpack-plugin": "^5.2.4",
     "uuid": "^8.3.2",
     "webpack": "^5.53.0",
@@ -118,6 +120,7 @@
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.0",
     "superagent": "^6.1.0",
-    "supertest": "^6.1.6"
+    "supertest": "^6.1.6",
+    "webpack-dev-server": "^4.7.4"
   }
 }
