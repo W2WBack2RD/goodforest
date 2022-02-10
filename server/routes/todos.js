@@ -2,7 +2,7 @@ const express = require('express');
 const { requireAuth } = require('./middleware');
 const { Todo } = require('../database/schemas');
 
-const router   = express.Router();
+const router = express.Router();
 
 module.exports = router;
 
