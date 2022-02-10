@@ -1,3 +1,5 @@
+// קובץ הגישה לכל הראוטים
+
 const express = require('express');
 const path = require('path');
 
@@ -6,6 +8,8 @@ const user = require('./user');
 const users = require('./users');
 const todos = require('./todos');
 const example = require('./example');
+
+
 
 const router = express.Router();
 
