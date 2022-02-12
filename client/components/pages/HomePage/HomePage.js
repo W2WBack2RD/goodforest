@@ -42,13 +42,6 @@ export default function HomePage() {
             Home Page
           </Title>
 
-
-          hi
-          <Button color="success" onClick={handleAddTodo} fullwidth>
-            Add
-          </Button>
-          {response}
-
         </Container>
       </Section>
     </div>
