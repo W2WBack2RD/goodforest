@@ -41,60 +41,27 @@ export default function Register() {
   const [acceptedTerms, setAcceptedTerms] = React.useState(false);
  
 
-  // const checkPassword = (newUsername, newPassword) => {
-  //   const { valid, message } = validatePassword(newUsername, newPassword);
-
-  //   setPasswordValid(valid);
-  //   setPasswordMessage(message);
-  // };
-
-  // const checkUsername = newUsername => {
-  //   const { valid, message } = validateUsername(newUsername);
-
-  //   if (valid) {
-  //     setUsernameMessage('Checking username...');
-  //     setUsernameAvailable(false);
-
-  //     postCheckUsername(newUsername)
-  //       .then(res => {
-  //         setUsernameAvailable(res.available);
-  //         setUsernameMessage(res.message);
-  //       })
-  //       .catch(R.identity);
-  //   } else {
-  //     setUsernameAvailable(valid);
-  //     setUsernameMessage(message);
-  //   }
-  // };
-
-  // const updateUsername = newUserName => {
-  //   setUsername(newUserName);
-  //   checkPassword(newUserName, password);
-  // };
-
-  // const handleUsernameChange = e => {
-  //   updateUsername(e.target.value);
-  //   checkUsername(e.target.value);
-  // };
-
-  // const handlePasswordChange = e => {
-  //   setPassword(e.target.value);
-  //   checkPassword(username, e.target.value);
-  // };
-
   const register = () => {
     if (usernameAvailable && passwordValid) {
       const newUser = {
         username,
+        phoneNumber,
+        birthYear,
+        email,
         password,
-      };
+        mycity,
+        forest,
+        acceptedTerms
 
-      
+      };
 
       dispatch(attemptRegister(newUser))
         .catch(R.identity);
     }
   };
+
+  useKeyPress('Enter', register);
+
 
   const generateYearOptions = () => {
     const arr = [];
@@ -109,7 +76,6 @@ export default function Register() {
     return arr;
   };
 
-  useKeyPress('Enter', register);
 
    const handleSubmit = (event) => {
     console.log(`
