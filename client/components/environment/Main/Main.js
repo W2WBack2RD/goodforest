@@ -40,19 +40,6 @@ export default function Main({ location }) {
   }, [location.pathname]);
 
 
-<<<<<<< HEAD
-     
-      <div className="main">
-      <Switch>
-        <Route exact path="/" component={WelcomePage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/register" component={RegisterPage} />
-        <Route path="/home" component={HomePage} />
-    
-        <Route path="/settings" component={SettingsPage} />
-        <Route path="*" component={LostPage} />
-      </Switch>
-=======
 
   return (
     !loading && (
@@ -71,15 +58,9 @@ export default function Main({ location }) {
             </PageLayout>
           </Switch>
         </div>
->>>>>>> e0c08f53cef322e9add31f2ae2b5445d8b4623d8
       </div>
     )
 
-<<<<<<< HEAD
-    
-    </div>
-=======
->>>>>>> e0c08f53cef322e9add31f2ae2b5445d8b4623d8
   );
 }
 
@@ -88,3 +69,4 @@ Main.propTypes = {
     pathname: PropTypes.string,
   }).isRequired,
 };
+
