@@ -98,6 +98,7 @@ module.exports = {
   },
   devServer: {
     static: './dist',
+    historyApiFallback: true,
     hot: true,
   },
   plugins: [
