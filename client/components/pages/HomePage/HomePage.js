@@ -23,16 +23,7 @@ export default function HomePage() {
     }
   }, []);
 
-  const handleAddTodo = () => {
-    request.get('/api/example/')
-      .send()
-      .then((result) => {
-        console.log(result)
-        setResponse(result.body.message)
-      })
-      .catch();
-
-  }
+ 
 
   return (
     <div className="home-page page">

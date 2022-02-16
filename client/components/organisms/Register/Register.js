@@ -77,22 +77,22 @@ export default function Register() {
   };
 
 
-   const handleSubmit = (event) => {
-    console.log(`
-      Username: ${username}
-      PhoneNumber: ${phoneNumber}
-      BirthYear: ${birthYear}
-      Email: ${email}
-      Password: ${password}
-      MyCity: ${mycity}
-      Forest: ${forest}
-      Accepted Terms: ${acceptedTerms}
-    `);
+  //  const handleSubmit = (event) => {
+  //   console.log(`
+  //     Username: ${username}
+  //     PhoneNumber: ${phoneNumber}
+  //     BirthYear: ${birthYear}
+  //     Email: ${email}
+  //     Password: ${password}
+  //     MyCity: ${mycity}
+  //     Forest: ${forest}
+  //     Accepted Terms: ${acceptedTerms}
+  //   `);
 
-    event.preventDefault();
-  }
+  //   event.preventDefault();
+  // }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={register}>
     <div dir="rtl">
       <Box className="register">
         <div id="box1">
