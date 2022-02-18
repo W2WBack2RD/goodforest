@@ -9,46 +9,31 @@
   text-align: center;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: -300px;
-  margin-top: -50px;
-  margin-bottom: -50px;
-}
-
 .welcome-page {
-  position: absolute;
-  width: 380px;
-  margin-left: -35.5px;
   height: 810px;
   background-color: rgba(78, 63, 40, 1);
 }
 
 .top {
   background-color: white;
-  height: 500px;
   display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 
 #open-pic {
   justify-content: center;
   align-items: center;
-  position: absolute;
+  margin-top: 30px;
   width: 239px;
   height: 239px;
-  // ask what's the exact distance "margin-top"
-  margin-top: 30px;
-  margin-left: 68px;
 }
 
 #website-title {
   // ask if to use with flex or text-align, cause it's noe shorter
-  position: absolute;
   width: 308px;
-  height: 75px;
   margin-top: 22px;
+  margin-bottom: 0;
   left: 36px;
   top: 275px;
   font-family: "Heebo";
@@ -59,28 +44,24 @@ body {
 }
 
 #sub-title {
-  position: absolute;
-  margin-top: 0px;
+  margin-top: -8px;
   width: 307px;
-  height: 38px;
   top: 355px;
   left: 37px;
   font-family: "Heebo";
   font-style: normal;
   font-weight: 400;
   font-size: 26px;
-  line-height: 38.19px;
   color: #000000;
 }
 
 #btn-login {
   background-color: #3b5a16;
   border-radius: 5px;
-  margin-top: 34px;
-  margin-left: 135px;
+  margin-top: 20px;
+  margin-bottom: 15px;
   width: 105px;
   height: 37px;
-  top: 380px;
   font-family: "Heebo";
   font-weight: 400;
   font-size: 14px;
@@ -95,16 +76,14 @@ body {
 }
 
 #sign-in {
-  position: absolute;
   width: 44px;
   height: 21px;
-  margin-left: 165px;
-  top: 465px;
   font-family: "Heebo";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 20.56px;
+  margin-bottom: 15px;
   color: #000000;
   text-align: center;
   text-decoration-line: underline;
@@ -115,12 +94,10 @@ body {
 }
 
 #welcome-website-title {
-  position: absolute;
   color: #ffffff;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-right: 20px;
-  top: 515px;
-  right: 0px;
+  margin-bottom: 0px;
   text-align: right;
   font-family: "Heebo";
   font-size: 24px;
@@ -129,18 +106,14 @@ body {
 }
 
 #paragraph {
-  position: absolute;
   direction: rtl;
   color: white;
-  width: 340px;
-  margin-top: 7px;
   margin-right: 20px;
-  right: 0px;
-  top: 550px;
   text-align: right;
   font-family: "Heebo";
   font-style: normal;
   font-size: 12px;
+  padding-left: 20px;
 }
 
 #btn-website-organization {
@@ -148,11 +121,9 @@ body {
   border-radius: 5px;
   width: 130px;
   height: 37px;
-  top: 235px;
   padding: 8px, 12px, 8px, 12px;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
-  margin-left: 15px;
   font-family: "Heebo";
   font-style: normal;
   font-size: 14px;
