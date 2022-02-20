@@ -17,6 +17,7 @@ import Checkbox from 'react-bulma-companion/lib/Checkbox';
 import useKeyPress from '_hooks/useKeyPress';
 import { attemptLogin } from '_thunks/auth';
 import FormInput from '_molecules/FormInput';
+// import { error } from 'jquery';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ export default function Login() {
   const updateUsername = e => setUsername(e.target.value);
   const updatePassword = e => setPassword(e.target.value);
 
+
   return (
 
     <Box className="login">
@@ -76,9 +78,12 @@ export default function Login() {
         placeholder="לפחות 8 תווים, לפחות ספרה אחת"
         // value={password}
         type="password"
+      // className={error ? 'error-input' : ''}
       />
+      {/* {error && <span>{error}</span>} */}
 
       <div className="operators">
+        {/* <Button className="is-pulled-right" type="submit" > */}
         <Button className="is-pulled-right" onClick={login}>
           כניסה
         </Button>
@@ -87,7 +92,7 @@ export default function Login() {
         </Link>
 
       </div>
+      {/* </form > */}
     </Box >
-
   );
 }
