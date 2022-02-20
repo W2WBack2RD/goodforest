@@ -40,27 +40,34 @@ export default function Register() {
   const [forest, setForest] = useState('');
   const [acceptedTerms, setAcceptedTerms] = React.useState(false);
  
+  
+
 
   const register = () => {
     if (usernameAvailable && passwordValid) {
       const newUser = {
-        username,
-        phoneNumber,
-        birthYear,
-        email,
-        password,
-        mycity,
-        forest,
-        acceptedTerms
-
+        'UserName': username,
+        'PhoneNumber': phoneNumber,
+        'BirthYear': birthYear,
+        'Email': email,
+        'Password': password,
+        'City': mycity,
+        'Forest': forest,
+        'AcceptedTerms': acceptedTerms
+       
       };
-
+      
       dispatch(attemptRegister(newUser))
         .catch(R.identity);
+        
     }
+    console.log(newUser);
+   
   };
 
   useKeyPress('Enter', register);
+
+  
 
 
   const generateYearOptions = () => {
@@ -76,23 +83,8 @@ export default function Register() {
     return arr;
   };
 
-
-  //  const handleSubmit = (event) => {
-  //   console.log(`
-  //     Username: ${username}
-  //     PhoneNumber: ${phoneNumber}
-  //     BirthYear: ${birthYear}
-  //     Email: ${email}
-  //     Password: ${password}
-  //     MyCity: ${mycity}
-  //     Forest: ${forest}
-  //     Accepted Terms: ${acceptedTerms}
-  //   `);
-
-  //   event.preventDefault();
-  // }
   return (
-    <form onSubmit={register}>
+   
     <div dir="rtl">
       <Box className="register">
         <div id="box1">
@@ -116,7 +108,8 @@ export default function Register() {
           type="phoneNumber"
           value={phoneNumber}
           onChange={e => setPhoneNumber(e.target.value)}
-           class="inputStyle" pattern="[0-9]+" placeholder="ספרות בלבד"required 
+           class="inputStyle" pattern="[0-9]+" placeholder="ספרות בלבד"required
+           
           />
           <Field class="ageLabel">
             <Label htmlFor="username">
@@ -166,7 +159,7 @@ export default function Register() {
            class="inputStyle" required>
             <option  value="">עיר</option>
             <option  value="Jerusalem">ירושלים</option>
-            <option  value="Tal aviv">תל אביב</option>
+            <option  value="Tel aviv">תל אביב</option>
           </select>
           <Field class="ageLabel">
             <Label htmlFor="username">
@@ -188,9 +181,9 @@ export default function Register() {
           onChange={e => setAcceptedTerms(e.target.value)}
           required/> <span class="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>
         </label>
-          <button class="button" >שמירה</button>
+          <button  onClick={register} >שמירה</button>
       </Box>
     </div >
-    </form>
+   
   );
 }
