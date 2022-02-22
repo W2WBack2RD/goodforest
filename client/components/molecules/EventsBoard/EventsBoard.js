@@ -1,5 +1,5 @@
 import React from "react";
-import treesIcon from "../../../assets/icons/trees.svg";
+import treesIcon from "../../../assets/icons/tree02.svg";
 
 const EventBoard = () => {
   return (
