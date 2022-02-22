@@ -1,0 +1,118 @@
+.arrowInputText_left {
+  position: absolute;
+  width: 80px;
+  height: 21px;
+  left: 22px;
+  top: 221px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #000000;
+}
+
+.arrowInputText_center {
+  position: absolute;
+  width: 80px;
+  height: 21px;
+  left: 144px;
+  top: 221px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #000000;
+}
+
+.arrowInputText_right {
+  position: absolute;
+  width: 80px;
+  height: 21px;
+  left: 266px;
+  top: 221px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #000000;
+}
+
+.arrowSign {
+  position: absolute;
+  left: 33.08%;
+  right: 37.5%;
+  top: 25%;
+  bottom: 25%;
+
+  /* Neutrals/90 */
+  background: #323435;
+}
+
+.arrowSign:active {
+  /* Union */
+
+  position: absolute;
+  left: 25%;
+  right: 45.58%;
+  top: 66.92%;
+  bottom: -16.92%;
+
+  /* Neutrals/90 */
+  background: #323435;
+  transform: rotate(-90deg);
+}
+
+.notes {
+  position: absolute;
+  width: 335px;
+  height: 98px;
+  left: 20px;
+  top: 252px;
+
+  background: #d1d2ae;
+  opacity: 0.6;
+  border-radius: 10px;
+}
+
+.notesText {
+  position: absolute;
+  width: 284px;
+  height: 84px;
+  left: 61px;
+  top: 262px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: right;
+
+  color: #000000;
+}
+
+.closeImg {
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 12.5%;
+  bottom: 12.5%;
+
+  /* Neutrals/90 */
+  background: #323435;
+}

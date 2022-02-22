@@ -1,0 +1,32 @@
+.announcment {
+  position: absolute;
+  width: 291px;
+  height: 45px;
+  left: 64px;
+  top: 272px;
+}
+
+.tree {
+  position: absolute;
+  width: 23px;
+  height: 43px;
+  left: 268px;
+  top: 2px;
+}
+
+.eventsText {
+  position: absolute;
+  width: 245px;
+  height: 45px;
+  left: calc(50% - 245px / 2 - 20px);
+  top: 4px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: right;
+
+  color: #3b5a16;
+}

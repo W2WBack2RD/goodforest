@@ -1,3 +1,41 @@
 .home-page {
   text-align: center;
 }
+
+.pageFrame {
+  position: absolute;
+  width: 375px;
+  height: 587px;
+  left: 0px;
+  top: 80px;
+
+  background: #ffffff;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.innerPageLayout {
+  position: absolute;
+  width: 375px;
+  height: 737px;
+  left: 0px;
+  top: 80px;
+
+  background: #ffffff;
+}
+
+.updateTreeStatusBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+
+  position: absolute;
+  width: 160px;
+  height: 37px;
+  left: 0px;
+  top: 0px;
+
+  background: #3b5a16;
+  border-radius: 5px;
+}

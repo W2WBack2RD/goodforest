@@ -1,0 +1,121 @@
+.circle_left {
+  position: absolute;
+  width: 91px;
+  height: 91px;
+  left: 20px;
+  top: 100px;
+
+  border: 3px solid #d1d2ae;
+  box-sizing: border-box;
+  border-radius: 100%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 47px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+.circle_center {
+  position: absolute;
+  width: 91px;
+  height: 91px;
+  left: 142px;
+  top: 100px;
+
+  border: 3px solid #d1d2ae;
+  box-sizing: border-box;
+  border-radius: 100%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 47px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+
+.circle_right {
+  position: absolute;
+  width: 91px;
+  height: 91px;
+  left: 264px;
+  top: 100px;
+
+  border: 3px solid #d1d2ae;
+  box-sizing: border-box;
+  border-radius: 100%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 47px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+
+.title_left {
+  position: absolute;
+  width: 82px;
+  height: 21px;
+  left: 19px;
+  top: 201px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #000000;
+}
+
+.title_center {
+  position: absolute;
+  width: 80px;
+  height: 21px;
+  left: 144px;
+  top: 201px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #000000;
+}
+
+.title_right {
+  position: absolute;
+  width: 80px;
+  height: 21px;
+  left: 266px;
+  top: 201px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #000000;
+}
