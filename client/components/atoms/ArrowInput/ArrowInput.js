@@ -5,7 +5,7 @@ const ArrowInput = (props) => {
     <div>
       <div className="arrowInputText_left">
         {props.name_left}
-        <div className="arrowSign"></div>
+        <div className="arrowSign" onclick={props.function}></div>
       </div>
       <div className="arrowInputText_center">
         {props.name_center}

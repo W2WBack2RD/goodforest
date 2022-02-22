@@ -12,7 +12,9 @@ export default function PageLayout(props) {
     <div className="layoutBG">
       <img src={menuIcon} id="menuIcon" onClick={openMenu} />
       {props.treesIcon ? <img src={treesIcon} id="treesIcon" /> : false}
-      <p id="pageTitle">{props.title}</p>
+      <p id={props.titleStyle ? "pageTitle" : "pageHigherTitle"}>
+        {props.title}
+      </p>
       <div
         className={props.innerPage ? "innerPageLayout" : "innerPageLayoutCross"}
       >

@@ -13,16 +13,6 @@
   border-radius: 20px 20px 0px 0px;
 }
 
-.innerPageLayout {
-  position: absolute;
-  width: 375px;
-  height: 737px;
-  left: 0px;
-  top: 80px;
-
-  background: #ffffff;
-}
-
 .updateTreeStatusBtn {
   display: flex;
   flex-direction: row;
@@ -38,4 +28,24 @@
 
   background: #3b5a16;
   border-radius: 5px;
+}
+
+.buttons {
+  position: absolute;
+  width: 335px;
+  height: 37px;
+  left: 20px;
+  top: 455px;
+}
+
+.updateBtn {
+  left: 0px;
+  top: 0px;
+  margin-right: 15px;
+}
+
+.reportBtn {
+  left: calc(50% - 160px / 2 + 87.5px);
+  top: 0px;
+  margin-right: 15px;
 }

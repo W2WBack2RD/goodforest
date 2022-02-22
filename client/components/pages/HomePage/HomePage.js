@@ -34,8 +34,12 @@ const HomePage = () => {
   }, []);
 */
   return (
-    <PageLayout treeeIcon={false} innerPage={false}>
-      {" "}
+    <PageLayout
+      treeeIcon={false}
+      innerPage={false}
+      titleStyle={false}
+      title="חורשת פארק 80"
+    >
       <InputCircle
         input_left={inputLeft}
         input_center={inputCenter}
@@ -47,6 +51,11 @@ const HomePage = () => {
         name_right={nameRight}
       />
       <EventBoard />
+      <div className="buttons">
+        <Button className="reportBtn" value="דווח על תקלה" />
+
+        <Button className="updateBtn" value="עדכון סטטוס עץ" />
+      </div>
     </PageLayout>
   );
 };

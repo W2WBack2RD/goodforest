@@ -60,6 +60,24 @@ $Heebo: "Heebo";
   color: #000000;
 }
 
+#pageHigherTitle {
+  position: absolute;
+  width: 256px;
+  height: 40px;
+  left: calc(50% - 256px / 2 + 39.5px);
+  top: 20px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 110%;
+  /* identical to box height, or 40px */
+  text-align: right;
+
+  color: #000000;
+}
+
 .innerPageLayoutCross {
   position: absolute;
   width: 375px;

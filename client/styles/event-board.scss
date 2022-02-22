@@ -3,7 +3,11 @@
   width: 291px;
   height: 45px;
   left: 64px;
-  top: 272px;
+  top: 380px;
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 .tree {
