@@ -34,7 +34,7 @@ const HomePage = () => {
   }, []);
 */
   return (
-    <PageLayout treeeIcon={false}>
+    <PageLayout treeeIcon={false} innerPage={false}>
       {" "}
       <InputCircle
         input_left={inputLeft}
