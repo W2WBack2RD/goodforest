@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import arrowIcon from "../../../assets/icons/icon_chevron-small-left.svg";
+import closeBtn from "../../../assets/icons/icon_close.svg";
 
 const ArrowInput = (props) => {
   useEffect(() => {
@@ -28,7 +29,10 @@ const ArrowInput = (props) => {
         </div>
       </div>
       <div className="notes">
-        <img className="closeImg" />
+        <button>
+          <img className="closeImg" src={closeBtn} />
+        </button>
+
         <div className="notesText"></div>
       </div>
     </div>
