@@ -1,0 +1,94 @@
+.gallery {
+  margin-top: 20px;
+  width: 375px;
+  height: 232px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleBox {
+  margin-bottom: 10px;
+  width: 335px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.galleryTitle {
+  height: 22px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: right;
+
+  color: #000000;
+}
+
+.addImgBtn {
+  width: 79px;
+  height: 23px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: right;
+  text-decoration-line: underline;
+
+  color: #000000;
+}
+
+.emptyGallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 335px;
+  height: 214px;
+  left: 351px;
+  top: 32px;
+
+  border: 3px dashed #d1d2ae;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.emptyGalleryTxt {
+  width: 224px;
+  height: 46px;
+  margin-bottom: 10px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 53px;
+  text-align: center;
+  // text-decoration-line: underline;
+
+  color: #d1d2ae;
+}
+
+.addImgInsideBtn {
+  width: 98px;
+  height: 23px;
+  left: 470px;
+  top: 154px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+  text-decoration-line: underline;
+
+  color: #000000;
+}

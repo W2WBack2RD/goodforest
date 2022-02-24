@@ -1,9 +1,25 @@
+.arrowInputWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.arrowInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+  height: 20px;
+}
+
 .arrowInputText_left {
-  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+
   width: 80px;
   height: 21px;
-  left: 22px;
-  top: 221px;
 
   font-family: Heebo;
   font-style: normal;
@@ -17,11 +33,12 @@
 }
 
 .arrowInputText_center {
-  position: absolute;
-  width: 80px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 95px;
   height: 21px;
-  left: 144px;
-  top: 221px;
 
   font-family: Heebo;
   font-style: normal;
@@ -35,11 +52,12 @@
 }
 
 .arrowInputText_right {
-  position: absolute;
-  width: 80px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 84px;
   height: 21px;
-  left: 266px;
-  top: 221px;
 
   font-family: Heebo;
   font-style: normal;
@@ -53,36 +71,20 @@
 }
 
 .arrowSign {
-  position: absolute;
-  left: 33.08%;
-  right: 37.5%;
-  top: 25%;
-  bottom: 25%;
-
-  /* Neutrals/90 */
-  background: #323435;
+  margin-top: 5px;
 }
 
 .arrowSign:active {
-  /* Union */
-
-  position: absolute;
-  left: 25%;
-  right: 45.58%;
-  top: 66.92%;
-  bottom: -16.92%;
-
   /* Neutrals/90 */
-  background: #323435;
+  margin-top: -2px;
   transform: rotate(-90deg);
 }
 
 .notes {
-  position: absolute;
+  margin-top: 10px;
+  align-self: center;
   width: 335px;
   height: 98px;
-  left: 20px;
-  top: 252px;
 
   background: #d1d2ae;
   opacity: 0.6;
@@ -90,7 +92,6 @@
 }
 
 .notesText {
-  position: absolute;
   width: 284px;
   height: 84px;
   left: 61px;
@@ -107,7 +108,6 @@
 }
 
 .closeImg {
-  position: absolute;
   left: 12.5%;
   right: 12.5%;
   top: 12.5%;

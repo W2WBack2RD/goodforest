@@ -1,31 +1,23 @@
 .announcment {
-  position: absolute;
-  width: 291px;
-  height: 45px;
-  left: 64px;
-  top: 380px;
-
+  margin-top: 10px;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex-end;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: baseline;
+  width: 380px;
+  height: 45px;
 }
 
 .tree {
-  position: absolute;
+  margin-right: 5px;
   width: 23px;
   height: 43px;
-  left: 268px;
-  top: 2px;
-  right: 20px;
 }
 
 .eventsText {
-  position: absolute;
-  width: 245px;
-  height: 45px;
-  left: calc(50% - 245px / 2 - 20px);
-  top: 4px;
-
+  width: 300px;
+  align-self: center;
   font-family: Heebo;
   font-style: normal;
   font-weight: 500;

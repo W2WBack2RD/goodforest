@@ -11,6 +11,7 @@ import ArrowInput from "../../atoms/ArrowInput";
 import EventBoard from "../../molecules/EventsBoard/EventsBoard";
 import Button from "../../atoms/Button/Button";
 import PageLayout from "../../organisms/PageLayout";
+import Gallery from "../../molecules/Gallery/Gallery";
 
 const HomePage = () => {
   HomePage.treeImg = false;
@@ -22,6 +23,10 @@ const HomePage = () => {
   const [nameLeft, setNameLeft] = useState("מידע נוסף");
   const [nameCenter, setNameCenter] = useState("שיתוף חברים");
   const [nameRight, setNameRight] = useState("ספרו לי עוד");
+
+  const handleArrowClickR = (e) => {};
+  const handleArrowClickC = (e) => {};
+  const handleArrowClickL = (e) => {};
 
   /*
   const dispatch = useDispatch();
@@ -35,12 +40,14 @@ const HomePage = () => {
 */
   return (
     <PageLayout
+      className="homePage"
       treeeIcon={false}
       innerPage={false}
       titleStyle={false}
       title="חורשת פארק 80"
     >
       <InputCircle
+        className="inputCircle"
         input_left={inputLeft}
         input_center={inputCenter}
         input_right={inputRight}
@@ -49,13 +56,16 @@ const HomePage = () => {
         name_left={nameLeft}
         name_center={nameCenter}
         name_right={nameRight}
+        functionR={handleArrowClickR}
+        functionL={handleArrowClickL}
+        functionC={handleArrowClickR}
       />
       <EventBoard />
       <div className="buttons">
         <Button className="reportBtn" value="דווח על תקלה" />
-
         <Button className="updateBtn" value="עדכון סטטוס עץ" />
       </div>
+      <Gallery className="imgGallery" />
     </PageLayout>
   );
 };

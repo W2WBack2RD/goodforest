@@ -9,9 +9,7 @@
   height: 37px;
   background: #3b5a16;
   border-radius: 5px;
-}
 
-.textInBtn {
   font-family: Heebo;
   font-style: normal;
   font-weight: normal;
@@ -19,11 +17,46 @@
   line-height: 21px;
   /* identical to box height */
   text-align: right;
-
   color: #ffffff;
   /* Inside auto layout */
   flex: none;
   order: 0;
   flex-grow: 0;
   margin: 0px 8px;
+
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+  outline-style: none;
+}
+
+.greenButton:hover,
+.greenButton:focus {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 8px 12px;
+
+  width: 160px;
+  height: 37px;
+  background: #abae2c;
+  border-radius: 5px;
+
+  color: #000000;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
+
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+  outline-style: none;
+}
+
+.greenButton:focus {
+  outline: none;
+  border: 0;
 }
