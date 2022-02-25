@@ -14,6 +14,7 @@ const userSchema = new Schema(
       unique: true,
       immutable: true,
     },
+    // city: { type: String, required: true },
     username_case: { type: String, required: true },
     password: { type: String, required: true },
     profile_pic: { type: String },
