@@ -24,7 +24,7 @@ import { validateUsername, validatePassword } from '_utils/validation';
 import { attemptRegister } from '_thunks/auth';
 
 
-export default function Register() {
+export default function SettingsRegister() {
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState('');
@@ -43,7 +43,7 @@ export default function Register() {
   
 
 
-  const register = () => {
+  const settingsRegister = () => {
     if (usernameAvailable && passwordValid) {
       const newUser = {
         'UserName': username,
