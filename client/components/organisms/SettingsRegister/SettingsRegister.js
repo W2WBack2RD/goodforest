@@ -42,28 +42,80 @@ export default function SettingsRegister() {
  
   
 
+  class UpdateRegister extends React.Component {
+    state = {
+      username: '',
+      phoneNumber: '',
+      birthYear: "0",
+      email: "0",
+      password: null,
+      mycity: [],
+      forest:  [],
+      acceptedTerms: null,
 
-  const settingsRegister = () => {
-    if (usernameAvailable && passwordValid) {
-      const newUser = {
-        'UserName': username,
-        'PhoneNumber': phoneNumber,
-        'BirthYear': birthYear,
-        'Email': email,
-        'Password': password,
-        'City': mycity,
-        'Forest': forest,
-        'AcceptedTerms': acceptedTerms
+    }
+
+    handleChange = (e) => {
+      console.log('value:', e.target.value)
+      console.log('options:', e.target.options)
+      console.log('type:', e.target.type)
+      let value = e.target.value
+      if(e.target.type === 'number') {
+        value = parseInt(e.target.value)
+      }
+  
+      this.setState({[e.target.name]: value})
+    }
+
+       
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const newUser = {
+      username: this.state. username,
+      phoneNumber: this.state.phoneNumber,
+      birthYear: this.state.birthYear,
+      email: this.state. email,
+      password: this.state.password,
+      mycity: this.state.mycity,
+      forest: this.state.forest,
+      acceptedTerms: this.state.  acceptedTerms,
+    
+    }
+
+    if (newUser.name) {
+      this.props.UpdateRegister(newUser)
+    } else {
+      alert('Please fix all errors. ')
+    }
+  }
+
+
+
+
+
+      
+    
+//   const settingsRegister = () => {
+//     if (usernameAvailable && passwordValid) {
+//       const newUser = {
+//         'UserName': username,
+//         'PhoneNumber': phoneNumber,
+//         'BirthYear': birthYear,
+//         'Email': email,
+//         'Password': password,
+//         'City': mycity,
+//         'Forest': forest,
+        // 'AcceptedTerms': acceptedTerms
        
       };
       
       dispatch(attemptRegister(newUser))
         .catch(R.identity);
         
-    }
-    console.log(newUser);
+//     }
+//     console.log(newUser);
    
-  };
+//   };
 
   useKeyPress('Enter', register);
 
@@ -83,6 +135,9 @@ export default function SettingsRegister() {
     return arr;
   };
 
+
+  
+
   return (
    
     <div dir="rtl">
@@ -96,7 +151,7 @@ export default function SettingsRegister() {
           <Input name="username"
           type="username"
           value={username}
-          onChange={e => setUsername(e.target.value)}
+          onChange={this.handleChange}
            class="inputStyle" placeholder=" הקלד/י שם משתמש" required />
           
           <Field class="phoneLabel">
@@ -107,7 +162,7 @@ export default function SettingsRegister() {
           <Input name="phoneNumber"
           type="phoneNumber"
           value={phoneNumber}
-          onChange={e => setPhoneNumber(e.target.value)}
+          onChange={this.handleChange}
            class="inputStyle" pattern="[0-9]+" placeholder="ספרות בלבד"required
            
           />
@@ -120,7 +175,7 @@ export default function SettingsRegister() {
         
           <select name="birthYear"
           value={birthYear}
-          onChange={e => setBirthYear(e.target.value)}
+          onChange={this.handleChange}
           required id="year" class="inputStyle"  >
           <option value='0'>בחירה</option>
               {generateYearOptions()}
@@ -135,8 +190,8 @@ export default function SettingsRegister() {
           <Input name="email"
             type="email"
             value={email}
-            onChange={e => setEmail(e.target.value)}
-           class="inputStyle" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="...@email" required/>
+            onChange={this.handleChange}
+           class="inputStyle" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="...@email" disabled/>
           <Field class="phoneLabel">
             <Label>
               סיסמה
@@ -146,7 +201,7 @@ export default function SettingsRegister() {
           <Input name="password"
           type="password"
           value={password}
-          onChange={e => setPassword(e.target.value)} class="inputStyle"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="לפחות 8 תווים, לפחות ספרה אחת" required />
+          onChange={this.handleChange} class="inputStyle"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="לפחות 8 תווים, לפחות ספרה אחת" required />
           
           <Field class="ageLabel">
             <Label htmlFor="username">
@@ -155,7 +210,7 @@ export default function SettingsRegister() {
           </Field>
           <select  name="mycity"
           value={mycity}
-          onChange={e => setMyCity(e.target.value)}
+          onChange={this.handleChange}
            class="inputStyle" required>
             <option  value="">עיר</option>
             <option  value="Jerusalem">ירושלים</option>
@@ -168,7 +223,7 @@ export default function SettingsRegister() {
           </Field>
           <select name="forest"
           value={forest}
-          onChange={e => setForest(e.target.value)}
+          onChange={this.handleChange}
            class="inputStyle" required>
             <option value="One">חורשה</option>
             <option value="Two">חורשה</option>
@@ -179,10 +234,10 @@ export default function SettingsRegister() {
         </div>
         <label for="checkbox1" >
           <input class="formCheck" type="checkbox"   name="acceptedTerms"
-          onChange={e => setAcceptedTerms(e.target.value)}
+          onChange={this.handleChange}
           required/> <span class="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>
         </label>
-          <button  onClick={register} >שמירה</button>
+          <button  onSubmit={this.handleSubmit} >שמירה</button>
       </Box>
     </div >
    
