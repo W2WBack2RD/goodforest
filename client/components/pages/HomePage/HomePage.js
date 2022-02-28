@@ -39,7 +39,7 @@ const HomePage = () => {
   }, []);
 */
   return (
-    <PageLayout
+<PageLayout
       className="homePage"
       treeeIcon={false}
       innerPage={false}
@@ -67,6 +67,7 @@ const HomePage = () => {
       </div>
       <Gallery className="imgGallery" />
     </PageLayout>
+
   );
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import treesIcon from "../../../assets/icons/trees.svg";
 import menuIcon from "../../../assets/icons/icon_menu.svg";
-
 import Container from "react-bulma-companion/lib/Container";
 
 export default function PageLayout(props) {

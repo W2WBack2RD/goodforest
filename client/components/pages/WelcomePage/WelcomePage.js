@@ -2,6 +2,7 @@ import React from "react";
 import Title from "react-bulma-companion/lib/Title";
 import Button from "react-bulma-companion/lib/Button";
 import logo from "../WelcomePage/logo.png";
+import { Link } from 'react-router-dom';
 
 export default function WelcomePage() {
   WelcomePage.treeImg = false;
@@ -12,12 +13,13 @@ export default function WelcomePage() {
         <img src={logo} id="open-pic" />
         <Title id="website-title">יער האקלים</Title>
         <h2 id="sub-title">שותלים עצים, מפריחים ערים</h2>
-        <a href="/login">
+
+        <Link to="/login">
           <Button id="btn-login">התחברות</Button>
-        </a>
-        <a href="/register" id="sign-in">
+        </Link>
+        <Link to="/register" id="sign-in">
           הרשמה
-        </a>
+        </Link>
       </div>
       <Title id="welcome-website-title" size="4">
         ברוכים הבאים ליער האקלים
