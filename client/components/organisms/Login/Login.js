@@ -13,11 +13,12 @@ import Control from 'react-bulma-companion/lib/Control';
 import Button from 'react-bulma-companion/lib/Button';
 import Input from 'react-bulma-companion/lib/Input';
 import Checkbox from 'react-bulma-companion/lib/Checkbox';
+import TextField from 'react-bulma-companion/lib/TextField';
 
 import useKeyPress from '_hooks/useKeyPress';
 import { attemptLogin } from '_thunks/auth';
 import FormInput from '_molecules/FormInput';
-// import { error } from 'jquery';
+import { error } from 'jquery';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export default function Login() {
   const [remember, setRemember] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const username = localStorage.getItem('username');
@@ -34,7 +36,11 @@ export default function Login() {
     }
   }, []);
 
-  const login = () => {
+  const login = (e) => {
+    e.preventDefult();
+    if (error) {
+      return;
+    }
     const userCredentials = { username, password };
 
     if (remember) {
@@ -53,38 +59,47 @@ export default function Login() {
   };
 
   const updateUsername = e => setUsername(e.target.value);
-  const updatePassword = e => setPassword(e.target.value);
-
-
+  const updatePassword = e => {
+    const { value } = e.target;
+    if (value.length < 8) {
+      setError('No Chars')
+    }
+    else {
+      setError(null);
+    }
+    setPassword(value);
+  }
   return (
 
-    <Box className="login">
+    <Box className="login" onSubmit={login}>
 
       <label className='user-email-label'>
         כתובת דואר אלקטרוני
       </label>
       <FormInput className="formInput"
-        // onChange={updateUsername}
+        onChange={updateUsername}
         placeholder="email@..."
-        // value={username}
+        value={username}
         type="email"
       />
 
       <label className='user-password-label'>
         סיסמה
       </label>
-      <FormInput className="formInput"
-        // onChange={updatePassword}
+      <TextField className="formInput"
+        error
+        onChange={updatePassword}
         placeholder="לפחות 8 תווים, לפחות ספרה אחת"
-        // value={password}
+        value={password}
         type="password"
-      // className={error ? 'error-input' : ''}
+        className={error ? 'error-input' : ''}
+        helperText="Incorrect entry."
+
       />
-      {/* {error && <span>{error}</span>} */}
+      {error && <span>{error}</span>}
 
       <div className="operators">
-        {/* <Button className="is-pulled-right" type="submit" > */}
-        <Button className="is-pulled-right" onClick={login}>
+        <Button className="is-pulled-right" type="submit" >
           כניסה
         </Button>
         <Link to="/Login" className='forget-password'>
@@ -92,7 +107,9 @@ export default function Login() {
         </Link>
 
       </div>
-      {/* </form > */}
     </Box >
+
   );
 }
+
+
