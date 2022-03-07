@@ -67,7 +67,18 @@ export default function Register() {
 
   useKeyPress('Enter', register);
 
-  
+  var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
 
 
   const generateYearOptions = () => {
@@ -153,6 +164,8 @@ export default function Register() {
               עיר:
             </Label>
           </Field>
+
+          
           <select  name="mycity"
           value={mycity}
           onChange={e => setMyCity(e.target.value)}
@@ -166,12 +179,16 @@ export default function Register() {
               חורשה:
             </Label>
           </Field>
-          <select name="forest"
+ 
+         
+          <select  name="forest" multiple size="5"
           value={forest}
           onChange={e => setForest(e.target.value)}
            class="inputStyle" required>
             <option value="One">חורשה</option>
             <option value="Two">חורשה</option>
+            <option value="Three">חורשה</option>
+            <option value="Three">חורשה</option>
             <option value="Three">חורשה</option>
   
           </select>
