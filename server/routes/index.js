@@ -1,3 +1,5 @@
+// קובץ הגישה לכל הראוטים
+
 const express = require('express');
 const path = require('path');
 
