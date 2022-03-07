@@ -24,6 +24,7 @@ export default function HomePage() {
           <Title size="1">
             Home Page
           </Title>
+          new text
         </Container>
       </Section>
     </div>
