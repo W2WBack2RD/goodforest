@@ -1,9 +1,9 @@
 const Session = require('./Session');
 const User = require('./User');
-const Todo = require('./Todo');
+const Forest = require('./Forest');
 
 module.exports = {
   Session,
   User,
-  Todo,
+  Forest,
 };
