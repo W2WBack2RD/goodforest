@@ -4,8 +4,6 @@ import Button from "react-bulma-companion/lib/Button";
 import logo from "../WelcomePage/logo.png";
 
 export default function WelcomePage() {
-  WelcomePage.treeImg = false;
-
   return (
     <div className="welcome-page">
       <div className="top">

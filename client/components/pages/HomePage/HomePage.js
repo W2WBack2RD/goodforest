@@ -24,20 +24,10 @@ const HomePage = () => {
   const [nameCenter, setNameCenter] = useState("שיתוף חברים");
   const [nameRight, setNameRight] = useState("ספרו לי עוד");
 
-  const handleArrowClickR = (e) => {};
-  const handleArrowClickC = (e) => {};
-  const handleArrowClickL = (e) => {};
+  const handleRightClick = (e) => {};
+  const handleCenterClick = (e) => {};
+  const handleLeftClick = (e) => {};
 
-  /*
-  const dispatch = useDispatch();
-  const { user } = useSelector(R.pick(["user"]));
-
-  useEffect(() => {
-    if (R.isEmpty(user)) {
-      dispatch(push("/login"));
-    }
-  }, []);
-*/
   return (
     <PageLayout
       className="homePage"
@@ -56,9 +46,9 @@ const HomePage = () => {
         name_left={nameLeft}
         name_center={nameCenter}
         name_right={nameRight}
-        functionR={handleArrowClickR}
-        functionL={handleArrowClickL}
-        functionC={handleArrowClickR}
+        functionR={handleRightClick}
+        functionL={handleCenterClick}
+        functionC={handleLeftClick}
       />
       <EventBoard />
       <div className="buttons">
