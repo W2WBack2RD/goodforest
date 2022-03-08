@@ -6,10 +6,6 @@
   a.is-active:hover {
     color: $white;
   }
-
-  a:hover {
-    color: $dark-grey;
-  }
 }
 
 .profile-settings {
@@ -39,7 +35,7 @@
   }
 
   .icon {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
 
     .fa-sync {
       color: $info;
