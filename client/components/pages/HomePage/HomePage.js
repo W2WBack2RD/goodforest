@@ -30,6 +30,7 @@ const HomePage = () => {
 
   return (
     <PageLayout
+
       className="homePage"
       treeeIcon={false}
       innerPage={false}
@@ -49,6 +50,7 @@ const HomePage = () => {
         functionR={handleRightClick}
         functionL={handleCenterClick}
         functionC={handleLeftClick}
+
       />
       <EventBoard />
       <div className="buttons">

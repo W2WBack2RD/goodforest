@@ -17,7 +17,6 @@ export default function PageLayout(props) {
         <Burger open={open} fn={handleMenu} />
         {open ? <Menu open={open} fn={handleMenu} /> : null}
       </div>
-
       {props.treesIcon ? <img src={treesIcon} id="treesIcon" /> : false}
       <p id={props.titleStyle ? "pageTitle" : "pageHigherTitle"}>
         {props.title}

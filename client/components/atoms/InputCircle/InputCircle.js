@@ -12,6 +12,7 @@ const InputCircle = (props) => {
       </div>
       <div className="circleWrap">
         <div className="circle_right">{props.inputRight}</div>
+
         <div className="title_right">עצים נטועים</div>
       </div>
     </div>

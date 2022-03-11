@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 
 export default function WelcomePage() {
+  WelcomePage.treeImg = false;
+
   return (
     <div className="welcome-page">
       <div className="top">
