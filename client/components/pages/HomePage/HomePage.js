@@ -38,14 +38,14 @@ const HomePage = () => {
     >
       <InputCircle
         className="inputCircle"
-        input_left={inputLeft}
-        input_center={inputCenter}
-        input_right={inputRight}
+        inputLeft={inputLeft}
+        inputCenter={inputCenter}
+        inputRight={inputRight}
       />
       <ArrowInput
-        name_left={nameLeft}
-        name_center={nameCenter}
-        name_right={nameRight}
+        nameLeft={nameLeft}
+        nameCenter={nameCenter}
+        nameRight={nameRight}
         functionR={handleRightClick}
         functionL={handleCenterClick}
         functionC={handleLeftClick}

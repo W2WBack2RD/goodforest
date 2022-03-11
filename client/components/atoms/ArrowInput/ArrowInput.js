@@ -10,21 +10,27 @@ const ArrowInput = (props) => {
     <div className="arrowInputWrap">
       <div className="arrowInput">
         <div className="arrowInputText_left">
-          {props.name_left}
+          {props.nameLeft}
           <div className="arrowSign">
-            <img src={arrowIcon} />
+            <button>
+              <img src={arrowIcon} onClick={props.functionL} />
+            </button>
           </div>
         </div>
         <div className="arrowInputText_center">
-          {props.name_center}
+          {props.nameCenter}
           <div className="arrowSign">
-            <img src={arrowIcon} />
+            <button>
+              <img src={arrowIcon} onClick={props.functionC} />
+            </button>
           </div>
         </div>
         <div className="arrowInputText_right">
-          {props.name_right}
+          {props.nameRight}
           <div className="arrowSign">
-            <img src={arrowIcon} />
+            <button>
+              <img src={arrowIcon} onClick={props.functionR} />
+            </button>
           </div>
         </div>
       </div>
