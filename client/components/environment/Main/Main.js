@@ -46,7 +46,7 @@ export default function Main({ location }) {
 
         <div className="main">
           <Switch>
-            <Route exact path="/" component={WelcomePage} />
+            <Route exact path="/" component={HomePage} />
             <PageLayout>
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
