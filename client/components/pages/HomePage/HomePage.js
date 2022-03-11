@@ -57,6 +57,7 @@ const HomePage = () => {
       </div>
       <Gallery className="imgGallery" />
     </PageLayout>
+
   );
 };
 

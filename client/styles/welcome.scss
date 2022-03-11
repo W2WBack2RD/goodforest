@@ -4,15 +4,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+
+
 .welcome-page {
   position: absolute;
   width: 375px;
   height: 800px;
+
   background-color: rgba(78, 63, 40, 1);
 }
 
@@ -124,6 +123,7 @@ body {
   color: white;
   width: 340px;
   height: 345px;
+
   margin-top: 7px;
   margin-right: 20px;
   right: 0px;
@@ -139,11 +139,12 @@ body {
   border-radius: 5px;
   width: 130px;
   height: 37px;
-  top: 225px;
+
+  top: 235px;
   padding: 8px, 12px, 8px, 12px;
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left: 123px;
+  margin-left: 15px;
   font-family: "Heebo";
   font-style: normal;
   font-size: 14px;

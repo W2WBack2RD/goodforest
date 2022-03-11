@@ -20,13 +20,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/omers4/good-forest-back2rnd"
+    "url": "git+https://github.com/omers4/good-forest-back2rnd.git"
   },
-  "author": {
-    "name": "Omer Shlifka",
-    "email": "omershlifka@gmail.com",
-    "url": "https://omer-shlifka.com/"
-  },
+  "author": "Omer Shlifka <omershlifka@gmail.com> (https://omer-shlifka.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/omers4/good-forest-back2rnd/issues"
@@ -68,7 +64,9 @@
     "history": "^4.10.1",
     "immutability-helper": "^3.1.1",
     "immutable": "^3.8.2",
+    "jquery": "^3.6.0",
     "json-style-converter": "^1.0.3",
+    "mongodb": "^4.3.0",
     "mongoose": "^6.0.7",
     "mongoose-auto-increment-reworked": "^1.2.1",
     "node-sass": "^7.0.1",
