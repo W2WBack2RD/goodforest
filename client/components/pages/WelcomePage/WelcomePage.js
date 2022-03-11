@@ -2,7 +2,9 @@ import React from "react";
 import Title from "react-bulma-companion/lib/Title";
 import Button from "react-bulma-companion/lib/Button";
 import logo from "../WelcomePage/logo.png";
+
 import { Link } from 'react-router-dom';
+
 
 export default function WelcomePage() {
   WelcomePage.treeImg = false;

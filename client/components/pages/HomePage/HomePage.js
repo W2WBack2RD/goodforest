@@ -24,22 +24,13 @@ const HomePage = () => {
   const [nameCenter, setNameCenter] = useState("שיתוף חברים");
   const [nameRight, setNameRight] = useState("ספרו לי עוד");
 
-  const handleArrowClickR = (e) => {};
-  const handleArrowClickC = (e) => {};
-  const handleArrowClickL = (e) => {};
+  const handleRightClick = (e) => {};
+  const handleCenterClick = (e) => {};
+  const handleLeftClick = (e) => {};
 
-  /*
-  const dispatch = useDispatch();
-  const { user } = useSelector(R.pick(["user"]));
-
-  useEffect(() => {
-    if (R.isEmpty(user)) {
-      dispatch(push("/login"));
-    }
-  }, []);
-*/
   return (
-<PageLayout
+    <PageLayout
+
       className="homePage"
       treeeIcon={false}
       innerPage={false}
@@ -48,17 +39,18 @@ const HomePage = () => {
     >
       <InputCircle
         className="inputCircle"
-        input_left={inputLeft}
-        input_center={inputCenter}
-        input_right={inputRight}
+        inputLeft={inputLeft}
+        inputCenter={inputCenter}
+        inputRight={inputRight}
       />
       <ArrowInput
-        name_left={nameLeft}
-        name_center={nameCenter}
-        name_right={nameRight}
-        functionR={handleArrowClickR}
-        functionL={handleArrowClickL}
-        functionC={handleArrowClickR}
+        nameLeft={nameLeft}
+        nameCenter={nameCenter}
+        nameRight={nameRight}
+        functionR={handleRightClick}
+        functionL={handleCenterClick}
+        functionC={handleLeftClick}
+
       />
       <EventBoard />
       <div className="buttons">
