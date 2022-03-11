@@ -5,12 +5,15 @@ import logo from "../WelcomePage/logo.png";
 import { Link } from 'react-router-dom';
 
 export default function WelcomePage() {
+  WelcomePage.treeImg = false;
+
   return (
     <div className="welcome-page">
       <div className="top">
         <img src={logo} id="open-pic" />
         <Title id="website-title">יער האקלים</Title>
         <h2 id="sub-title">שותלים עצים, מפריחים ערים</h2>
+
         <Link to="/login">
           <Button id="btn-login">התחברות</Button>
         </Link>

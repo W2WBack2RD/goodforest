@@ -45,14 +45,12 @@ export default function Main({ location }) {
         <ReactNotification />
         <div className="main">
           <Switch>
-            <Route exact path="/" component={WelcomePage} />
-            <PageLayout>
-              <Route path="/login" component={LoginPage} />
-              <Route path="/register" component={RegisterPage} />
-              <Route path="/home" component={HomePage} />
-              <Route path="/todo" component={TodoPage} />
-              <Route path="/settings" component={SettingsPage} />
-            </PageLayout>
+            <Route path="/" component={WelcomePage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={RegisterPage} />
+            <Route path="/home" component={HomePage} />
+            <Route path="/todo" component={TodoPage} />
+            <Route path="/settings" component={SettingsPage} />
             <Route path="*" component={LostPage} />
           </Switch>
         </div>
