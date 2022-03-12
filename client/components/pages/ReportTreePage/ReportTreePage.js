@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { push } from 'connected-react-router';
 import R from 'ramda';
-import S3FileUpload from 'react-s3';
-
+import S3 from 'react-aws-s3';
 import PageLayout from "../../organisms/PageLayout";
 import Button from 'react-bulma-companion/lib/Button';
 import Select from 'react-bulma-companion/lib/Select';
@@ -28,6 +27,7 @@ const config = {
   accessKeyId: process.env.S3_KEY || '',
   secretAccessKey: process.env.S3_SECRET || ''
 }
+const ReactS3Client = new S3(config);
 
 export default function ReportTreePage() {
   const dispatch = useDispatch();
@@ -68,7 +68,7 @@ export default function ReportTreePage() {
       return
     }
 
-    S3FileUpload.uploadFile(file, config).then((res) => {
+    ReactS3Client.uploadFile(file).then((res) => {
       console.log(res)
       setPic(res.location)
       setPicName(file.name)
