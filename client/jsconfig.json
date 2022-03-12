@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "baseUrl": "../",
+      "paths": {
+        "_thunks/*": ["client/store/thunks/*"],
+        "_assets/*": ["client/assets/*"],
+        "_styles/*": ["client/styles/*"],
+        "_utils/*": ["client/utils/*"],
+        "_hooks/*": ["client/hooks/*"],
+        "_organisms/*": ["client/components/organisms/*"],
+        "_pages/*": ["client/components/pages/*"],
+        "_atoms/*": ["client/components/atoms/*"],
+        "_templates/*": ["client/components/templates/*"],
+        "_api/*": ["client/api/*"]
+      },
+      "checkJs": true,
+      "jsx": "react"
+    }
+  }
