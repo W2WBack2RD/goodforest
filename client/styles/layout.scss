@@ -79,12 +79,12 @@ $Heebo: "Heebo";
 }
 
 .innerPageLayoutCross {
+  text-align: right;
   display: flex;
   flex-flow: column wrap;
 
   position: absolute;
   width: 375px;
-  height: 100%;
   left: 0px;
   top: 80px;
 
