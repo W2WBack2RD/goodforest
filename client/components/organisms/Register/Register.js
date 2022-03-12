@@ -18,6 +18,7 @@ import Input from 'react-bulma-companion/lib/Input';
 import Label from 'react-bulma-companion/lib/Label';
 import Help from 'react-bulma-companion/lib/Help';
 
+
 import useKeyPress from '_hooks/useKeyPress';
 import { postCheckUsername } from '_api/users';
 import { validateUsername, validatePassword } from '_utils/validation';
@@ -67,18 +68,9 @@ export default function Register() {
 
   useKeyPress('Enter', register);
 
-  var expanded = false;
+ 
 
-function showCheckboxes() {
-  var checkboxes = document.getElementById("checkboxes");
-  if (!expanded) {
-    checkboxes.style.display = "block";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
-}
+
 
 
   const generateYearOptions = () => {
@@ -94,6 +86,13 @@ function showCheckboxes() {
     return arr;
   };
 
+
+
+  
+
+
+  
+
   return (
    
     <div dir="rtl">
@@ -105,7 +104,7 @@ function showCheckboxes() {
             </Label>
           </Field>
           <Input name="username"
-          type="username"
+          type="text"
           value={username}
           onChange={e => setUsername(e.target.value)}
            class="inputStyle" placeholder=" הקלד/י שם משתמש" required />
@@ -116,14 +115,14 @@ function showCheckboxes() {
             </Label>
           </Field>
           <Input name="phoneNumber"
-          type="phoneNumber"
+          type="tel"
           value={phoneNumber}
           onChange={e => setPhoneNumber(e.target.value)}
            class="inputStyle" pattern="[0-9]+" placeholder="ספרות בלבד"required
            
           />
           <Field class="ageLabel">
-            <Label htmlFor="username">
+            <Label for="username">
               שנת לידה:
             </Label>
           </Field>
@@ -160,13 +159,13 @@ function showCheckboxes() {
           onChange={e => setPassword(e.target.value)} class="inputStyle"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="לפחות 8 תווים, לפחות ספרה אחת" required />
           
           <Field class="ageLabel">
-            <Label htmlFor="username">
+            <Label for="username">
               עיר:
             </Label>
           </Field>
 
           
-          <select  name="mycity"
+          <select  name="mycity" type
           value={mycity}
           onChange={e => setMyCity(e.target.value)}
            class="inputStyle" required>
@@ -175,23 +174,23 @@ function showCheckboxes() {
             <option  value="Tel aviv">תל אביב</option>
           </select>
           <Field class="ageLabel">
-            <Label htmlFor="username">
+            <Label for="username">
               חורשה:
             </Label>
           </Field>
- 
-         
-          <select  name="forest" multiple size="5"
-          value={forest}
+        
+        
+          <select name="forest"  value={forest}
           onChange={e => setForest(e.target.value)}
-           class="inputStyle" required>
-            <option value="One">חורשה</option>
-            <option value="Two">חורשה</option>
-            <option value="Three">חורשה</option>
-            <option value="Three">חורשה</option>
-            <option value="Three">חורשה</option>
-  
-          </select>
+           class="inputStyle" multiple size="1"  required>
+                <option value="forest1">חורשה1</option>
+                <option value="forest2">חורשה2</option>
+                <option value="forest3">חורשה3</option>
+                <option value="forest4">חורשה4</option>
+                <option value="forest5">חורשה5</option>
+        
+            </select>
+
  
         </div>
         <label for="checkbox1" >
