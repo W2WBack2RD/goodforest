@@ -12,6 +12,7 @@ import EventBoard from "../../molecules/EventsBoard/EventsBoard";
 import Button from "../../atoms/Button/Button";
 import PageLayout from "../../organisms/PageLayout";
 import Gallery from "../../molecules/Gallery/Gallery";
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   HomePage.treeImg = false;
@@ -24,13 +25,12 @@ const HomePage = () => {
   const [nameCenter, setNameCenter] = useState("שיתוף חברים");
   const [nameRight, setNameRight] = useState("ספרו לי עוד");
 
-  const handleRightClick = (e) => {};
-  const handleCenterClick = (e) => {};
-  const handleLeftClick = (e) => {};
+  const handleRightClick = (e) => { };
+  const handleCenterClick = (e) => { };
+  const handleLeftClick = (e) => { };
 
   return (
     <PageLayout
-
       className="homePage"
       treeeIcon={false}
       innerPage={false}
@@ -55,10 +55,12 @@ const HomePage = () => {
       <EventBoard />
       <div className="buttons">
         <Button className="reportBtn" value="דווח על תקלה" />
-        <Button className="updateBtn" value="עדכון סטטוס עץ" />
+        <Link to="/reportTree">
+          <Button className="reportBtn" value="עדכון סטטוס עץ" />
+        </Link>
       </div>
       <Gallery className="imgGallery" />
-    </PageLayout>
+    </PageLayout >
 
   );
 };
