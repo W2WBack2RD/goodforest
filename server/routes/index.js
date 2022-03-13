@@ -2,6 +2,7 @@
 
 const express = require('express');
 const path = require('path');
+const auth = require('./auth');
 
 const user = require('./user');
 const forest = require('./forest');
