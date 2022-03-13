@@ -1,7 +1,7 @@
 const express = require('express');
 const { User } = require('../database/schemas');
 
-const router   = express.Router();
+const router = express.Router();
 
 module.exports = router;
 
@@ -15,7 +15,8 @@ router.post('/checkusername', (req, res) => {
     if (users && users[0]) {
       res.send({ available: false, message: 'Username exists', username });
     } else {
-      res.send({ available: true, message: 'Username available', username });
+      res.send({ available: true, message: 'אימייל תקין', username });
     }
   });
+
 });
