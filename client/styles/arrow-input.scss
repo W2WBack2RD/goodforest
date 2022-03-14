@@ -1,0 +1,123 @@
+.arrowInputWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.arrowInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+  height: 20px;
+}
+
+.arrowInputText_left {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 80px;
+  height: 21px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #000000;
+}
+
+.arrowInputText_center {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 95px;
+  height: 21px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #000000;
+}
+
+.arrowInputText_right {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 84px;
+  height: 21px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #000000;
+}
+
+.arrowSign {
+  margin-top: 5px;
+}
+
+.arrowSign:active {
+  /* Neutrals/90 */
+  margin-top: -2px;
+  transform: rotate(-90deg);
+}
+
+.notes {
+  margin-top: 10px;
+  align-self: center;
+  width: 335px;
+  height: 98px;
+
+  background: #d1d2ae;
+  opacity: 0.6;
+  border-radius: 10px;
+}
+
+.notesText {
+  width: 284px;
+  height: 84px;
+  left: 61px;
+  top: 262px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: right;
+
+  color: #000000;
+}
+
+.closeImg {
+  margin-left: 12.5px;
+  margin-right: 12.5px;
+  margin-top: 12.5px;
+  margin-bottom: 12.5px;
+}
+
+button,
+button:focus,
+button:active {
+  outline: none;
+  background: transparent;
+  border: none;
+}
