@@ -1,30 +1,58 @@
-import React from 'react';
-import treesIcon from '../../../assets/icons/trees.svg';
-import menuIcon from '../../../assets/icons/icon_menu.svg';
+import React, { useState } from "react";
+import treesIcon from "../../../assets/icons/trees.svg";
 
-import Container from 'react-bulma-companion/lib/Container';
+import Container from "react-bulma-companion/lib/Container";
+import Burger from "../../atoms/Burger/Burger";
+import Menu from "../Menu";
+import AdminMenu from "../AdminMenu/AdminMenu";
+import AdminMenuSearch from "../AdminMenuSearch/AdminMenuSearch";
 
 export default function PageLayout(props) {
+  const [open, setOpen] = useState(false);
+  const [admin, setAdmin] = useState(true);
+  const [adminMenuSearch, setAdminMenuSearch] = useState(false);
 
-    const openMenu = () => {
-        console.log("menu should open");
-    }
-    return (
-        <div>
-            <Container className="layoutBG">
-                <img src={menuIcon} id='menuIcon' onClick={openMenu} />
-                <img src={treesIcon} id='treesIcon' />
+  const handleMenu = () => {
+    console.log("menu should open");
 
-                <p id='pageTitle'>
-                    {props.title}
-                </p>
-                <div className='innerPageLayout'>
-                    {props.children}
-                </div>
-            </Container>
+    setOpen(!open);
+  };
 
-        </div>
+  const handleAdminMenu = () => {
+    setOpen(false);
+    setAdmin(!admin);
+    setAdmin(true);
+  };
 
-    );
-
+  const handleMenuSearch = () => {
+    setAdminMenuSearch(!adminMenuSearch);
+  };
+  return (
+    <div className="layoutBG">
+      <div className="menuBtn">
+        <Burger open={open} fn={handleMenu} />
+        {open ? (
+          admin ? (
+            <AdminMenu
+              openMenu={open}
+              handleMenu={handleMenu}
+              open={adminMenuSearch}
+              fn={handleAdminMenu}
+            />
+          ) : (
+            <Menu open={open} fn={handleMenu} />
+          )
+        ) : null}
+      </div>
+      {props.treesIcon ? <img src={treesIcon} id="treesIcon" /> : false}
+      <p id={props.titleStyle ? "pageTitle" : "pageHigherTitle"}>
+        {props.title}
+      </p>
+      <div
+        className={props.innerPage ? "innerPageLayout" : "innerPageLayoutCross"}
+      >
+        {props.children}
+      </div>
+    </div>
+  );
 }
