@@ -23,6 +23,7 @@ import useKeyPress from '_hooks/useKeyPress';
 import { postCheckUsername } from '_api/users';
 import { validateUsername, validatePassword } from '_utils/validation';
 import { attemptRegister } from '_thunks/auth';
+import PageLayout from '../PageLayout';
 
 
 export default function Register() {
@@ -41,35 +42,80 @@ export default function Register() {
   const [forest, setForest] = useState('');
   const [acceptedTerms, setAcceptedTerms] = React.useState(false);
  
+
+
+  const checkPassword = (newUsername, newPassword) => {
+    const { valid, message } = validatePassword(newUsername, newPassword);
+
+    setPasswordValid(valid);
+    setPasswordMessage(message);
+  };
+
+  const checkUsername = newUsername => {
+    const { valid, message } = validateUsername(newUsername);
+
+    if (valid) {
+      setUsernameMessage('Checking username...');
+      setUsernameAvailable(false);
+
+      postCheckUsername(newUsername)
+        .then(res => {
+          setUsernameAvailable(res.available);
+          setUsernameMessage(res.message);
+        })
+        .catch(R.identity);
+    } else {
+      setUsernameAvailable(valid);
+      setUsernameMessage(message);
+    }
+  };
+
+  const updateUsername = newUserName => {
+    setUsername(newUserName);
+    checkPassword(newUserName, password);
+  };
+
+  const handleUsernameChange = e => {
+    updateUsername(e.target.value);
+    checkUsername(e.target.value);
+  };
+
+  const handlePasswordChange = e => {
+    setPassword(e.target.value);
+    checkPassword(username, e.target.value);
+  };
+ 
+  // const register = () => {
+    //   if (usernameAvailable && passwordValid) {
+    //     const newUser = {
+
+    
   
+      const register  = async (e) => {
+// 
+        e.preventDefault();
+        {
+                const newUser = {
+                  'username': username,
+                  'phone_number': phoneNumber,
+                  'birth_year': birthYear,
+                  'email_address': email,
+                  'password': password,
+                  'city': mycity,
+                  'forest_id': forest,
+                  'get_update': acceptedTerms
+                 
+                };
+                console.log(newUser);
 
-
-  const register = () => {
-    if (usernameAvailable && passwordValid) {
-      const newUser = {
-        'UserName': username,
-        'PhoneNumber': phoneNumber,
-        'BirthYear': birthYear,
-        'Email': email,
-        'Password': password,
-        'City': mycity,
-        'Forest': forest,
-        'AcceptedTerms': acceptedTerms
-       
-      };
-      
       dispatch(attemptRegister(newUser))
         .catch(R.identity);
-        
     }
-    console.log(newUser);
-   
+    
+    
   };
 
   useKeyPress('Enter', register);
-
- 
-
 
 
 
@@ -87,29 +133,53 @@ export default function Register() {
   };
 
 
-
-  
-
-
-  
-
   return (
-   
+   <PageLayout
+   TreeeIcon={true}
+   innerPage={true}
+   titleStyle={true}
+   title="הרשמה"
+
+   >
+     <form onSubmit={register}>
     <div dir="rtl">
       <Box className="register">
         <div id="box1">
-          <Field class="userNameLabel">
-            <Label >
+
+        <Field className="userNameLabel" >
+              <Label >
               שם משתמש:
-            </Label>
+        </Label>
+              {/* <Control iconsRight> */}
+                  <Input dir="rtl"
+                      name="username"
+                      placeholder =" הקלד/י שם משתמש" required
+                      color={username ? (usernameAvailable ? 'success' : 'danger') : undefined}
+                      value={username}
+                      type="text"
+                      onChange={handleUsernameChange}
+                    //  {e => setUsername(e.target.value)}
+                  />
+                  {/* {username && (
+                      <Icon
+                          size="small"
+                          align="right"
+                          color={usernameAvailable ? 'success' : 'danger'}
+                      >
+                          <FontAwesomeIcon
+                              icon={usernameAvailable ? faCheck : faExclamationTriangle}
+                          />
+                      </Icon>
+                  )}
+              </Control>
+              {username && (
+                  <Help color={usernameAvailable ? 'success' : 'danger'}>
+                      {usernameMessage}
+                  </Help>
+              )} */}
           </Field>
-          <Input name="username"
-          type="text"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-           class="inputStyle" placeholder=" הקלד/י שם משתמש" required />
-          
-          <Field class="phoneLabel">
+        
+          <Field className="phoneLabel">
             <Label>
               מספר טלפון:
             </Label>
@@ -118,11 +188,11 @@ export default function Register() {
           type="tel"
           value={phoneNumber}
           onChange={e => setPhoneNumber(e.target.value)}
-           class="inputStyle" pattern="[0-9]+" placeholder="ספרות בלבד"required
+          className="inputStyle" pattern="[0-9]+" placeholder="ספרות בלבד"required
            
           />
-          <Field class="ageLabel">
-            <Label for="username">
+          <Field className="ageLabel">
+            <Label htmlFor="username">
               שנת לידה:
             </Label>
           </Field>
@@ -131,13 +201,13 @@ export default function Register() {
           <select name="birthYear"
           value={birthYear}
           onChange={e => setBirthYear(e.target.value)}
-          required id="year" class="inputStyle"  >
+          required id="year" className="inputStyle"  >
           <option value='0'>בחירה</option>
               {generateYearOptions()}
           </select>
           
          
-          <Field class="phoneLabel">
+          <Field className="phoneLabel">
             <Label >
               כתובת דואר אלקטרוני
             </Label>
@@ -146,8 +216,8 @@ export default function Register() {
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
-           class="inputStyle" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="...@email" required/>
-          <Field class="phoneLabel">
+            className="inputStyle" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="...@email" required/>
+          <Field className="phoneLabel">
             <Label>
               סיסמה
             </Label>
@@ -156,10 +226,10 @@ export default function Register() {
           <Input name="password"
           type="password"
           value={password}
-          onChange={e => setPassword(e.target.value)} class="inputStyle"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="לפחות 8 תווים, לפחות ספרה אחת" required />
+          onChange={handlePasswordChange} className="inputStyle"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="לפחות 8 תווים, לפחות ספרה אחת" required />
           
-          <Field class="ageLabel">
-            <Label for="username">
+          <Field className="ageLabel">
+            <Label htmlFor="username">
               עיר:
             </Label>
           </Field>
@@ -168,39 +238,48 @@ export default function Register() {
           <select  name="mycity" type
           value={mycity}
           onChange={e => setMyCity(e.target.value)}
-           class="inputStyle" required>
+          className="inputStyle" required>
             <option  value="">עיר</option>
             <option  value="Jerusalem">ירושלים</option>
             <option  value="Tel aviv">תל אביב</option>
           </select>
-          <Field class="ageLabel">
-            <Label for="username">
+          <Field className="ageLabel">
+            <Label htmlFor="username">
               חורשה:
             </Label>
           </Field>
         
-        
-          <select name="forest"  value={forest}
+          
+  <select name="forest" onChange={e => setForest(e.target.value)} className="inputStyle"  multiple size="1" required >
+    <option value="Argentina">חורשה</option>
+    <option value="Bolivia">חורשה1</option>
+    <option value="Brazil">חורשה2</option>
+    
+  </select>
+
+          {/* <select name="forest"  value={forest}
           onChange={e => setForest(e.target.value)}
-           class="inputStyle" multiple size="1"  required>
+          className="inputStyle" multiple size="1"  required>
                 <option value="forest1">חורשה1</option>
                 <option value="forest2">חורשה2</option>
                 <option value="forest3">חורשה3</option>
                 <option value="forest4">חורשה4</option>
                 <option value="forest5">חורשה5</option>
         
-            </select>
+            </select> */}
 
  
         </div>
-        <label for="checkbox1" >
-          <input class="formCheck" type="checkbox"   name="acceptedTerms"
-          onChange={e => setAcceptedTerms(e.target.value)}
-          required/> <span class="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>
+        <label htmlFor="checkbox1" >
+          <input className="formCheck" type="checkbox"   name="acceptedTerms"
+          onClick={e => setAcceptedTerms(!acceptedTerms)}
+          required/> <span className="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>
         </label>
-          <button  onClick={register} >שמירה</button>
+        <button id="btn-login1" type="submit">שמירה</button>
+       
       </Box>
     </div >
-   
+    </form>
+    </PageLayout>
   );
 }

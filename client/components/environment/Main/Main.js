@@ -13,6 +13,7 @@ import RegisterPage from "_pages/RegisterPage";
 import SettingsRegisterPage from "_pages/SettingsRegisterPage";
 import HomePage from "_pages/HomePage";
 import TodoPage from "_pages/TodoPage";
+import ReportTreePage from "_pages/ReportTreePage";
 import SettingsPage from "_pages/SettingsPage";
 import LostPage from "_pages/LostPage";
 
@@ -50,14 +51,13 @@ export default function Main({ location }) {
         <div className="main">
           <Switch>
             <Route exact path="/" component={WelcomePage} />
-            <PageLayout>
-              <Route path="/login" component={LoginPage} />
-              <Route path="/register" component={RegisterPage} />
-              <Route path="/settingsRegister" component={SettingsRegisterPage} />
-              <Route path="/home" component={HomePage} />
-              <Route path="/todo" component={TodoPage} />
-              <Route path="/settings" component={SettingsPage} />
-            </PageLayout>
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={RegisterPage} />
+            <Route path="/home" component={HomePage} />
+            <Route path="/todo" component={TodoPage} />
+            <Route path="/settingsRegister" component={SettingsRegisterPage} />
+            <Route path="/settings" component={SettingsPage} />
+            <Route path="/reportTree" component={ReportTreePage} />
             <Route path="*" component={LostPage} />
           </Switch>
         </div>

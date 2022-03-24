@@ -26,14 +26,9 @@ a {
 .field.has-help {
   height: 67px;
 }
-
-.card-footer-item {
-  cursor: pointer;
-  &:hover {
-    background-color: $lightest-grey;
-  }
+a:hover {
+  color: white;
 }
-
 // Remove Bulma conflicts with React Notifications Component
 .notifications-component .notification {
   background-color: unset;
