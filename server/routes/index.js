@@ -2,20 +2,19 @@
 
 const express = require('express');
 const path = require('path');
-
 const auth = require('./auth');
 const user = require('./user');
 const users = require('./users');
 const todos = require('./todos');
 const example = require('./example');
 const report = require('./report');
-
+const forest = require('./forest');
 
 
 const router = express.Router();
 
-router.use('/api/auth', auth);
 router.use('/api/user', user);
+router.use('/api/forest', forest);
 router.use('/api/users', users);
 router.use('/api/example', example);
 router.use('/api/todos', todos);
