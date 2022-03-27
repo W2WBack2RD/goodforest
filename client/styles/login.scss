@@ -104,20 +104,57 @@
   ::placeholder{
     padding-right: 20px;
     font-family: 'Heebo', sans-serif;
+    font-size: 14px;
   }
 
   .is-danger{
     direction: rtl;
     margin-right: 20px;
     font-family: 'Heebo', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
   }
   .is-success{
     direction: rtl;
     margin-right: 20px;
     font-family: 'Heebo', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
   }
+
+  .button.is-success[disabled], fieldset[disabled] .button.is-success{
+    background-color: gray ;
+    border-color: transparent;
+    box-shadow: none;
+    font-size: 14px;
+    margin-top: 30px;
+
+  }
+
+  .button.is-success
+  {
+    background-color:#ABAE2C ;
+    border-color: transparent;
+    color: #fff;
+    font-size: 14px;
+
+  }
+  .login-page .is-pulled-right{
+    background-color: #ABAE2C;
+    width: 105px;
+    height: 37px;
+    color: #FFFFFF;
+    font-family: "Heebo", sans-serif;
+    font-size: 14px;
+    padding: 8px, 12px, 8px, 12px;
+    margin-left: 20px;
+  }
+
+  .control.has-icons-left .icon, .control.has-icons-right .icon
+  {
+    align-items: center;
+    top: 7px;
+  }
+
+
 }
 
 

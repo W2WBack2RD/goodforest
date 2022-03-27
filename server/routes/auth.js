@@ -1,4 +1,4 @@
-const express  = require('express');
+const express = require('express');
 const passport = require('passport');
 const { User } = require('../database/schemas');
 
@@ -21,9 +21,9 @@ router.post('/register', (req, res) => {
     if (err) {
       res.status(400).send({ message: 'Create user failed', err });
     }
-    if (users[0]) {
-      res.status(400).send({ message: 'Username exists' });
-    }
+    // if (users[0]) {
+    //   res.status(400).send({ message: 'Username exists' });
+    // }
 
     newUser.hashPassword().then(() => {
       newUser.save((err, savedUser) => {

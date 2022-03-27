@@ -2,36 +2,25 @@ import R from 'ramda';
 
 export const validateUsername = username => {
   let valid = true;
-  let message = 'Username Valid';
+  let message = 'יוזר תקין';
 
   let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 
   if (username.match(validRegex)) {
-    message = 'Valide email address';
+    message = 'כתובת מייל לא תקינה';
     valid = true;
   }
   else {
     message = 'כתובת מייל לא תקינה';
     valid = false;
   }
-  // } else if (username.length < 4) {
-  //   message = 'Username must be at least four characters';
-  //   valid = false;
-  // } else if (username.length > 20) {
-  //   message = 'Username must be 20 characters or less';
-  //   valid = false;
-  // } else if (R.match(/[a-zA-Z]/g, username).length < 4) {
-  //   message = 'Username must include at least four letters';
-  //   valid = false;
-  // }
-
   return { valid, message };
 };
 
 export const validatePassword = (username, password) => {
   let valid = true;
-  let message = 'Password valid';
+  let message = 'סיסמא תקינה';
 
   if (R.match(/[a-zA-Z]/g, password).length < 7) {
     valid = false;
