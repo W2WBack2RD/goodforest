@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import R from 'ramda';
+import { attemptGetUser, attemptUpdateUser } from '_thunks/user';
+
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,30 +21,32 @@ import Input from 'react-bulma-companion/lib/Input';
 import Label from 'react-bulma-companion/lib/Label';
 import Help from 'react-bulma-companion/lib/Help';
 
-
+import { validateName } from '_utils/validation';
 
 import useKeyPress from '_hooks/useKeyPress';
 import { postCheckUsername } from '_api/users';
 import { validateUsername, validatePassword } from '_utils/validation';
 import { attemptRegister } from '_thunks/auth';
 import PageLayout from '../PageLayout';
+import {  useSelector } from 'react-redux';
 
 
 export default function Register() {
   const dispatch = useDispatch();
+  const { user } = useSelector(R.pick(['user']));
 
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(user.username);
   const [usernameMessage, setUsernameMessage] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [birthYear, setBirthYear] = useState('');
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState(user.phone_number);
+  const [birthYear, setBirthYear] = useState(user.birth_year);
+  const [email, setEmail] = useState(user.email_address)
+  const [password, setPassword] = useState(user.password);
   const [passwordMessage, setPasswordMessage] = useState('');
   const [usernameAvailable, setUsernameAvailable] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
-  const [mycity, setMyCity] = useState('');
-  const [forest, setForest] = useState('');
-  const [acceptedTerms, setAcceptedTerms] = React.useState(false);
+  const [mycity, setMyCity] = useState(user.city);
+  const [forest, setForest] = useState(user.forest_id);
+  const [acceptedTerms, setAcceptedTerms] = React.useState(user.get_update);
  
 
 
@@ -86,37 +91,72 @@ export default function Register() {
     checkPassword(username, e.target.value);
   };
  
-  // const register = () => {
-    //   if (usernameAvailable && passwordValid) {
-    //     const newUser = {
-
-    
-  
-      const register  = async (e) => {
-     
-                e.preventDefault();
-                {
-                        const newUser = {
-                          'username': username,
-                          'phone_number': phoneNumber,
-                          'birth_year': birthYear,
-                          'email_address': email,
-                          'password': password,
-                          'city': mycity,
-                          'forest_id': forest,
-                          'get_update': acceptedTerms
-        
-                        };
-                        console.log(newUser);
-             
-
-      dispatch(attemptRegister(newUser))
-        .catch(R.identity);
-    }
-    
-    
+ 
+  const resetState = () => {
+    setUsername(user.username);
+    setPhoneNumber(user.phone_number);
+    setBirthYear(user.birth_year);
+    // setEmail(user.email_address);
+    setPassword(user.password);
+    setMyCity(user.city);
+    setForest(user.forest_id);
+    setAcceptedTerms(user.get_update);
   };
 
+  useEffect(() => {
+    resetState();
+  }, [user.username, user.phone_number, user.birthYear, user.password, user.city, user.forest_id, user.get_update]);
+
+  const updateUserName = e => {
+      setUsername(e.target.value);
+  };
+  const updatePhoneNumber = e => {
+    setPhoneNumber(e.target.value);
+  };
+   const updateBirthYear = e => {
+  setBirthYear(e.target.value);
+  };
+  const updateEmail = e => {
+    setEmail(e.target.value);
+    };
+  const updatePassword = e => {
+      setPassword(e.target.value);
+      };
+   const updateCity = e => {
+        setMyCity(e.target.value);
+        };
+    const updateForest = e => {
+        setForest(e.target.value);
+          };
+    const updateAcceptedTerms = e => {
+        setAcceptedTerms(e.target.value);
+            };
+          
+            // const refresh = () => dispatch(attemptGetUser())
+            // .then(resetState)
+            // .catch(R.identity);
+          
+              const register  = async (e) => {
+                e.preventDefault();
+                const updatedUser = {};
+            if (username) { updatedUser.username = username; }
+            if (phoneNumber) { updatedUser.phone_number = phoneNumber; }
+            if (birthYear) { updatedUser.birth_year = birthYear; }
+            if (email) { updatedUser.email_address = email; }
+            if (password) { updatedUser.password = password; }
+            if (mycity) { updatedUser.city = mycity; }
+            if (forest) { updatedUser.forest_id = forest; }
+            if (acceptedTerms) { updatedUser.get_update = acceptedTerms; }
+
+            console.log(updatedUser);
+
+            if (!R.isEmpty(updatedUser)) {
+              dispatch(attemptUpdateUser(updatedUser))
+                .catch(R.identity);
+            }
+            
+          };
+        
   useKeyPress('Enter', register);
 
 
@@ -140,7 +180,7 @@ export default function Register() {
    TreeeIcon={true}
    innerPage={true}
    titleStyle={true}
-   title="הרשמה"
+   title="עדכון"
 
    >
      <form onSubmit={register}>
@@ -159,7 +199,7 @@ export default function Register() {
                       color={username ? (usernameAvailable ? 'success' : 'danger') : undefined}
                       value={username}
                       type="text"
-                      onChange={handleUsernameChange}
+                      onChange={updateUserName}
                     //  {e => setUsername(e.target.value)}
                   />
                   {/* {username && (
@@ -189,7 +229,7 @@ export default function Register() {
           <Input name="phoneNumber"
           type="tel"
           value={phoneNumber}
-          onChange={e => setPhoneNumber(e.target.value)}
+          onChange={updatePhoneNumber}
           className="inputStyle" pattern="[0-9]+" placeholder="ספרות בלבד"required
            
           />
@@ -202,7 +242,7 @@ export default function Register() {
         
           <select name="birthYear"
           value={birthYear}
-          onChange={e => setBirthYear(e.target.value)}
+          onChange={updateBirthYear}
           required id="year" className="inputStyle"  >
           <option value='0'>בחירה</option>
               {generateYearOptions()}
@@ -211,24 +251,24 @@ export default function Register() {
          
           <Field className="phoneLabel">
             <Label >
-              כתובת דואר אלקטרוני:
+              כתובת דואר אלקטרוני
             </Label>
           </Field>
-          <Input name="email"
+          <Input name="email" dir="ltr"
             type="email"
             value={email}
-            onChange={e => setEmail(e.target.value)}
-            className="inputStyle" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="...@email" required/>
+            onChange={updateEmail}
+            className="inputStyle" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="email@..." disabled="disabled" />
           <Field className="phoneLabel">
             <Label>
-              סיסמה:
+              סיסמה
             </Label>
           </Field>
 
           <Input name="password"
           type="password"
           value={password}
-          onChange={handlePasswordChange} className="inputStyle"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="לפחות 8 תווים, לפחות ספרה אחת" required />
+          onChange={updatePassword} className="inputStyle"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="לפחות 8 תווים, לפחות ספרה אחת" required />
           
           <Field className="ageLabel">
             <Label htmlFor="username">
@@ -239,7 +279,7 @@ export default function Register() {
           
           <select  name="mycity" type
           value={mycity}
-          onChange={e => setMyCity(e.target.value)}
+          onChange={updateCity}
           className="inputStyle" required>
             <option  value="">עיר</option>
             <option  value="Jerusalem">ירושלים</option>
@@ -252,17 +292,29 @@ export default function Register() {
           </Field>
         
           
-  <select name="forest" onChange={e => setForest(e.target.value)} className="inputStyle"  multiple size="1" required >
+  <select name="forest" onChange={updateForest} className="inputStyle"  multiple size="1" required >
     <option value="Argentina">חורשה</option>
     <option value="Bolivia">חורשה1</option>
     <option value="Brazil">חורשה2</option>
     
   </select>
 
+          {/* <select name="forest"  value={forest}
+          onChange={e => setForest(e.target.value)}
+          className="inputStyle" multiple size="1"  required>
+                <option value="forest1">חורשה1</option>
+                <option value="forest2">חורשה2</option>
+                <option value="forest3">חורשה3</option>
+                <option value="forest4">חורשה4</option>
+                <option value="forest5">חורשה5</option>
+        
+            </select> */}
+
+ 
         </div>
         <label htmlFor="checkbox1" >
           <input className="formCheck" type="checkbox"   name="acceptedTerms"
-          onClick={e => setAcceptedTerms(!acceptedTerms)}
+          onClick={updateAcceptedTerms}
           required/> <span className="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>
         </label>
         <button id="btn-login1" type="submit">שמירה</button>
@@ -273,3 +325,8 @@ export default function Register() {
     </PageLayout>
   );
 }
+
+
+
+
+

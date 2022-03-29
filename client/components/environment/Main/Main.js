@@ -10,6 +10,7 @@ import { attemptGetUser } from "_thunks/user";
 import WelcomePage from "_pages/WelcomePage";
 import LoginPage from "_pages/LoginPage";
 import RegisterPage from "_pages/RegisterPage";
+import SettingsRegisterPage from "_pages/SettingsRegisterPage";
 import HomePage from "_pages/HomePage";
 import TodoPage from "_pages/TodoPage";
 import ReportTreePage from "_pages/ReportTreePage";
@@ -19,6 +20,7 @@ import LostPage from "_pages/LostPage";
 import Navigation from "_organisms/Navigation";
 import Footer from "_organisms/Footer";
 import PageLayout from "../../organisms/PageLayout";
+
 
 export default function Main({ location }) {
   const dispatch = useDispatch();
@@ -40,6 +42,8 @@ export default function Main({ location }) {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+
+
   return (
     !loading && (
       <div>
@@ -51,6 +55,7 @@ export default function Main({ location }) {
             <Route path="/register" component={RegisterPage} />
             <Route path="/home" component={HomePage} />
             <Route path="/todo" component={TodoPage} />
+            <Route path="/settingsRegister" component={SettingsRegisterPage} />
             <Route path="/settings" component={SettingsPage} />
             <Route path="/reportTree" component={ReportTreePage} />
             <Route path="*" component={LostPage} />
@@ -58,6 +63,7 @@ export default function Main({ location }) {
         </div>
       </div>
     )
+
   );
 }
 
@@ -66,3 +72,4 @@ Main.propTypes = {
     pathname: PropTypes.string,
   }).isRequired,
 };
+
