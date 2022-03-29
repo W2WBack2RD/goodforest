@@ -24,12 +24,6 @@ export default function ChangeUsername() {
 
   const [usernameCase, setUsernameCase] = useState(user.usernameCase);
 
-
-  useEffect(() => {
-    if (!R.isEmpty(user)) {
-      setUsernameCase(user.usernameCase);
-    }
-  }, [user.username]);
   useEffect(() => {
     if (!R.isEmpty(user)) {
       setUsernameCase(user.usernameCase);

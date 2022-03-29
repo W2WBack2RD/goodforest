@@ -13,7 +13,7 @@ export default function RegisterPage() {
 
   useEffect(() => {
     if (!R.isEmpty(user)) {
-      dispatch(push("/register"));
+      dispatch(push("/home"));
     }
   }, []);
 

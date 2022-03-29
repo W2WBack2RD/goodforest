@@ -19,6 +19,7 @@ import Label from 'react-bulma-companion/lib/Label';
 import Help from 'react-bulma-companion/lib/Help';
 
 
+
 import useKeyPress from '_hooks/useKeyPress';
 import { postCheckUsername } from '_api/users';
 import { validateUsername, validatePassword } from '_utils/validation';
@@ -92,21 +93,22 @@ export default function Register() {
     
   
       const register  = async (e) => {
-// 
-        e.preventDefault();
-        {
-                const newUser = {
-                  'username': username,
-                  'phone_number': phoneNumber,
-                  'birth_year': birthYear,
-                  'email_address': email,
-                  'password': password,
-                  'city': mycity,
-                  'forest_id': forest,
-                  'get_update': acceptedTerms
-                 
-                };
-                console.log(newUser);
+     
+                e.preventDefault();
+                {
+                        const newUser = {
+                          'username': username,
+                          'phone_number': phoneNumber,
+                          'birth_year': birthYear,
+                          'email_address': email,
+                          'password': password,
+                          'city': mycity,
+                          'forest_id': forest,
+                          'get_update': acceptedTerms
+        
+                        };
+                        console.log(newUser);
+             
 
       dispatch(attemptRegister(newUser))
         .catch(R.identity);
@@ -209,7 +211,7 @@ export default function Register() {
          
           <Field className="phoneLabel">
             <Label >
-              כתובת דואר אלקטרוני
+              כתובת דואר אלקטרוני:
             </Label>
           </Field>
           <Input name="email"
@@ -219,7 +221,7 @@ export default function Register() {
             className="inputStyle" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="...@email" required/>
           <Field className="phoneLabel">
             <Label>
-              סיסמה
+              סיסמה:
             </Label>
           </Field>
 
@@ -257,18 +259,6 @@ export default function Register() {
     
   </select>
 
-          {/* <select name="forest"  value={forest}
-          onChange={e => setForest(e.target.value)}
-          className="inputStyle" multiple size="1"  required>
-                <option value="forest1">חורשה1</option>
-                <option value="forest2">חורשה2</option>
-                <option value="forest3">חורשה3</option>
-                <option value="forest4">חורשה4</option>
-                <option value="forest5">חורשה5</option>
-        
-            </select> */}
-
- 
         </div>
         <label htmlFor="checkbox1" >
           <input className="formCheck" type="checkbox"   name="acceptedTerms"

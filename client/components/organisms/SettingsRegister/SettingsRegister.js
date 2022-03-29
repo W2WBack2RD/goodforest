@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import R from 'ramda';
+import { attemptGetUser, attemptUpdateUser } from '_thunks/user';
+
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -133,10 +135,10 @@ export default function Register() {
             // const refresh = () => dispatch(attemptGetUser())
             // .then(resetState)
             // .catch(R.identity);
-
-         
-            const register = () => {
-              const updatedUser = {};
+          
+              const register  = async (e) => {
+                e.preventDefault();
+                const updatedUser = {};
             if (username) { updatedUser.username = username; }
             if (phoneNumber) { updatedUser.phone_number = phoneNumber; }
             if (birthYear) { updatedUser.birth_year = birthYear; }
