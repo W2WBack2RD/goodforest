@@ -13,6 +13,7 @@ const forest = require('./forest');
 
 const router = express.Router();
 
+router.use('/api/auth', auth);
 router.use('/api/user', user);
 router.use('/api/forest', forest);
 router.use('/api/users', users);
