@@ -2,6 +2,7 @@ import { request } from '_api/request';
 
 import { handleSuccess, handleError } from '_utils/api';
 
+
 export const getUser = () =>
   request.get('/api/user')
     .then(handleSuccess)
@@ -18,3 +19,7 @@ export const putUserPassword = passwordInfo =>
     .send(passwordInfo)
     .then(handleSuccess)
     .catch(handleError);
+
+
+
+

@@ -29,6 +29,8 @@ const HomePage = () => {
   const handleCenterClick = (e) => { };
   const handleLeftClick = (e) => { };
 
+ 
+
   return (
     <PageLayout
       className="homePage"
