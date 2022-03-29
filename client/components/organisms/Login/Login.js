@@ -22,6 +22,7 @@ import { postCheckUsername } from '_api/users';
 import { validateUsername, validatePassword } from '_utils/validation';
 import { attemptRegister } from '_thunks/auth';
 import PageLayout from '../PageLayout';
+import { attemptLogin } from '_thunks/auth';
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -74,21 +75,16 @@ export default function Register() {
     checkPassword(username, e.target.value);
   };
 
-  const register = () => {
-    if (usernameAvailable && passwordValid) {
-      const newUser = {
-        username,
-        password,
-      };
+  const login = () => {
+    const userCredentials = { username, password };
 
-      dispatch(attemptRegister(newUser))
-        .catch(R.identity);
-    }
+    dispatch(attemptLogin(userCredentials))
+      .catch(R.identity);
   };
 
-  useKeyPress('Enter', register);
+  useKeyPress('Enter', login);
   return (
-    <PageLayout className="login" treeeIcon={true} innerPage={true} titleStyle={true} title="התחברות">
+    <PageLayout className="login" treesIcon={true} innerPage={true} titleStyle={true} title="התחברות">
       <p className='user-email-label'>
         כתובת דואר אלקטרוני
       </p>
@@ -153,7 +149,7 @@ export default function Register() {
       </Field>
 
       <div className="operators">
-        <Button className="is-pulled-right" type="submit" color="success" onClick={register} disabled={!passwordValid || !usernameAvailable}>
+        <Button className="is-pulled-right" type="submit" color="success" onClick={login} disabled={!passwordValid || !usernameAvailable}>
           כניסה
         </Button>
         <Link to="/Login" className='forget-password'>
