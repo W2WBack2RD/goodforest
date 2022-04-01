@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
 import R from "ramda";
+import { getAllForests } from "../../../api/forest";
 
 import Section from "react-bulma-companion/lib/Section";
 import Container from "react-bulma-companion/lib/Container";
@@ -12,8 +13,23 @@ import EventBoard from "../../molecules/EventsBoard/EventsBoard";
 import Button from "../../atoms/Button/Button";
 import PageLayout from "../../organisms/PageLayout";
 import Gallery from "../../molecules/Gallery/Gallery";
+import request from "superagent";
 
 const HomePage = () => {
+  const getAllForests = () => {
+    request
+      .get("/api/forest/")
+      .send({ name: "Manny", species: "cat" })
+      .then((result) => {
+        console.log("------------------------------------------");
+        console.log(result.body);
+        setResponse(result.body.message);
+      })
+      .catch();
+  };
+
+  getAllForests();
+
   HomePage.treeImg = false;
   HomePage.title = "חורשה 80";
   const [inputLeft, setInputLeft] = useState("0.8");
@@ -30,7 +46,6 @@ const HomePage = () => {
 
   return (
     <PageLayout
-
       className="homePage"
       treeeIcon={false}
       innerPage={false}
@@ -50,7 +65,6 @@ const HomePage = () => {
         functionR={handleRightClick}
         functionL={handleCenterClick}
         functionC={handleLeftClick}
-
       />
       <EventBoard />
       <div className="buttons">
@@ -59,7 +73,6 @@ const HomePage = () => {
       </div>
       <Gallery className="imgGallery" />
     </PageLayout>
-
   );
 };
 
