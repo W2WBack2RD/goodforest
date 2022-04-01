@@ -1,63 +1,63 @@
 .home-page {
   text-align: center;
-}
 
-.pageFrame {
-  position: absolute;
-  width: 375px;
-  height: 587px;
-  left: 0px;
-  top: 80px;
+  .pageFrame {
+    position: absolute;
+    width: 375px;
+    height: 587px;
+    left: 0px;
+    top: 80px;
 
-  background: #ffffff;
-  border-radius: 20px 20px 0px 0px;
-}
-.homePage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
+    background: #ffffff;
+    border-radius: 20px 20px 0px 0px;
+  }
+  .homePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
 
-.updateTreeStatusBtn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
+  .updateTreeStatusBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
 
-  position: absolute;
-  width: 160px;
-  height: 37px;
-  left: 0px;
-  top: 0px;
+    position: absolute;
+    width: 160px;
+    height: 37px;
+    left: 0px;
+    top: 0px;
 
-  background: #3b5a16;
-  border-radius: 5px;
-}
+    background: #3b5a16;
+    border-radius: 5px;
+  }
 
-.inputCircle {
-  margin-top: 20px;
-}
+  .inputCircle {
+    margin-top: 20px;
+  }
 
-.buttons {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-left: 8px;
-  width: 360px;
-  height: 37px;
-}
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 8px;
+    width: 360px;
+    height: 37px;
+  }
 
-.updateBtn {
-}
+  .updateBtn {
+  }
 
-.reportBtn {
-}
+  .reportBtn {
+  }
 
-.imgGallery {
-  align-items: center;
+  .imgGallery {
+    align-items: center;
+  }
 }

@@ -2,19 +2,17 @@ import R from 'ramda';
 
 export const validateUsername = username => {
   let valid = true;
-  let message = 'Username Valid';
+  let message = 'יוזר תקין';
 
-  if (!R.match(/^[a-zA-Z0-9_]+$/, username).length) {
-    message = 'Invalid character used';
-    valid = false;
-  } else if (username.length < 4) {
-    message = 'Username must be at least four characters';
-    valid = false;
-  } else if (username.length > 20) {
-    message = 'Username must be 20 characters or less';
-    valid = false;
-  } else if (R.match(/[a-zA-Z]/g, username).length < 4) {
-    message = 'Username must include at least four letters';
+  let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+
+  if (username.match(validRegex)) {
+    message = 'כתובת מייל לא תקינה';
+    valid = true;
+  }
+  else {
+    message = 'כתובת מייל לא תקינה';
     valid = false;
   }
   return { valid, message };
@@ -22,20 +20,18 @@ export const validateUsername = username => {
 
 export const validatePassword = (username, password) => {
   let valid = true;
-  let message = 'Password valid';
+  let message = 'סיסמא תקינה';
 
-  if (password.length < 6) {
+  if (R.match(/[a-zA-Z]/g, password).length < 7) {
     valid = false;
-    message = 'Password must be at least six characters';
-  } else if (password.length > 16) {
-    valid = false;
-    message = 'Password must be 16 characters or less';
-  } else if (username === password) {
-    valid = false;
-    message = 'Username and password must be different';
+    message = 'לפחות 8 תווים, לפחות ספרה אחת';
   } else if (!R.match(/[0-9]/, password).length) {
     valid = false;
-    message = 'Password must include at least one number';
+    message = 'לפחות 8 תווים, לפחות ספרה אחת';
+  }
+  else {
+    valid = true;
+    message = 'סיסמה תקינה';
   }
 
   return { valid, message };

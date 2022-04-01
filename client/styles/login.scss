@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap');
 
 .login-page {
-  .box {
+  .login {
     position: absolute;
     width: 335px;
     height: 563px;
@@ -14,6 +14,8 @@
     font-size: 14px;
     line-height: 20.56px;
     text-align: right;
+    direction: rtl;
+
   }
   ::-webkit-input-placeholder {
     text-align: right;
@@ -29,14 +31,18 @@
     text-align: right; 
     box-sizing: border-box;
     border-radius: 5px;
+
   }
 
   .pointer-link {
     cursor: pointer;
   }
+
   .formInput{
     font-family: 'Heebo', sans-serif;
     margin-top: 6px;
+    font-size: 16px;
+    text-align: left;
   }
   .is-pulled-right{
     background-color:#3B5A16;
@@ -46,6 +52,7 @@
     font-family: 'Heebo', sans-serif;
     font-size: 14px;
     padding:8px, 12px, 8px, 12px;
+    margin-left: 20px;
   }
 
   .operators {
@@ -59,15 +66,94 @@
   .forget-password {
     color: #000000;
     text-decoration: underline;
+    margin-right: 20px;
+    font-family: 'Heebo', sans-serif;
+
+  }
+
+  .forget-password:hover{
+    font-weight: bold;
   }
 
   .user-email-label {
+    direction: rtl;
     margin-top: 20px;
+    margin-right: 20px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+
+
   }
 
   .user-password-label {
+    direction: rtl;
     margin-top: 10px;
+    margin-right: 20px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+
+
   }
+
+  .has-icons-right
+  {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+   
+  ::placeholder{
+    padding-right: 20px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+  }
+
+  .is-danger{
+    direction: rtl;
+    margin-right: 20px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+  }
+  .is-success{
+    direction: rtl;
+    margin-right: 20px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+  }
+
+  .button.is-success[disabled], fieldset[disabled] .button.is-success{
+    background-color: gray ;
+    border-color: transparent;
+    box-shadow: none;
+    font-size: 14px;
+    margin-top: 30px;
+
+  }
+
+  .button.is-success
+  {
+    background-color:#ABAE2C ;
+    border-color: transparent;
+    color: #fff;
+    font-size: 14px;
+
+  }
+  .login-page .is-pulled-right{
+    background-color: #ABAE2C;
+    width: 105px;
+    height: 37px;
+    color: #FFFFFF;
+    font-family: "Heebo", sans-serif;
+    font-size: 14px;
+    padding: 8px, 12px, 8px, 12px;
+    margin-left: 20px;
+  }
+
+  .control.has-icons-left .icon, .control.has-icons-right .icon
+  {
+    align-items: center;
+    top: 7px;
+  }
+
 
 }
 

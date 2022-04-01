@@ -27,6 +27,7 @@ export default function PageLayout(props) {
   const handleMenuSearch = () => {
     setAdminMenuSearch(!adminMenuSearch);
   };
+
   return (
     <div className="layoutBG">
       <div className="menuBtn">
