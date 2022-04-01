@@ -35,19 +35,18 @@ export default function Register() {
   const dispatch = useDispatch();
   const { user } = useSelector(R.pick(['user']));
 
-  const [username, setUsername] = useState(user.username);
+  const [fullname, setFullname] = useState('');
   const [usernameMessage, setUsernameMessage] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState(user.phone_number);
-  const [birthYear, setBirthYear] = useState(user.birth_year);
-  const [email, setEmail] = useState(user.email_address)
-  const [password, setPassword] = useState(user.password);
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [birthYear, setBirthYear] = useState('');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('');
   const [passwordMessage, setPasswordMessage] = useState('');
-  const [usernameAvailable, setUsernameAvailable] = useState(false);
+  const [fullnameAvailable, setFullnameAvailable] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
-  const [mycity, setMyCity] = useState(user.city);
-  const [forest, setForest] = useState(user.forest_id);
-  const [acceptedTerms, setAcceptedTerms] = React.useState(user.get_update);
- 
+  const [mycity, setMyCity] = useState('');
+  const [forest, setForest] = useState('');
+  const [acceptedTerms, setAcceptedTerms] = React.useState(false);
 
 
   const checkPassword = (newUsername, newPassword) => {
@@ -93,7 +92,7 @@ export default function Register() {
  
  
   const resetState = () => {
-    setUsername(user.username);
+    setFullname(user.full_name);
     setPhoneNumber(user.phone_number);
     setBirthYear(user.birth_year);
     // setEmail(user.email_address);
@@ -107,8 +106,8 @@ export default function Register() {
     resetState();
   }, [user.username, user.phone_number, user.birthYear, user.password, user.city, user.forest_id, user.get_update]);
 
-  const updateUserName = e => {
-      setUsername(e.target.value);
+  const updateFullName = e => {
+      setFullname(e.target.value);
   };
   const updatePhoneNumber = e => {
     setPhoneNumber(e.target.value);
@@ -139,7 +138,7 @@ export default function Register() {
               const register  = async (e) => {
                 e.preventDefault();
                 const updatedUser = {};
-            if (username) { updatedUser.username = username; }
+            if (fullname) { updatedUser.full_name = fullname; }
             if (phoneNumber) { updatedUser.phone_number = phoneNumber; }
             if (birthYear) { updatedUser.birth_year = birthYear; }
             if (email) { updatedUser.email_address = email; }
@@ -190,16 +189,18 @@ export default function Register() {
 
         <Field className="userNameLabel" >
               <Label >
-              שם משתמש:
+             שם מלא:
         </Label>
               {/* <Control iconsRight> */}
                   <Input dir="rtl"
-                      name="username"
+                      name="fullname"
+                     
                       placeholder =" הקלד/י שם משתמש" required
-                      color={username ? (usernameAvailable ? 'success' : 'danger') : undefined}
-                      value={username}
+                      
+                      color={fullname ? (fullnameAvailable ? 'success' : 'danger') : undefined}
+                     
                       type="text"
-                      onChange={updateUserName}
+                      onChange={updateFullName}
                     //  {e => setUsername(e.target.value)}
                   />
                   {/* {username && (

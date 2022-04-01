@@ -30,14 +30,14 @@ import PageLayout from '../PageLayout';
 export default function Register() {
   const dispatch = useDispatch();
 
-  const [username, setUsername] = useState('');
+  const [fullname, setFullname] = useState('');
   const [usernameMessage, setUsernameMessage] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [birthYear, setBirthYear] = useState('');
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
   const [passwordMessage, setPasswordMessage] = useState('');
-  const [usernameAvailable, setUsernameAvailable] = useState(false);
+  const [fullnameAvailable, setFullnameAvailable] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
   const [mycity, setMyCity] = useState('');
   const [forest, setForest] = useState('');
@@ -72,7 +72,7 @@ export default function Register() {
   };
 
   const updateUsername = newUserName => {
-    setUsername(newUserName);
+    setFullname(newUserName);
     checkPassword(newUserName, password);
   };
 
@@ -97,10 +97,10 @@ export default function Register() {
                 e.preventDefault();
                 {
                         const newUser = {
-                          'username': username,
+                          'full_name': fullname,
                           'phone_number': phoneNumber,
                           'birth_year': birthYear,
-                          'email_address': email,
+                          'username': email,
                           'password': password,
                           'city': mycity,
                           'forest_id': forest,
@@ -150,16 +150,17 @@ export default function Register() {
 
         <Field className="userNameLabel" >
               <Label >
-              שם משתמש:
+            שם מלא:
         </Label>
               {/* <Control iconsRight> */}
                   <Input dir="rtl"
-                      name="username"
+                      name="full_name"
                       placeholder =" הקלד/י שם משתמש" required
-                      color={username ? (usernameAvailable ? 'success' : 'danger') : undefined}
-                      value={username}
+                      color={fullname ? (fullnameAvailable ? 'success' : 'danger') : undefined}
+                      value={fullname}
                       type="text"
-                      onChange={handleUsernameChange}
+                      onChange={e => setFullname(e.target.value)}
+                      // onChange={handleUsernameChange}
                     //  {e => setUsername(e.target.value)}
                   />
                   {/* {username && (
