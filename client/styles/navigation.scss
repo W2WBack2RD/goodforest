@@ -1,5 +1,5 @@
 .navbar {
-  background-color: $mern-primary;
+  background-color: whitesmoke;
 
   &.has-shadow {
     box-shadow: 0 2px 3px rgba(10, 10, 10, 0.3);
@@ -8,10 +8,6 @@
   .navbar-brand-right {
     margin-left: auto;
     display: flex;
-  }
-
-  .navbar-end .navbar-item:hover {
-    background: $mern-hover;
   }
 
   .navbar-item {
@@ -71,6 +67,24 @@
   .dropdown {
     .title {
       color: $black;
+    }
+
+    .button {
+      margin-top: 50px;
+
+      justify-content: center;
+      align-items: center;
+      width: 105px;
+      height: 37px;
+      background: #3b5a16;
+      border-radius: 5px;
+      font-family: Heebo;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: right;
+      color: #ffffff;
     }
   }
 }

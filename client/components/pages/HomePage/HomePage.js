@@ -15,6 +15,8 @@ import PageLayout from "../../organisms/PageLayout";
 import Gallery from "../../molecules/Gallery/Gallery";
 import request from "superagent";
 
+import { Link } from "react-router-dom";
+
 const HomePage = () => {
   const getAllForests = () => {
     request
@@ -69,7 +71,9 @@ const HomePage = () => {
       <EventBoard />
       <div className="buttons">
         <Button className="reportBtn" value="דווח על תקלה" />
-        <Button className="updateBtn" value="עדכון סטטוס עץ" />
+        <Link to="/reportTree">
+          <Button className="reportBtn" value="עדכון סטטוס עץ" />
+        </Link>
       </div>
       <Gallery className="imgGallery" />
     </PageLayout>

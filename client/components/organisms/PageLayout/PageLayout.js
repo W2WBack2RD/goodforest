@@ -18,6 +18,7 @@ export default function PageLayout(props) {
     setOpen(!open);
   };
 
+<<<<<<< HEAD
   const handleAdminMenu = () => {
     setOpen(false);
     setAdmin(!admin);
@@ -27,6 +28,8 @@ export default function PageLayout(props) {
   const handleMenuSearch = () => {
     setAdminMenuSearch(!adminMenuSearch);
   };
+=======
+>>>>>>> ee37dfffee80aac4c60fafe1109414356bb73293
   return (
     <div className="layoutBG">
       <div className="menuBtn">
