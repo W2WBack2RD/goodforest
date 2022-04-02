@@ -22,9 +22,9 @@ module.exports = app => {
   // };
   const sessionConfig = {
     store: MongoStore.create({
-      mongooseConnection: mongoose.connection,
+      mongoUrl: process.env.DATABASE_URL,
       collectionName: 'sessions',
-      ttl: 365 * 24 * 60 * 60, // = 365 days.
+      // ttl: 365 * 24 * 60 * 60, // = 365 days.
     }),
     secret: process.env.SESSION_SECRET,
     resave: true,
