@@ -16,7 +16,7 @@ const WebpackDefinePluginConfig = new webpack.DefinePlugin({
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: resolve('client/index.html'),
-  favicon: resolve('client/assets/icons/favicon.ico'),
+  favicon: resolve('client/assets/icons/cropped-favicon.png'),
   filename: 'index.html',
   inject: 'body',
 });

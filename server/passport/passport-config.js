@@ -29,9 +29,9 @@ module.exports = app => {
     secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
-    cookie: {
-      secure: app.get("env") === "production",
-    },
+    // cookie: {
+    //   secure: app.get("env") === "production",
+    // },
   };
   console.log('initializing passport')
 
