@@ -21,7 +21,7 @@ module.exports = app => {
   //   saveUninitialized: false,
   // };
   const sessionConfig = {
-    store: new MongoStore.create({
+    store: MongoStore.create({
       mongooseConnection: mongoose.connection,
       collectionName: 'sessions',
       ttl: 365 * 24 * 60 * 60, // = 365 days.
