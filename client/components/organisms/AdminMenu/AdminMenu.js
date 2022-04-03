@@ -21,10 +21,10 @@ const AdminMenu = ({ open, setOpen, fn, openMenu, handleMenu }) => {
           </div>
 
           <div className="navLinks">
-            <a className="linkName" href="/">
+            <a className="linkName" href="/home">
               <span className="middleLink">החורשה שלי</span>
             </a>
-            <a className="linkName" href="/">
+            <a className="linkName" href="/settingsRegister">
               <span className="middleLink">עדכון פרטים אישיים</span>
             </a>
             <a className=" linkName" href="/">

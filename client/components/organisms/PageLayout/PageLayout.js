@@ -9,16 +9,14 @@ import AdminMenuSearch from "../AdminMenuSearch/AdminMenuSearch";
 
 export default function PageLayout(props) {
   const [open, setOpen] = useState(false);
-  const [admin, setAdmin] = useState(true);
+  const [admin, setAdmin] = useState(false);
   const [adminMenuSearch, setAdminMenuSearch] = useState(false);
 
   const handleMenu = () => {
     console.log("menu should open");
-
     setOpen(!open);
   };
 
-<<<<<<< HEAD
   const handleAdminMenu = () => {
     setOpen(false);
     setAdmin(!admin);
@@ -28,8 +26,6 @@ export default function PageLayout(props) {
   const handleMenuSearch = () => {
     setAdminMenuSearch(!adminMenuSearch);
   };
-=======
->>>>>>> ee37dfffee80aac4c60fafe1109414356bb73293
   return (
     <div className="layoutBG">
       <div className="menuBtn">

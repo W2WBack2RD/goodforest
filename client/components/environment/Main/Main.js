@@ -21,7 +21,6 @@ import Navigation from "_organisms/Navigation";
 import Footer from "_organisms/Footer";
 import PageLayout from "../../organisms/PageLayout";
 
-
 export default function Main({ location }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
@@ -42,8 +41,6 @@ export default function Main({ location }) {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-
-
   return (
     !loading && (
       <div>
@@ -56,19 +53,14 @@ export default function Main({ location }) {
             <Route path="/register" component={RegisterPage} />
             <Route path="/home" component={HomePage} />
             <Route path="/todo" component={TodoPage} />
-<<<<<<< HEAD
-            <Route path="/settings" component={SettingsPage} />
-=======
             <Route path="/settingsRegister" component={SettingsRegisterPage} />
             <Route path="/settings" component={SettingsPage} />
             <Route path="/reportTree" component={ReportTreePage} />
->>>>>>> ee37dfffee80aac4c60fafe1109414356bb73293
             <Route path="*" component={LostPage} />
           </Switch>
         </div>
       </div>
     )
-
   );
 }
 
@@ -77,4 +69,3 @@ Main.propTypes = {
     pathname: PropTypes.string,
   }).isRequired,
 };
-
