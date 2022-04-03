@@ -176,7 +176,7 @@ export default function Register() {
 
   return (
    <PageLayout
-   TreeeIcon={true}
+   TreesIcon={true}
    innerPage={true}
    titleStyle={true}
    title="עדכון"
@@ -200,26 +200,8 @@ export default function Register() {
                       color={fullname ? (fullnameAvailable ? 'success' : 'danger') : undefined}
                      
                       type="text"
-                      onChange={updateFullName}
-                    //  {e => setUsername(e.target.value)}
-                  />
-                  {/* {username && (
-                      <Icon
-                          size="small"
-                          align="right"
-                          color={usernameAvailable ? 'success' : 'danger'}
-                      >
-                          <FontAwesomeIcon
-                              icon={usernameAvailable ? faCheck : faExclamationTriangle}
-                          />
-                      </Icon>
-                  )}
-              </Control>
-              {username && (
-                  <Help color={usernameAvailable ? 'success' : 'danger'}>
-                      {usernameMessage}
-                  </Help>
-              )} */}
+                      onChange={updateFullName}/>
+             
           </Field>
         
           <Field className="phoneLabel">
@@ -299,19 +281,6 @@ export default function Register() {
     <option value="Brazil">חורשה2</option>
     
   </select>
-
-          {/* <select name="forest"  value={forest}
-          onChange={e => setForest(e.target.value)}
-          className="inputStyle" multiple size="1"  required>
-                <option value="forest1">חורשה1</option>
-                <option value="forest2">חורשה2</option>
-                <option value="forest3">חורשה3</option>
-                <option value="forest4">חורשה4</option>
-                <option value="forest5">חורשה5</option>
-        
-            </select> */}
-
- 
         </div>
         <label htmlFor="checkbox1" >
           <input className="formCheck" type="checkbox"   name="acceptedTerms"

@@ -83,14 +83,9 @@ export default function Register() {
 
   const handlePasswordChange = e => {
     setPassword(e.target.value);
-    checkPassword(username, e.target.value);
+    checkPassword(fullname, e.target.value);
   };
- 
-  // const register = () => {
-    //   if (usernameAvailable && passwordValid) {
-    //     const newUser = {
 
-    
   
       const register  = async (e) => {
      
@@ -137,7 +132,7 @@ export default function Register() {
 
   return (
    <PageLayout
-   TreeeIcon={true}
+   treesIcon={true}
    innerPage={true}
    titleStyle={true}
    title="הרשמה"
@@ -160,26 +155,9 @@ export default function Register() {
                       value={fullname}
                       type="text"
                       onChange={e => setFullname(e.target.value)}
-                      // onChange={handleUsernameChange}
-                    //  {e => setUsername(e.target.value)}
+                   
                   />
-                  {/* {username && (
-                      <Icon
-                          size="small"
-                          align="right"
-                          color={usernameAvailable ? 'success' : 'danger'}
-                      >
-                          <FontAwesomeIcon
-                              icon={usernameAvailable ? faCheck : faExclamationTriangle}
-                          />
-                      </Icon>
-                  )}
-              </Control>
-              {username && (
-                  <Help color={usernameAvailable ? 'success' : 'danger'}>
-                      {usernameMessage}
-                  </Help>
-              )} */}
+                 
           </Field>
         
           <Field className="phoneLabel">
