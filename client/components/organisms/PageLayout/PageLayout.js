@@ -11,6 +11,7 @@ export default function PageLayout(props) {
     console.log("menu should open");
     setOpen(!open);
   };
+
   return (
     <div className="layoutBG">
       <div className="menuBtn">

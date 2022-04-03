@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { push } from 'connected-react-router';
+import R from 'ramda';
 import closeBtn from "../../../assets/icons/icon_close-small.svg";
 import treeImg from "../../../assets/icons/tree.svg";
 
 const Menu = ({ open, setOpen, fn }) => {
+  const { user } = useSelector(R.pick(['user']));
+  const dispatch = useDispatch();
+
+  console.log(user)
+
   const [forests, setForests] = useState(false);
+
+  useEffect(() => {
+    if (R.isEmpty(user)) {
+      dispatch(push('/login'));
+    }
+  }, []);
 
   const handleMoreForests = () => {
     setForests(!forests);
@@ -13,7 +27,7 @@ const Menu = ({ open, setOpen, fn }) => {
     <div className="menuBG">
       <div className="closeBtn">
         <img className="closeImg " src={closeBtn} onClick={fn} />
-        <span>שלום דניאל</span>
+        <span>שלום {user.username}</span>
       </div>
 
       <div className="navLinks">
