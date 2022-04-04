@@ -95,7 +95,7 @@ export default function Register() {
     setFullname(user.full_name);
     setPhoneNumber(user.phone_number);
     setBirthYear(user.birth_year);
-    // setEmail(user.email_address);
+    setEmail(user.username);
     setPassword(user.password);
     setMyCity(user.city);
     setForest(user.forest_id);
@@ -104,7 +104,7 @@ export default function Register() {
 
   useEffect(() => {
     resetState();
-  }, [user.username, user.phone_number, user.birthYear, user.password, user.city, user.forest_id, user.get_update]);
+  }, [user.full_name, user.phone_number, user.birthYear,user.username, user.password, user.city, user.forest_id, user.get_update]);
 
   const updateFullName = e => {
       setFullname(e.target.value);
@@ -141,7 +141,7 @@ export default function Register() {
             if (fullname) { updatedUser.full_name = fullname; }
             if (phoneNumber) { updatedUser.phone_number = phoneNumber; }
             if (birthYear) { updatedUser.birth_year = birthYear; }
-            if (email) { updatedUser.email_address = email; }
+            if (email) { updatedUser.username = email; }
             if (password) { updatedUser.password = password; }
             if (mycity) { updatedUser.city = mycity; }
             if (forest) { updatedUser.forest_id = forest; }
