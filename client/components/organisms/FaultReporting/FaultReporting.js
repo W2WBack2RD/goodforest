@@ -194,7 +194,7 @@ export default function Register() {
       TreesIcon={true}
       innerPage={true}
       titleStyle={true}
-      title="עדכון"
+      title="דיווח על תקלה"
     >
       <form onSubmit={register}>
         <div dir="rtl">

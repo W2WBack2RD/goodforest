@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getTodos } from "../../../api/todos";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
 import R from "ramda";
@@ -12,7 +13,7 @@ import EventBoard from "../../molecules/EventsBoard/EventsBoard";
 import Button from "../../atoms/Button/Button";
 import PageLayout from "../../organisms/PageLayout";
 import Gallery from "../../molecules/Gallery/Gallery";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   HomePage.treeImg = false;
@@ -25,11 +26,9 @@ const HomePage = () => {
   const [nameCenter, setNameCenter] = useState("שיתוף חברים");
   const [nameRight, setNameRight] = useState("ספרו לי עוד");
 
-  const handleRightClick = (e) => { };
-  const handleCenterClick = (e) => { };
-  const handleLeftClick = (e) => { };
-
- 
+  const handleRightClick = (e) => {};
+  const handleCenterClick = (e) => {};
+  const handleLeftClick = (e) => {};
 
   return (
     <PageLayout
@@ -50,20 +49,20 @@ const HomePage = () => {
         nameCenter={nameCenter}
         nameRight={nameRight}
         functionR={handleRightClick}
-        functionL={handleCenterClick}
-        functionC={handleLeftClick}
-
+        functionL={handleLeftClick}
+        functionC={handleCenterClick}
       />
       <EventBoard />
       <div className="buttons">
-        <Button className="reportBtn" value="דווח על תקלה" />
+        <Link to="/faultReporting">
+          <Button className="reportBtn" value="דווח על תקלה" />
+        </Link>
         <Link to="/reportTree">
           <Button className="reportBtn" value="עדכון סטטוס עץ" />
         </Link>
       </div>
       <Gallery className="imgGallery" />
-    </PageLayout >
-
+    </PageLayout>
   );
 };
 
