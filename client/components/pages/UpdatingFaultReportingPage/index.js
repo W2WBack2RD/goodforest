@@ -1,3 +1,3 @@
-import UpdatingFaultReportingPage from "./UpdatingFaultReportingPage";
+import UpdateFaultRepotingPage from "./UpdatingFaultReportingPage";
 
-export default UpdatingFaultReportingPage;
+export default UpdateFaultRepotingPage;

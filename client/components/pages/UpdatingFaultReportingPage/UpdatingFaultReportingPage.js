@@ -25,7 +25,7 @@ const config = {
 };
 const ReactS3Client = new S3(config);
 
-export default function ReportTreePage() {
+export default function UpdatingFaultReportingPage() {
   const dispatch = useDispatch();
   const { user } = useSelector(R.pick(["user"]));
 
