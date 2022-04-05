@@ -20,7 +20,7 @@ import LostPage from "_pages/LostPage";
 import Navigation from "_organisms/Navigation";
 import Footer from "_organisms/Footer";
 import PageLayout from "../../organisms/PageLayout";
-
+import UpdatingFaultReportingPage from "_pages/UpdatingFaultReportingPage";
 
 export default function Main({ location }) {
   const dispatch = useDispatch();
@@ -42,8 +42,6 @@ export default function Main({ location }) {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-
-
   return (
     !loading && (
       <div>
@@ -58,12 +56,15 @@ export default function Main({ location }) {
             <Route path="/settingsRegister" component={SettingsRegisterPage} />
             <Route path="/settings" component={SettingsPage} />
             <Route path="/reportTree" component={ReportTreePage} />
+            <Route
+              path="/updateFaultReporting"
+              component={UpdatingFaultReportingPage}
+            />
             <Route path="*" component={LostPage} />
           </Switch>
         </div>
       </div>
     )
-
   );
 }
 
@@ -72,4 +73,3 @@ Main.propTypes = {
     pathname: PropTypes.string,
   }).isRequired,
 };
-
