@@ -134,6 +134,7 @@ export default function ReportTreePage() {
           maxLength={240}
           value={description}
           onChange={(event) => setDescription(event.target.value)}
+          required
         />
         <div className="form-footer">
           <div>
