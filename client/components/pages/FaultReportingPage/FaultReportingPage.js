@@ -14,6 +14,7 @@ import treeIcon from "_assets/icons/tree02.svg";
 import { attemptSendReport } from "_thunks/report";
 import { Buffer } from "buffer";
 import Input from "react-bulma-companion/lib/Input";
+import { Link } from "react-router-dom";
 
 window.Buffer = Buffer;
 
@@ -146,9 +147,11 @@ export default function ReportTreePage() {
             <div style={{ marginTop: 5 }}>{picName}</div>
             <div className="error">{errors}</div>
           </div>
-          <Button id="continue" onClick={sendReport}>
-            המשך
-          </Button>
+          <Link to="/updatingFaultReporting">
+            <Button id="continue" onClick={sendReport}>
+              המשך
+            </Button>
+          </Link>
         </div>
       </div>
     </PageLayout>
