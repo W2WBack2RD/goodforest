@@ -137,7 +137,6 @@ export default function UpdatingFaultReportingPage() {
         <Textarea
           maxLength={240}
           value={description}
-          required
           onChange={(event) => setDescription(event.target.value)}
         />
         <div className="form-footer">
