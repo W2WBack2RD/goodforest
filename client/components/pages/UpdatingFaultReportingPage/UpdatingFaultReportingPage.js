@@ -14,6 +14,7 @@ import updateFaultReporting from "_assets/images/updateFaultReporting.svg";
 import { attemptSendReport } from "_thunks/report";
 import { Buffer } from "buffer";
 import Input from "react-bulma-companion/lib/Input";
+import { Link } from "react-router-dom";
 
 window.Buffer = Buffer;
 
@@ -96,62 +97,23 @@ export default function UpdatingFaultReportingPage() {
           <img
             id="updateFaultTree"
             src={updateFaultReporting}
-            style={{ height: 120 }}
+            style={{ height: 199, width: 179 }}
           />
         </div>
-        <Title id="titleReporting" size="6" className="header">
-          השלט נפל? הטפטפת דולפת?
-          <br></br>
-          נשמח לדעת על כל בעיה!
+        <Title id="updateTitleReporting" size="6" className="header">
+          תודה על העדכון!
+        </Title>
+        <Title id="paragrahUpdateReporting" size="6" className="header">
+          דיווחים שוטפים על מצב העצים עוזרים לשמור על החלקה ולעודד את הצמיחה של
+          העצים.
         </Title>
 
-        <label className="form-label">באיזה שטח יש תקלה?</label>
-        <Select
-          fullwidth
-          value={flowers}
-          onChange={(event) => setFlowers(event.target.value)}
-        >
-          <Select.Content>
-            <Select.Option className="placeholder">בחירה</Select.Option>
-            <Select.Option>הגן הזאולוגי כפר הנוער בן שמן</Select.Option>
-          </Select.Content>
-        </Select>
-
-        <label className="form-label">נושא התקלה</label>
-        <Select
-          fullwidth
-          value={fruits}
-          onChange={(event) => setFruits(event.target.value)}
-        >
-          <Select.Content>
-            <Select.Option className="placeholder">בחירה</Select.Option>
-            <Select.Option>השקייה</Select.Option>
-            <Select.Option>ניקיון וטיפוח</Select.Option>
-            <Select.Option>עצים</Select.Option>
-            <Select.Option>קהילה</Select.Option>
-            <Select.Option>רשות</Select.Option>
-          </Select.Content>
-        </Select>
-
-        <label className="form-label">תיאור התקלה</label>
-        <Textarea
-          maxLength={240}
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
-        />
         <div className="form-footer">
-          <div>
-            <div>
-              <Button id="addPicture">
-                <label htmlFor="filePicker">צרף תמונה</label>
-              </Button>
-            </div>
-            <div style={{ marginTop: 5 }}>{picName}</div>
-            <div className="error">{errors}</div>
-          </div>
-          <Button id="continue" onClick={sendReport}>
-            המשך
-          </Button>
+          <Link to="/home">
+            <Button id="home-page-navigation" onClick={sendReport}>
+              לדף הבית
+            </Button>
+          </Link>
         </div>
       </div>
     </PageLayout>

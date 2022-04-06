@@ -2,28 +2,35 @@
   padding: 20px;
   padding-top: 5px;
   direction: rtl;
+  height: 590px;
 
   #updateFaultTree{
     margin-top: 60px;
+    margin-right: 80px;
+    height: 300px;
+    width: 300px;
   }
-  .error {
-    color: #b50000;
+
+  #updateTitleReporting{
+    margin-top: 24px;
+    font-weight: 700;
+    font-size: 26px;
+    text-align: center;
+  }
+
+  #paragrahUpdateReporting{
+    margin-top: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
   }
 
   .header {
     margin-top: 40px;
     font-weight: 700;
-  }
-
-  .form-label {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 6px;
-  }
-
-  .adopt-tree {
-    display: flex;
-    align-items: center;
   }
 
   .link,
@@ -43,6 +50,10 @@
       font-size: 14px;
       color: white;
       background-color: #3b5a16;
+      margin-right: 100px;
+      padding-right: 35px;
+      padding-left: 35px;
+      margin-top: 50px;
     }
 
     button:hover,
@@ -52,86 +63,5 @@
       color: white;
       background-color: #273d0c;
     }
-  }
-
-  .is-selected {
-    color: white;
-    background-color: #273d0c;
-  }
-
-  .buttons {
-    #left {
-      border-radius: 0 20px 20px 0;
-    }
-
-    #right {
-      border-radius: 20px 0 0 20px;
-    }
-  }
-
-
-
-  #height {
-    background: #3b5a16;
-
-    &::-webkit-slider-thumb {
-      border: 4px solid #3b5a16;
-    }
-    &::-moz-range-thumb {
-      border: 4px solid #3b5a16;
-    }
-  }
-
-  #diameter {
-    background: #ae7051;
-
-    &::-webkit-slider-thumb {
-      border: 4px solid #ae7051;
-    }
-    &::-moz-range-thumb {
-      border: 4px solid #ae7051;
-    }
-  }
-
-  .slider-container {
-    display: flex;
-  }
-
-  .slider-edge {
-    text-align: center;
-    font-weight: 700;
-
-    div {
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  .rate {
-    display: flex;
-    justify-content: space-between;
-  }
-  .rate-text {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
-
-  .rate-item {
-    cursor: pointer;
-  }
-
-  .select select {
-    padding-right: 1.125em;
-  }
-
-  .select:not(.is-multiple):not(.is-loading)::after {
-    left: 1.125em;
-    right: initial;
-    border-color: black;
-    border-width: 2px;
   }
 }
