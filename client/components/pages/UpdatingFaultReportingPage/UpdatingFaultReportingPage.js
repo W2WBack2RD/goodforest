@@ -10,6 +10,7 @@ import Textarea from "react-bulma-companion/lib/Textarea";
 import Buttons from "react-bulma-companion/lib/Buttons";
 import Title from "react-bulma-companion/lib/Title";
 import treeIcon from "_assets/icons/tree02.svg";
+import updateFaultReporting from "_assets/images/updateFaultReporting.svg";
 import { attemptSendReport } from "_thunks/report";
 import { Buffer } from "buffer";
 import Input from "react-bulma-companion/lib/Input";
@@ -90,7 +91,7 @@ export default function UpdatingFaultReportingPage() {
 
   return (
     <PageLayout className="homePage" titleStyle={false} title="דיווח על תקלה">
-      <div className="UpdateFaultRepotingPage">
+      <div className="UpdateFaultReportingPage">
         <div>
           <img
             id="updateFaultTree"
@@ -136,6 +137,7 @@ export default function UpdatingFaultReportingPage() {
         <Textarea
           maxLength={240}
           value={description}
+          required
           onChange={(event) => setDescription(event.target.value)}
         />
         <div className="form-footer">
