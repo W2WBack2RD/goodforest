@@ -65,7 +65,11 @@ export default function ReportTreePage() {
     description,
     pic,
   };
+  const login = () => {
+    const userCredentials = { username, password };
 
+    dispatch(attemptLogin(userCredentials)).catch(R.identity);
+  };
   const upload = (file) => {
     console.log(file);
     if (file.size > 1000000) {
