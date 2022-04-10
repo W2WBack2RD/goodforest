@@ -96,7 +96,7 @@ export default function ReportTreePage() {
 
   return (
     <PageLayout className="homePage" titleStyle={false} title="דיווח על תקלה">
-      <div className="FaultRepotingPage">
+      <div className="FaultReportingPage">
         <div>
           <img id="faultTree" src={faultrepoting} style={{ height: 120 }} />
         </div>
@@ -144,7 +144,7 @@ export default function ReportTreePage() {
         <div className="form-footer">
           <div>
             <div>
-              <Button id="addPicture">
+              <Button>
                 <label htmlFor="filePicker">צרף תמונה</label>
               </Button>
             </div>
@@ -157,6 +157,12 @@ export default function ReportTreePage() {
             </Button>
           </Link>
         </div>
+        <input
+          id="filePicker"
+          style={{ visibility: "hidden" }}
+          type="file"
+          onChange={(e) => upload(e.target.files[0])}
+        ></input>
       </div>
     </PageLayout>
   );
