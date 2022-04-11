@@ -176,7 +176,7 @@ export default function Register() {
 
   return (
    <PageLayout
-   TreesIcon={true}
+   treesIcon={true}
    innerPage={true}
    titleStyle={true}
    title="עדכון"
@@ -264,9 +264,27 @@ export default function Register() {
           value={mycity}
           onChange={updateCity}
           className="inputStyle" required>
-            <option  value="">עיר</option>
-            <option  value="Jerusalem">ירושלים</option>
-            <option  value="Tel aviv">תל אביב</option>
+            <option value="2">אחיטוב</option>
+    <option value="3">באר שבע</option>
+    <option value="4">בית שמש</option>
+    <option value="5">ג'לג'וליה</option>
+    <option value="6">חדרה</option>
+    <option value="7">טייבה</option>
+    <option value="8">יד חנה</option>
+    <option value="9">ירושלים</option>
+    <option value="10">כוכב יאיר-צור יגאל</option>
+    <option value="11">כפר סבא</option>
+    <option value="12">להבים</option>
+    <option value="13">מגל</option>
+    <option value="14">מזכרת בתיה</option>
+    <option value="15">נהריה</option>
+    <option value="16">עכו</option>
+    <option value="17">עפולה</option>
+    <option value="18">קדימה-צורן</option>
+    <option value="19">רהט</option>
+    <option value="20">רתמים</option>
+    <option value="21">שובל</option>
+                
           </select>
           <Field className="ageLabel">
             <Label htmlFor="username">
@@ -276,9 +294,32 @@ export default function Register() {
         
           
   <select name="forest" onChange={updateForest} className="inputStyle"  multiple size="1" required >
-    <option value="Argentina">חורשה</option>
-    <option value="Bolivia">חורשה1</option>
-    <option value="Brazil">חורשה2</option>
+    <option value="1">בן זכאי אלעד</option>
+    <option value="2">גן הבנים אחיטוב</option>
+    <option value="3">נחל כתף</option>
+    <option value="4">המסגד ג'לג'וליה</option>
+    <option value="5">חורשת ליהי חדרה</option>
+    <option value="6">טארק אבו זייד טייבה</option>
+    <option value="7">המרפסת יד חנה</option>
+    <option value="8">עזרת תורה</option>
+    <option value="9">גינת ארבל</option>
+    <option value="10">גינת ארבל</option>
+    <option value="11">גינת אגוז</option>
+    <option value="12">גאולים כפר סבא</option>
+    <option value="13">פארק 80 כפר סבא</option>
+    <option value="14">שטח קטן להבים</option>
+    <option value="15">חורשת הכניסה</option>
+    <option value="16">שטח קטן מגל</option>
+    <option value="17">נחל עקרון מזכרת בתיה</option>
+    <option value="18">שצ״פ שזר 53 נהריה</option>
+    <option value="19">תל נפוליאון</option>
+    <option value="20">שבטי ישראל עפולה</option>
+    <option value="21">גינת אלי כהן עפולה</option>
+    <option value="22">הפלמ"ח קדימה</option>
+    <option value="23">בית ספר אלחנאן רהט</option>
+    <option value="24">מתנ״ס רהט</option>
+    <option value="25">שצ"פ 900 רתמים</option>
+    <option value="26">גבעה חקלאות שובל</option>
     
   </select>
         </div>
