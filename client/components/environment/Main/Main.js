@@ -48,6 +48,7 @@ export default function Main({ location }) {
     !loading && (
       <div>
         <ReactNotification />
+
         <div className="main">
           <Switch>
             <Route exact path="/" component={WelcomePage} />
@@ -55,6 +56,7 @@ export default function Main({ location }) {
             <Route path="/register" component={RegisterPage} />
             <Route path="/home" component={HomePage} />
             <Route path="/todo" component={TodoPage} />
+
             <Route path="/settingsRegister" component={SettingsRegisterPage} />
             <Route path="/settings" component={SettingsPage} />
             <Route path="/reportTree" component={ReportTreePage} />

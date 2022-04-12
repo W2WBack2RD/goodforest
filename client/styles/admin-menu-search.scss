@@ -1,0 +1,176 @@
+.searchStart {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  width: 100%;
+}
+
+.searchName {
+  align-self: flex-start;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  text-align: right;
+  margin-right: 20px;
+  color: #ffffff;
+}
+
+.searchForestForm {
+  width: 295px;
+}
+
+.labelSearch {
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 6px 0px;
+
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #ffffff;
+}
+
+.searchForest {
+  width: 295px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+  column-gap: 20px;
+  margin: 20px;
+  margin-right: 16px;
+}
+
+.selectSearch {
+  display: flex;
+  flex-direction: row;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  right: 16px;
+  top: 8px;
+  width: 295px;
+
+  height: 40px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+
+  direction: rtl;
+
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #ffffff;
+  /*
+  -webkit-appearance: none;
+  background: url("../assets/icons/icon_chevron-right-white.svg") right center
+    no-repeat;
+  direction: rtl;
+
+  background-position: 3% center;
+  background-position-x: (-1, 1);
+  background-position-y: (1, -1);
+  */
+}
+
+#submitSearch {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  align-self: center;
+  width: 295px;
+  height: 37px;
+
+  background: #acae46;
+  border-radius: 5px;
+
+  margin-top: 40px;
+}
+
+#submitSearch:focus {
+  background: #acae46;
+  color: #1d3c00;
+}
+
+#submitSearch span {
+  width: 64px;
+  height: 21px;
+  left: 115.5px;
+  top: 8px;
+
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  text-align: right;
+
+  color: #1d3c00;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
+}
+
+select,
+option {
+  text-align: right;
+}
+
+option {
+  margin-right: 16px;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+  left: 1.125em;
+  right: initial;
+  border-color: white;
+  border-width: 2px;
+}
+.selectBox {
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0px;
+
+  width: 295px;
+  height: 67px;
+  left: calc(50% - 295px / 2);
+  top: 88px;
+}
+
+.forestLabel {
+  margin-top: 10px;
+}
+
+Select {
+  background: rgba(255, 255, 255, 0.1);
+}

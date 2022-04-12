@@ -63,7 +63,6 @@ const Menu = ({ open, setOpen, fn }) => {
       </div>
     </div>
   );
-
 };
 
 export default Menu;
