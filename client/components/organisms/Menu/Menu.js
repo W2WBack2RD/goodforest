@@ -40,6 +40,7 @@ const Menu = ({ open, setOpen, fn }) => {
         <a className=" linkName" href="/">
           <span className="middleLink">הזמן חברים</span>
         </a>
+        {/*
         <a className={forests ? "forestOpen" : "linkName lastLink"}>
           <span onClick={handleMoreForests}>חורשות נוספות</span>
           {forests ? (
@@ -55,6 +56,7 @@ const Menu = ({ open, setOpen, fn }) => {
             </div>
           ) : null}
         </a>
+          */}
       </div>
       <div className="logOutLink">
         <a href="/">

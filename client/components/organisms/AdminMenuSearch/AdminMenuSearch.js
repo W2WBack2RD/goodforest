@@ -1,9 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { request } from "_api/request";
+
 import Button from "../../atoms/Button/Button";
 import rightArrow from "../../../assets/icons/icon_chevron-right-white.svg";
 import Select from "react-bulma-companion/lib/Select";
+import { getAllForests } from "../../../api/forest";
 
 const AdminMenuSearch = ({ moreForests, fn }) => {
+  const [forestResponse, setForestResponse] = React.useState("");
+  const [responseData, setResponseData] = React.useState([]);
+
+  useEffect(() => {
+    getAllForests();
+  }, []);
+
+  const getAllForests = () => {
+    request
+      .get("/api/forest/")
+      .send()
+      .then((result) => {
+        console.log("------------------------------------------");
+        setResponseData(result.body.forests[0]);
+        setForestResponse(result.body.message);
+        console.log(responseData);
+      })
+      .catch();
+  };
+
   return (
     <div className="menuBG">
       <div className="searchStart">
