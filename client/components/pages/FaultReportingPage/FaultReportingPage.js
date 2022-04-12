@@ -11,7 +11,7 @@ import Buttons from "react-bulma-companion/lib/Buttons";
 import Title from "react-bulma-companion/lib/Title";
 import faultrepoting from "/client/assets/images/faultrepoting.svg";
 import treeIcon from "_assets/icons/tree02.svg";
-import { attemptSendReport } from "_thunks/report";
+import { attemptSendReport } from "_thunks/reporterProblem";
 import { Buffer } from "buffer";
 import Input from "react-bulma-companion/lib/Input";
 import { Link } from "react-router-dom";
@@ -37,8 +37,8 @@ export default function ReportTreePage() {
   const [height, setHeight] = useState(3);
   const [diameter, setDiameter] = useState(3);
   const [leaves, setLeaves] = useState("");
-  const [flowers, setFlowers] = useState("");
-  const [fruits, setFruits] = useState("");
+  const [forest, setForest] = useState("");
+  const [subject, setSubject] = useState("");
   const [generalStatus, setStatus] = useState(3);
   const [description, setDescription] = useState("");
   const [pic, setPic] = useState(null);
@@ -55,15 +55,9 @@ export default function ReportTreePage() {
   //   }
   // }, []);
   var status = {
-    location,
-    height,
-    diameter,
-    leaves,
-    flowers,
-    fruits,
-    generalStatus,
+    forest,
+    subject,
     description,
-    pic,
   };
   const login = () => {
     const userCredentials = { username, password };
@@ -109,13 +103,13 @@ export default function ReportTreePage() {
         <label className="form-label">באיזה שטח יש תקלה?</label>
         <Select
           fullwidth
-          value={flowers}
-          onChange={(event) => setFlowers(event.target.value)}
+          value={forest}
+          onChange={(event) => setForest(event.target.value)}
           required
         >
           <Select.Content>
             <Select.Option className="placeholder">בחירה</Select.Option>
-            <Select.Option selected>
+            <Select.Option defaultValue>
               הגן הזאולוגי כפר הנוער בן שמן
             </Select.Option>
           </Select.Content>
@@ -124,8 +118,8 @@ export default function ReportTreePage() {
         <label className="form-label">נושא התקלה</label>
         <Select
           fullwidth
-          value={fruits}
-          onChange={(event) => setFruits(event.target.value)}
+          value={subject}
+          onChange={(event) => setSubject(event.target.value)}
         >
           <Select.Content>
             <Select.Option className="placeholder">בחירה</Select.Option>
@@ -155,7 +149,11 @@ export default function ReportTreePage() {
             <div className="error">{errors}</div>
           </div>
           <Link to="/updatingFaultReporting">
-            <Button id="continue" onClick={sendReport}>
+            <Button
+              id="continue"
+              onClick={sendReport}
+              disabled={!description || !subject}
+            >
               המשך
             </Button>
           </Link>
