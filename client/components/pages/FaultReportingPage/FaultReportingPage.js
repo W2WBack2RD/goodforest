@@ -111,10 +111,13 @@ export default function ReportTreePage() {
           fullwidth
           value={flowers}
           onChange={(event) => setFlowers(event.target.value)}
+          required
         >
           <Select.Content>
             <Select.Option className="placeholder">בחירה</Select.Option>
-            <Select.Option>הגן הזאולוגי כפר הנוער בן שמן</Select.Option>
+            <Select.Option selected>
+              הגן הזאולוגי כפר הנוער בן שמן
+            </Select.Option>
           </Select.Content>
         </Select>
 
