@@ -1,0 +1,67 @@
+.UpdateFaultReportingPage {
+  padding: 20px;
+  padding-top: 5px;
+  direction: rtl;
+  height: 590px;
+
+  #updateFaultTree{
+    margin-top: 60px;
+    margin-right: 80px;
+    height: 300px;
+    width: 300px;
+  }
+
+  #updateTitleReporting{
+    margin-top: 24px;
+    font-weight: 700;
+    font-size: 26px;
+    text-align: center;
+  }
+
+  #paragrahUpdateReporting{
+    margin-top: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .header {
+    margin-top: 40px;
+    font-weight: 700;
+  }
+
+  .link,
+  .link:hover {
+    color: black;
+    text-decoration: underline;
+    margin-right: 10px;
+  }
+
+  .form-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      border: 0;
+      font-size: 14px;
+      color: white;
+      background-color: #3b5a16;
+      margin-right: 100px;
+      padding-right: 35px;
+      padding-left: 35px;
+      margin-top: 50px;
+    }
+
+    button:hover,
+    button:focus {
+      border: 0;
+      font-size: 14px;
+      color: white;
+      background-color: #273d0c;
+    }
+  }
+}

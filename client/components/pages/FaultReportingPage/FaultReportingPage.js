@@ -9,6 +9,7 @@ import Select from "react-bulma-companion/lib/Select";
 import Textarea from "react-bulma-companion/lib/Textarea";
 import Buttons from "react-bulma-companion/lib/Buttons";
 import Title from "react-bulma-companion/lib/Title";
+import UpdatingFaultReportingPage from "_pages/UpdatingFaultReportingPage";
 import faultrepoting from "/client/assets/images/faultrepoting.svg";
 import treeIcon from "_assets/icons/tree02.svg";
 import { attemptSendReport } from "_thunks/reporterProblem";
@@ -109,7 +110,7 @@ export default function ReportTreePage() {
         >
           <Select.Content>
             <Select.Option className="placeholder">בחירה</Select.Option>
-            <Select.Option defaultValue>
+            <Select.Option selected>
               הגן הזאולוגי כפר הנוער בן שמן
             </Select.Option>
           </Select.Content>
