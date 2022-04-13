@@ -93,7 +93,7 @@ export default function ReportTreePage() {
     <PageLayout className="homePage" titleStyle={false} title="דיווח על תקלה">
       <div className="FaultReportingPage">
         <div>
-          <img id="faultTree" src={faultrepoting} style={{ height: 120 }} />
+          <img id="faultTree" src={faultreporting} style={{ height: 120 }} />
         </div>
         <Title id="titleReporting" size="6" className="header">
           השלט נפל? הטפטפת דולפת?
