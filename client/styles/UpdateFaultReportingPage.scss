@@ -45,23 +45,22 @@
     display: flex;
     justify-content: space-between;
 
-    button {
-      border: 0;
-      font-size: 14px;
-      color: white;
-      background-color: #3b5a16;
-      margin-right: 100px;
-      padding-right: 35px;
-      padding-left: 35px;
-      margin-top: 50px;
-    }
+  button {
+    border: 0;
+    font-size: 14px;
+    color: white;
+    background-color: #3b5a16;
+    margin-right: 125px;
+    margin-left: 125px;
+    margin-top: 0px;
+  }
 
-    button:hover,
-    button:focus {
-      border: 0;
-      font-size: 14px;
-      color: white;
-      background-color: #273d0c;
-    }
+  button:hover,
+  button:focus {
+    border: 0;
+    font-size: 14px;
+    color: black;
+    background-color: #ABAE2C;
+  }
   }
 }
