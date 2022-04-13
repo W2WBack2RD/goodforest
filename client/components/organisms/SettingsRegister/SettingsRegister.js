@@ -47,7 +47,8 @@ export default function Register() {
   const [mycity, setMyCity] = useState('');
   const [forest, setForest] = useState('');
   const [acceptedTerms, setAcceptedTerms] = React.useState(false);
-
+  // const [forestResponse, setForestResponse] = React.useState("");
+  // const [responseData, setResponseData] = React.useState([]);
 
   const checkPassword = (newUsername, newPassword) => {
     const { valid, message } = validatePassword(newUsername, newPassword);
@@ -158,7 +159,22 @@ export default function Register() {
         
   useKeyPress('Enter', register);
 
+  // useEffect(() => {
+  //   getAllForests();
+ 
+  // }, []);
 
+  // const getAllForests = () => {
+  //   request
+  //     .get("/api/forest/")
+  //     .send()
+  //     .then((result) => {
+  //       setResponseData(result.body.forests[0]);
+  //       setForestResponse(result.body.message);
+  //       console.log(responseData);
+  //     })
+  //     .catch();
+  // };
 
   const generateYearOptions = () => {
     const arr = [];
@@ -293,7 +309,7 @@ export default function Register() {
           </Field>
         
           
-  <select name="forest" onChange={updateForest} className="inputStyle"  multiple size="1" required >
+  <select name="forest" onChange={updateForest} className="inputStyle"  required >
     <option value="1">בן זכאי אלעד</option>
     <option value="2">גן הבנים אחיטוב</option>
     <option value="3">נחל כתף</option>

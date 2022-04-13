@@ -42,7 +42,8 @@ export default function Register() {
   const [mycity, setMyCity] = useState('');
   const [forest, setForest] = useState('');
   const [acceptedTerms, setAcceptedTerms] = React.useState(false);
- 
+  // const [forestResponse, setForestResponse] = React.useState("");
+  // const [responseData, setResponseData] = React.useState([]);
 
 
   const checkPassword = (newUsername, newPassword) => {
@@ -57,16 +58,16 @@ export default function Register() {
 
     if (valid) {
       setUsernameMessage('Checking username...');
-      setUsernameAvailable(false);
+      setFullnameAvailable(false);
 
       postCheckUsername(newUsername)
         .then(res => {
-          setUsernameAvailable(res.available);
+          setFullnameAvailable(res.available);
           setUsernameMessage(res.message);
         })
         .catch(R.identity);
     } else {
-      setUsernameAvailable(valid);
+      setFullnameAvailable(valid);
       setUsernameMessage(message);
     }
   };
@@ -114,6 +115,21 @@ export default function Register() {
 
   useKeyPress('Enter', register);
 
+  // useEffect(() => {
+  //   getAllForests();
+  // }, []);
+
+  // const getAllForests = () => {
+  //   request
+  //     .get("/api/forest/")
+  //     .send()
+  //     .then((result) => {
+  //       setResponseData(result.body.forests[0]);
+  //       setForestResponse(result.body.message);
+  //       console.log(responseData);
+  //     })
+  //     .catch();
+  // };
 
 
   const generateYearOptions = () => {
@@ -220,27 +236,27 @@ export default function Register() {
           value={mycity}
           onChange={e => setMyCity(e.target.value)}
           className="inputStyle" required>
-              <option value="1">אלעד</option>
-    <option value="2">אחיטוב</option>
-    <option value="3">באר שבע</option>
-    <option value="4">בית שמש</option>
-    <option value="5">ג'לג'וליה</option>
-    <option value="6">חדרה</option>
-    <option value="7">טייבה</option>
-    <option value="8">יד חנה</option>
-    <option value="9">ירושלים</option>
-    <option value="10">כוכב יאיר-צור יגאל</option>
-    <option value="11">כפר סבא</option>
-    <option value="12">להבים</option>
-    <option value="13">מגל</option>
-    <option value="14">מזכרת בתיה</option>
-    <option value="15">נהריה</option>
-    <option value="16">עכו</option>
-    <option value="17">עפולה</option>
-    <option value="18">קדימה-צורן</option>
-    <option value="19">רהט</option>
-    <option value="20">רתמים</option>
-    <option value="21">שובל</option> 
+          <option value="1">אלעד</option>
+          <option value="2">אחיטוב</option>
+          <option value="3">באר שבע</option>
+          <option value="4">בית שמש</option>
+          <option value="5">ג'לג'וליה</option>
+          <option value="6">חדרה</option>
+          <option value="7">טייבה</option>
+          <option value="8">יד חנה</option>
+          <option value="9">ירושלים</option>
+          <option value="10">כוכב יאיר-צור יגאל</option>
+          <option value="11">כפר סבא</option>
+          <option value="12">להבים</option>
+          <option value="13">מגל</option>
+          <option value="14">מזכרת בתיה</option>
+          <option value="15">נהריה</option>
+          <option value="16">עכו</option>
+          <option value="17">עפולה</option>
+          <option value="18">קדימה-צורן</option>
+          <option value="19">רהט</option>
+          <option value="20">רתמים</option>
+          <option value="21">שובל</option> 
           </select>
           <Field className="ageLabel">
             <Label htmlFor="username">
@@ -249,7 +265,7 @@ export default function Register() {
           </Field>
         
           
-  <select name="forest" onChange={e => setForest(e.target.value)} className="inputStyle"  multiple size="1" required >
+  <select name="forest" onChange={e => setForest(e.target.value)} className="inputStyle"   required >
     <option value="1">בן זכאי אלעד</option>
     <option value="2">גן הבנים אחיטוב</option>
     <option value="3">נחל כתף</option>
