@@ -6,7 +6,7 @@ const router = express.Router();
 
 module.exports = router;
 
-router.post("/", (req, res) => {
+router.post("/problem", (req, res) => {
   console.log("H5");
   // TODO upload an image
   // TODO interact with notion API / Email
