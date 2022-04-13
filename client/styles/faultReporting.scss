@@ -51,7 +51,17 @@
         background-color: #3b5a16;  
       }
 
-      #continue{
+      :disabled{
+        color: #636262;
+        background-color: #E1DFDD; 
+      }
+      
+      :hover :disabled{
+        color: #636262;
+        background-color: #E1DFDD; 
+      }
+
+      :enabled{
         background-color: #3b5a16;
         color: #ffffff;
       }
@@ -60,8 +70,8 @@
       button:focus {
         border: 0;
         font-size: 14px;
-        color: white;
-        background-color: #273d0c;
+        color: black;
+        background-color: #ABAE2C;
       }
     }
   
