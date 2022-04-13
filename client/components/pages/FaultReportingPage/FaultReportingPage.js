@@ -10,7 +10,7 @@ import Textarea from "react-bulma-companion/lib/Textarea";
 import Buttons from "react-bulma-companion/lib/Buttons";
 import Title from "react-bulma-companion/lib/Title";
 import UpdatingFaultReportingPage from "_pages/UpdatingFaultReportingPage";
-import faultrepoting from "/client/assets/images/faultrepoting.svg";
+import faultrepoting from "/client/assets/images/faultreporting.svg";
 import treeIcon from "_assets/icons/tree02.svg";
 import { attemptSendReport } from "_thunks/reporterProblem";
 import { Buffer } from "buffer";
