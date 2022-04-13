@@ -9,7 +9,6 @@ const problemReportSchema = new Schema(
     subject: { type: String },
     description: { type: String },
     created_at: { type: Date, default: Date.now, immutable: true },
-    updated_at: { type: Date },
   },
   { versionKey: false }
 );

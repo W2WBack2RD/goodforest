@@ -1,14 +1,14 @@
 import { push } from "connected-react-router";
 import { store as RNC } from "react-notifications-component";
 
-import { postTreeReport } from "_api/report";
+import { postProblemReport } from "_api/reporterProblem";
 
 import { dispatchError } from "_utils/api";
 export const attemptSendReport = (newUser) => (dispatch) =>
-  postTreeReport(newUser)
+  postProblemReport(newUser)
     .then((data) => {
       RNC.addNotification({
-        title: "הסטטוס התקבל בהצלחה!",
+        title: "התקלה דווחה בהצלחה!",
         message: "תודה על השתתפותך",
         type: "success",
         container: "top-right",

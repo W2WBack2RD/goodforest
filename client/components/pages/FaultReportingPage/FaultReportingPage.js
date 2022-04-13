@@ -110,9 +110,7 @@ export default function ReportTreePage() {
         >
           <Select.Content>
             <Select.Option className="placeholder">בחירה</Select.Option>
-            <Select.Option selected>
-              הגן הזאולוגי כפר הנוער בן שמן
-            </Select.Option>
+            <Select.Option>הגן הזאולוגי כפר הנוער בן שמן</Select.Option>
           </Select.Content>
         </Select>
 

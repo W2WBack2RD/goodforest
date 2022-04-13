@@ -26,7 +26,7 @@ router.post("/problem", (req, res) => {
   // TODO upload an image
   // TODO interact with notion API / Email
   // req.body.user = req.user.id;
-  const report = TreeReport(req.body);
+  const report = ReportProblem(req.body);
   report.save((err, result) => {
     if (err) {
       res.status(400).send({ message: "Create report failed", err });
