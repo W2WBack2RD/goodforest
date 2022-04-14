@@ -10,7 +10,7 @@ const router = express.Router();
 
 module.exports = router;
 
-router.post('/tree', async (req, res) => {
+router.post('/tree', (req, res) => {
   const mailgunClient = mailgun.client({ username: 'api', key: process.env.MAILGUN_API_KEY || '' });
   req.body.user = req.user.id;
   const report = TreeReport(req.body);
@@ -35,7 +35,9 @@ router.post('/tree', async (req, res) => {
     subject: 'יער האקלים - התקבל דיווח על עץ',
     html
   };
-  await mailgunClient.messages.create('sandboxbe750122e7054403a43b77ec1a865407.mailgun.org', data);
+  mailgunClient.messages.create('sandboxbe750122e7054403a43b77ec1a865407.mailgun.org', data).then(() => {
+    console.log('email sent')
+  });
 
   report.save((err, result) => {
     if (err) {

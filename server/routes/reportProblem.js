@@ -9,7 +9,7 @@ const router = express.Router();
 
 module.exports = router;
 
-router.post("/", async (req, res) => {
+router.post("/", (req, res) => {
   const mailgunClient = mailgun.client({ username: 'api', key: process.env.MAILGUN_API_KEY || '' });
   req.body.user = req.user.id;
   let html = `<h2>דיווח התקבל מהמשתמש ${req.user.username}</h2>
@@ -27,7 +27,9 @@ router.post("/", async (req, res) => {
     subject: 'יער האקלים - התקבל דיווח על עץ',
     html
   };
-  await mailgunClient.messages.create('sandboxbe750122e7054403a43b77ec1a865407.mailgun.org', data);
+  mailgunClient.messages.create('sandboxbe750122e7054403a43b77ec1a865407.mailgun.org', data).then(() => {
+    console.log('email sent')
+  });
   const report = ReportProblem(req.body);
   report.save((err, result) => {
     if (err) {
