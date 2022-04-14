@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', (req, res) => {
     const id = req.params.id;
     Forest.findById(id, async (err, forest) => {
         var users = await User.find({ forest: id })
