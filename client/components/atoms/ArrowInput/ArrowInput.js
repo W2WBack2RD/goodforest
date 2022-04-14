@@ -4,11 +4,23 @@ import closeBtn from "../../../assets/icons/icon_close.svg";
 
 const ArrowInput = (props) => {
   useEffect(() => {
-    return () => {};
-  }, [props.nameLeft, props.nameCenter, props.nameRight]);
+    return () => { };
+  }, [
+    props.nameLeft,
+    props.nameCenter,
+    props.nameRight,
+    props.open,
+    props.data,
+    props.setOpen,
+  ]);
+
+  const handleClose = () => {
+    props.setOpen(!props.open);
+  };
+
   return (
     <div className="arrowInputWrap">
-      <div className="arrowInput">
+      {/* <div className="arrowInput">
         <div className="arrowInputText_left">
           {props.nameLeft}
           <div className="arrowSign">
@@ -33,14 +45,15 @@ const ArrowInput = (props) => {
             </button>
           </div>
         </div>
-      </div>
-      <div className="notes">
-        <button>
-          <img className="closeImg" src={closeBtn} />
-        </button>
-
-        <div className="notesText"></div>
-      </div>
+      </div> */}
+      {props.open ? (
+        <div className="notes">
+          <button>
+            <img className="closeImg" src={closeBtn} onClick={handleClose} />
+          </button>
+          <div className="notesText">{props.data}</div>
+        </div>
+      ) : null}
     </div>
   );
 };

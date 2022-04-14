@@ -47,6 +47,7 @@ export default function Main({ location }) {
     !loading && (
       <div>
         <ReactNotification />
+
         <div className="main">
           <Switch>
             <Route exact path="/" component={WelcomePage} />

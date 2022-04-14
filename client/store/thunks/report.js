@@ -19,6 +19,6 @@ export const attemptSendReport = newUser => dispatch =>
                 },
             });
 
-            return dispatch(push('/home'));
+            return dispatch(push('/updatingFaultReporting'));
         })
         .catch(dispatchError(dispatch));
