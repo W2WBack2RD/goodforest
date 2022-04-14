@@ -56,7 +56,7 @@ export default function Main({ location }) {
             <Route path="/home" component={HomePage} />
             <Route path="/todo" component={TodoPage} />
             <Route path="/settingsRegister" component={SettingsRegisterPage} />
-            <Route path="/settings" component={SettingsPage} />
+            {/* <Route path="/settings" component={SettingsPage} /> */}
             <Route path="/reportTree" component={ReportTreePage} />
             <Route path="*" component={LostPage} />
           </Switch>

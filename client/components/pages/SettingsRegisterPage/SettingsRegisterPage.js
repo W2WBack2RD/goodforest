@@ -10,8 +10,8 @@ export default function SettingsRegisterPage() {
   const { user } = useSelector(R.pick(['user']));
 
   useEffect(() => {
-    if (!R.isEmpty(user)) {
-      dispatch(push('/home'));
+    if (R.isEmpty(user)) {
+      dispatch(push('/login'));
     }
   }, []);
 

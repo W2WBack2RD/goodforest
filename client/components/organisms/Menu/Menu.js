@@ -34,7 +34,7 @@ const Menu = ({ open, setOpen, fn }) => {
         <a className="linkName" href="/">
           <span className="middleLink">החורשה שלי</span>
         </a>
-        <a className="linkName" href="/">
+        <a className="linkName" href="/settingsRegister">
           <span className="middleLink">עדכון פרטים אישיים</span>
         </a>
         <a className=" linkName" href="/">
