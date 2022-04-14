@@ -22,6 +22,7 @@ import Navigation from "_organisms/Navigation";
 import Footer from "_organisms/Footer";
 import PageLayout from "../../organisms/PageLayout";
 import UpdatingFaultReportingPage from "_pages/UpdatingFaultReportingPage";
+import FaultReportingPage from "_pages/FaultReportingPage";
 export default function Main({ location }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
@@ -55,6 +56,7 @@ export default function Main({ location }) {
             <Route path="/todo" component={TodoPage} />
             <Route path="/settingsRegister" component={SettingsRegisterPage} />
             <Route path="/settings" component={SettingsPage} />
+            <Route path="/faultReporting" component={FaultReportingPage} />
             <Route path="/reportTree" component={ReportTreePage} />
             <Route
               path="/updatingFaultReporting"

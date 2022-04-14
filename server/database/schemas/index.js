@@ -1,8 +1,9 @@
-const Session = require('./Session');
-const User = require('./User');
-const Forest = require('./Forest');
-const Todo = require('./Todo');
-const TreeReport = require('./TreeReport');
+const Session = require("./Session");
+const User = require("./User");
+const Forest = require("./Forest");
+const Todo = require("./Todo");
+const TreeReport = require("./TreeReport");
+const ReportProblem = require("./ReportProblem");
 
 module.exports = {
   Session,
@@ -10,4 +11,5 @@ module.exports = {
   Forest,
   Todo,
   TreeReport,
+  ReportProblem,
 };
