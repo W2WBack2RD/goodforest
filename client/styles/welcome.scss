@@ -8,171 +8,165 @@
 .welcome-page {
   text-align: center;
 }
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-//  margin-left: -300px;
+  //margin-left: -300px;
 }
 .welcome-page {
-  position: absolute;
+  // position: absolute;
+  position: relative;
   width: 375px;
-  // width: 395px;
   height: 800px;
   background-color: rgba(78, 63, 40, 1);
-}
 
-.top {
-  background-color: white;
-  height: 500px;
-  display: flex;
-}
+  .top {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+  }
+  
+  #open-pic {
+    position: absolute;
+    margin-right: 68px;
+    margin-left: 68px;
+    width: 239px;
+    height: 239px;
+    top: 30px;
+  }
+  
+  #website-title {
+    position: absolute;
+    width: 308px;
+    height: 75px;
+    margin-top: 22px;
+    left: 36px;
+    top: 275px;
+    font-family: "Heebo";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 59px;
+    color: rgba(0, 0, 0, 1);
+  }
+  
+  #sub-title {
+    position: absolute;
+    margin-top: 0px;
+    width: 307px;
+    height: 38px;
+    top: 355px;
+    left: 37px;
+    font-family: "Heebo";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 38.19px;
+    color: #000000;
+  }
+  
+  #btn-login {
+    background-color: #3b5a16;
+    border-radius: 5px;
+    width: 105px;
+    height: 37px;
+    top: 180px;
+    left: 0px;
+    font-family: "Heebo";
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 20.56px;
+    color: #ffffff;
+  }
+  
+  #btn-login:hover {
+    background-color: rgba(209, 210, 174, 1);
+    color: #000000;
+  }
+  
+  #sign-in {
+    position: absolute;
+    width: 44px;
+    height: 21px;
+    margin-left: 165px;
+    top: 465px;
+    left: 0px;
+    font-family: "Heebo";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20.56px;
+    color: #000000;
+    text-align: center;
+    text-decoration-line: underline;
+  }
+  
+  #sign-in:hover {
+    font-weight: bold;
+  }
+  
+  #welcome-website-title {
+    position: absolute;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-right: 20px;
+    top: 515px;
+    right: 0px;
+    text-align: right;
+    font-family: "Heebo";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 35.25px;
+  }
+  
+  #paragraph {
+    position: absolute;
+    direction: rtl;
+    color: white;
+    width: 340px;
+    height: 206px;
+    margin-top: 7px;
+    margin-right: 20px;
+    right: 0px;
+    top: 550px;
+    text-align: right;
+    font-family: "Heebo";
+    font-style: normal;
+    font-size: 12px;
+  }
+  
+  #btn-website-organization {
+    background-color: rgb(213, 196, 164, 1);
+    border-radius: 5px;
+    width: 130px;
+    height: 37px;
+    top: 225px;
+    padding: 8px, 12px, 8px, 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Heebo";
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: right;
+    color: #4e3f28;
+  }
+  
+  button{
+    border: none;
+  }
 
-#open-pic {
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 239px;
-  height: 239px;
-  // ask what's the exact distance "margin-top"
-  margin-top: 30px;
-  margin-left: 68px;
-}
-
-#website-title {
-  // ask if to use with flex or text-align, cause it's noe shorter
-  position: absolute;
-  width: 308px;
-  height: 75px;
-  margin-top: 22px;
-  left: 36px;
-  top: 275px;
-  font-family: "Heebo";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 59px;
-  color: rgba(0, 0, 0, 1);
-}
-
-#sub-title {
-  position: absolute;
-  margin-top: 0px;
-  width: 307px;
-  height: 38px;
-  top: 355px;
-  left: 37px;
-  font-family: "Heebo";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 26px;
-  line-height: 38.19px;
-  color: #000000;
-}
-
-#btn-login {
-  background-color: #3b5a16;
-  border-radius: 5px;
-  margin-top: 34px;
-  margin-left: 135px;
-  width: 105px;
-  height: 37px;
-  top: 380px;
-  font-family: "Heebo";
-  font-weight: 400;
-  font-size: 14px;
-  font-style: normal;
-  line-height: 20.56px;
-  color: #ffffff;
-}
-
-#btn-login:hover {
-  background-color: rgba(209, 210, 174, 1);
-  color: #000000;
-}
-
-#sign-in {
-  position: absolute;
-  width: 44px;
-  height: 21px;
-  margin-left: 165px;
-  top: 465px;
-  font-family: "Heebo";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 20.56px;
-  color: #000000;
-  text-align: center;
-  text-decoration-line: underline;
-}
-
-#sign-in:hover {
-  font-weight: bold;
-}
-
-#welcome-website-title {
-  position: absolute;
-  color: #ffffff;
-  margin-top: 10px;
-  margin-right: 20px;
-  top: 515px;
-  right: 0px;
-  text-align: right;
-  font-family: "Heebo";
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 35.25px;
-}
-
-#paragraph {
-  position: absolute;
-  direction: rtl;
-  color: white;
-  width: 340px;
-
-  height: 345px;
-
-  margin-top: 7px;
-  margin-right: 20px;
-  right: 0px;
-  top: 550px;
-  text-align: right;
-  font-family: "Heebo";
-  font-style: normal;
-  font-size: 12px;
-}
-
-#btn-website-organization {
-  background-color: rgb(213, 196, 164, 1);
-  border-radius: 5px;
-  width: 130px;
-  height: 37px;
-
-  top: 225px;
-  padding: 8px, 12px, 8px, 12px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  /*
-  top: 235px;
-  padding: 8px, 12px, 8px, 12px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 15px;
-*/
-  font-family: "Heebo";
-  font-style: normal;
-  font-size: 14px;
-  line-height: 21px;
-  text-align: right;
-  color: #4e3f28;
-}
-
-button:focus {
-  border: none;
-  outline: none;
-}
-
-#btn-website-organization:hover {
-  background-color: rgba(209, 210, 174, 1);
-  color: #000000;
+  button:focus {
+    border-color: none;
+    outline: none;
+  }
+  
+  #btn-website-organization:hover {
+    background-color: rgba(209, 210, 174, 1);
+    color: #000000;
+  }
 }
