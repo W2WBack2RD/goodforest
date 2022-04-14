@@ -16,6 +16,7 @@ import { attemptSendReport } from "_thunks/reporterProblem";
 import { Buffer } from "buffer";
 import Input from "react-bulma-companion/lib/Input";
 import { Link } from "react-router-dom";
+import { request } from "_api/request";
 
 window.Buffer = Buffer;
 
@@ -85,6 +86,24 @@ export default function ReportTreePage() {
 
   console.log(pic);
 
+  const [forests, setForests] = useState([]);
+
+  useEffect(() => {
+    getAllForests();
+  }, []);
+
+
+
+  const getAllForests = () => {
+    request
+      .get("/api/forest/")
+      .send()
+      .then((result) => {
+        setForests(result.body.forests)
+      })
+      .catch();
+  };
+
   const sendReport = () => {
     dispatch(attemptSendReport(status)).catch(R.identity);
   };
@@ -110,7 +129,8 @@ export default function ReportTreePage() {
         >
           <Select.Content>
             <Select.Option className="placeholder">בחירה</Select.Option>
-            <Select.Option>הגן הזאולוגי כפר הנוער בן שמן</Select.Option>
+            {forests.map((forestOption) =>
+              (<option value={forestOption._id}>{forestOption.forest_name}</option>))}
           </Select.Content>
         </Select>
 

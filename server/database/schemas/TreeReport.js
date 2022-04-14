@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const treeReportSchema = new Schema({
-  // user: { type: Schema.ObjectId, ref: 'User', required: true },
+  user: { type: Schema.ObjectId, ref: 'User', required: true },
   location: { type: String },
   height: { type: Number },
   diameter: { type: Number },
