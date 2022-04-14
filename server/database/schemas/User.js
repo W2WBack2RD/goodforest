@@ -18,7 +18,7 @@ const userSchema = new Schema(
     username_case: { type: String, required: false },
     phone_number: { type: String, require: true },
     birth_year: { type: Number, required: false },
-    email_address: { type: String, required: true },
+    full_name: { type: String, required: true },
     password: { type: String, required: true },
     forest_id: { type: String, require: true },
     get_update: { type: Boolean, require: true },

@@ -1,17 +1,17 @@
 const express = require("express");
 const passport = require("passport");
-const { User, TreeReport } = require("../database/schemas");
+const { ReportProblem } = require("../database/schemas");
 
 const router = express.Router();
 
 module.exports = router;
 
-router.post("/tree", (req, res) => {
+router.post("/", (req, res) => {
   console.log("H5");
   // TODO upload an image
   // TODO interact with notion API / Email
   // req.body.user = req.user.id;
-  const report = TreeReport(req.body);
+  const report = ReportProblem(req.body);
   report.save((err, result) => {
     if (err) {
       res.status(400).send({ message: "Create report failed", err });

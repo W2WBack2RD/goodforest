@@ -106,7 +106,9 @@ const HomePage = () => {
       />
       <EventBoard />;
       <div className="buttons">
-        <Button className="reportBtn" value="דווח על תקלה" />
+        <Link to="/faultReporting">
+          <Button className="reportBtn" value="דווח על תקלה" />
+        </Link>
         <Link to="/reportTree">
           <Button className="reportBtn" value="עדכון סטטוס עץ" />
         </Link>
