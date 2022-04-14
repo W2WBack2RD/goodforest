@@ -4,12 +4,17 @@ import { push } from "connected-react-router";
 import R from "ramda";
 import closeBtn from "../../../assets/icons/icon_close-small.svg";
 import treeImg from "../../../assets/icons/tree.svg";
+import { Link } from "react-router-dom";
+import { attemptLogout } from "_thunks/auth";
 
 const Menu = ({ open, setOpen, fn }) => {
   const { user } = useSelector(R.pick(["user"]));
   const dispatch = useDispatch();
 
-  console.log(user);
+  const logout = () => {
+    dispatch(attemptLogout())
+      .catch(R.identity);
+  };
 
   const [forests, setForests] = useState(false);
 
@@ -27,19 +32,19 @@ const Menu = ({ open, setOpen, fn }) => {
     <div className="menuBG">
       <div className="closeBtn">
         <img className="closeImg " src={closeBtn} onClick={fn} />
-        <span>שלום {user.username}</span>
+        <span>שלום {user.fullName}</span>
       </div>
 
       <div className="navLinks">
-        <a className="linkName" href="/home">
-          <span className="middleLink">החורשה שלי</span>
-        </a>
-        <a className="linkName" href="/settingsRegister">
-          <span className="middleLink">עדכון פרטים אישיים</span>
-        </a>
-        <a className=" linkName" href="/">
+        <Link to="/home">
+          <div className="middleLink">החורשה שלי</div>
+        </Link>
+        <Link to="/settingsRegister">
+          <div className="middleLink" >עדכון פרטים אישיים</div>
+        </Link>
+        {/* <Link to="/register" id="sign-in">
           <span className="middleLink">הזמן חברים</span>
-        </a>
+        </Link> */}
         {/*
         <a className={forests ? "forestOpen" : "linkName lastLink"}>
           <span onClick={handleMoreForests}>חורשות נוספות</span>
@@ -59,7 +64,7 @@ const Menu = ({ open, setOpen, fn }) => {
           */}
       </div>
       <div className="logOutLink">
-        <a href="/">
+        <a onClick={logout}>
           <span>התנתקות</span>
         </a>
       </div>

@@ -21,9 +21,7 @@ import { request } from "_api/request";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  //HomePage.treeImg = false;
-  //HomePage.title = "חורשה 80";
-  const [forestResponse, setForestResponse] = React.useState("");
+  const { user } = useSelector(R.pick(["user"]));
   const [responseData, setResponseData] = React.useState([]);
 
   const [userResponse, setUserResponse] = React.useState("");
@@ -55,13 +53,10 @@ const HomePage = () => {
 
   const getAllForests = () => {
     request
-      .get("/api/forest/")
+      .get("/api/forest/" + user.forest)
       .send()
       .then((result) => {
-        console.log("------------------------------------------");
-        setResponseData(result.body.forests[0]);
-        setForestResponse(result.body.message);
-        console.log(responseData);
+        setResponseData({ ...result.body.forest, usersCount: result.body.usersCount });
       })
       .catch();
   };
@@ -73,12 +68,10 @@ const HomePage = () => {
       .then((result) => {
         setUserResponseData(result.body.user);
         setUserResponse(result.body.message);
-        console.log(userResponse);
-        console.log(userResponseData);
-        // console.log(userResponseData.length);
       })
       .catch();
   };
+  console.log(responseData);
   return (
     <PageLayout
       className="homePage"
@@ -90,7 +83,7 @@ const HomePage = () => {
       <InputCircle
         className="inputCircle"
         inputLeft={responseData.trees ? responseData.trees.length * 0.896 : 0}
-        inputCenter={userResponseData ? userResponseData.length : 0}
+        inputCenter={responseData.usersCount ? responseData.usersCount : 0}
         inputRight={responseData.trees ? responseData.trees.length : 0}
       />
       <ArrowInput
@@ -104,8 +97,8 @@ const HomePage = () => {
         data={arrowData}
         setOpen={setOpen}
       />
-      <EventBoard />;
-      <div className="buttons">
+      <EventBoard />
+      <div style={{ 'display': 'flex', 'justifyContent': 'center' }}>
         <Link to="/faultReporting">
           <Button className="reportBtn" value="דווח על תקלה" />
         </Link>

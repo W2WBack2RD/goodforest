@@ -32,63 +32,6 @@ export default function UpdatingFaultReportingPage() {
   const { user } = useSelector(R.pick(["user"]));
 
   const [loading, setLoading] = useState(true);
-  const [locationBy, setLocationBy] = useState("id");
-  const [location, setLocation] = useState("");
-  const [height, setHeight] = useState(3);
-  const [diameter, setDiameter] = useState(3);
-  const [leaves, setLeaves] = useState("");
-  const [flowers, setFlowers] = useState("");
-  const [fruits, setFruits] = useState("");
-  const [generalStatus, setStatus] = useState(3);
-  const [description, setDescription] = useState("");
-  const [pic, setPic] = useState(null);
-  const [picName, setPicName] = useState(null);
-  const [errors, setErrors] = useState(null);
-
-  // useEffect(() => {
-  //   if (R.isEmpty(user)) {
-  //     dispatch(push('/login'));
-  //   } else {
-  //     dispatch(attemptGetTodos())
-  //       .catch(R.identity)
-  //       .then(() => setLoading(false));
-  //   }
-  // }, []);
-  var status = {
-    location,
-    height,
-    diameter,
-    leaves,
-    flowers,
-    fruits,
-    generalStatus,
-    description,
-    pic,
-  };
-
-  const upload = (file) => {
-    console.log(file);
-    if (file.size > 1000000) {
-      setErrors("אין להעלות קבצים גדולים מ1MB");
-      return;
-    }
-
-    ReactS3Client.uploadFile(file)
-      .then((res) => {
-        console.log(res);
-        setPic(res.location);
-        setPicName(file.name);
-      })
-      .catch((err) => {
-        console.warn(err);
-      });
-  };
-
-  console.log(pic);
-
-  const sendReport = () => {
-    dispatch(attemptSendReport(status)).catch(R.identity);
-  };
 
   return (
     <PageLayout className="homePage" titleStyle={false} title="דיווח על תקלה">
@@ -110,7 +53,7 @@ export default function UpdatingFaultReportingPage() {
 
         <div className="form-footer">
           <Link to="/home">
-            <Button id="home-page-navigation" onClick={sendReport}>
+            <Button id="home-page-navigation">
               לדף הבית
             </Button>
           </Link>

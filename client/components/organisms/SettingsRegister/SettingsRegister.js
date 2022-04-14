@@ -27,6 +27,7 @@ import { validateUsername, validatePassword } from "_utils/validation";
 import { attemptRegister } from "_thunks/auth";
 import PageLayout from "../PageLayout";
 import { useSelector } from "react-redux";
+import { request } from "_api/request";
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -44,6 +45,31 @@ export default function Register() {
   const [mycity, setMyCity] = useState("");
   const [forest, setForest] = useState("");
   const [acceptedTerms, setAcceptedTerms] = React.useState(false);
+
+
+  const [forests, setForests] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+    getAllForests();
+  }, []);
+
+
+
+  const getAllForests = () => {
+    request
+      .get("/api/forest/")
+      .send()
+      .then((result) => {
+        setForests(result.body.forests)
+        var cities = result.body.forests.map((forest) => forest.city)
+        const uniqCities = cities.filter((obj, idx, arr) => (
+          arr.findIndex((o) => o.id === obj.id) === idx
+        ))
+        setCities(uniqCities)
+      })
+      .catch();
+  };
 
   const checkPassword = (newUsername, newPassword) => {
     const { valid, message } = validatePassword(newUsername, newPassword);
@@ -87,27 +113,21 @@ export default function Register() {
   };
 
   const resetState = () => {
-    setFullname(user.full_name);
-    setPhoneNumber(user.phone_number);
-    setBirthYear(user.birth_year);
+    console.log('I reset according to this ->', user)
+    setFullname(user.fullName);
+    setPhoneNumber(user.phoneNumber);
+    setBirthYear(user.birthYear);
     setEmail(user.username);
     setPassword(user.password);
     setMyCity(user.city);
-    setForest(user.forest_id);
-    setAcceptedTerms(user.get_update);
+    setForest(user.forest);
+    setAcceptedTerms(user.getUpdate);
   };
 
   useEffect(() => {
     resetState();
   }, [
-    user.full_name,
-    user.phone_number,
-    user.birthYear,
-    user.username,
-    user.password,
-    user.city,
-    user.forest_id,
-    user.get_update,
+    user
   ]);
 
   const updateFullName = (e) => {
@@ -161,7 +181,7 @@ export default function Register() {
       updatedUser.city = mycity;
     }
     if (forest) {
-      updatedUser.forest_id = forest;
+      updatedUser.forest = forest;
     }
     if (acceptedTerms) {
       updatedUser.get_update = acceptedTerms;
@@ -206,6 +226,7 @@ export default function Register() {
                 <Input
                   dir="rtl"
                   name="fullname"
+                  value={fullname}
                   placeholder=" הקלד/י שם משתמש"
                   required
                   color={
@@ -284,15 +305,14 @@ export default function Register() {
 
               <select
                 name="mycity"
-                type
                 value={mycity}
                 onChange={updateCity}
                 className="inputStyle"
                 required
               >
                 <option value="">עיר</option>
-                <option value="Jerusalem">ירושלים</option>
-                <option value="Tel aviv">תל אביב</option>
+                {cities.map((cityOption) =>
+                  (<option value={cityOption}>{cityOption}</option>))}
               </select>
               <Field className="ageLabel">
                 <Label htmlFor="username">חורשה:</Label>
@@ -302,13 +322,11 @@ export default function Register() {
                 name="forest"
                 onChange={updateForest}
                 className="inputStyle"
-                multiple
-                size="1"
+                value={forest}
                 required
               >
-                <option value="Argentina">חורשה</option>
-                <option value="Bolivia">חורשה1</option>
-                <option value="Brazil">חורשה2</option>
+                {forests.map((forestOption) =>
+                  (<option value={forestOption._id}>{forestOption.forest_name}</option>))}
               </select>
             </div>
             <label htmlFor="checkbox1">
@@ -317,6 +335,7 @@ export default function Register() {
                 type="checkbox"
                 name="acceptedTerms"
                 onClick={updateAcceptedTerms}
+                checked={acceptedTerms}
                 required
               />{" "}
               <span className="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>

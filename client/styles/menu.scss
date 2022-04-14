@@ -34,7 +34,6 @@
 }
 
 .closeBtn span,
-.middleLink,
 .logOutLink span {
   margin-right: 20px;
   margin-top: 20px;
@@ -61,8 +60,9 @@
   color: #ffffff;
 }
 .middleLink {
-  margin-top: 20%;
-  margin-bottom: 20px;
+  // margin-top: 20px;
+  // margin-bottom: 20px;
+  padding: 10px;
   color: #ffffff;
 }
 

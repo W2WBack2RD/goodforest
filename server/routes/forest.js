@@ -1,5 +1,5 @@
 const express = require('express');
-const { Forest } = require('../database/schemas');
+const { Forest, User } = require('../database/schemas');
 
 const router = express.Router();
 
@@ -14,13 +14,15 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
     const id = req.params.id;
-    Forest.findById(id, (err, forest) => {
+    Forest.findById(id, async (err, forest) => {
+        var users = await User.find({ forest: id })
+        var usersCount = users?.length || 0;
         if (err) {
             res.status(400).send({ message: 'Get forest failed', err });
         } else {
-            res.send({ message: 'Forest retrieved successfully', forest });
+            res.send({ message: 'Forest retrieved successfully', forest, usersCount });
         }
     });
 

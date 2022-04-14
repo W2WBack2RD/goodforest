@@ -11,7 +11,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-     
+
     },
 
     city: { type: String, maxlength: 20, required: true },
@@ -20,7 +20,8 @@ const userSchema = new Schema(
     birth_year: { type: Number, required: false },
     full_name: { type: String, required: true },
     password: { type: String, required: true },
-    forest_id: { type: String, require: true },
+    // forest_id: { type: String, require: true },
+    forest: { type: Schema.ObjectId, ref: 'Forest', required: true },
     get_update: { type: Boolean, require: true },
     is_admin: { type: Boolean, default: false, maxlength: 240 },
     created_at: { type: Date, default: Date.now, immutable: true },

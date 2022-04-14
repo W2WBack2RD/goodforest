@@ -4,7 +4,7 @@ import closeBtn from "../../../assets/icons/icon_close.svg";
 
 const ArrowInput = (props) => {
   useEffect(() => {
-    return () => {};
+    return () => { };
   }, [
     props.nameLeft,
     props.nameCenter,
@@ -20,7 +20,7 @@ const ArrowInput = (props) => {
 
   return (
     <div className="arrowInputWrap">
-      <div className="arrowInput">
+      {/* <div className="arrowInput">
         <div className="arrowInputText_left">
           {props.nameLeft}
           <div className="arrowSign">
@@ -45,7 +45,7 @@ const ArrowInput = (props) => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
       {props.open ? (
         <div className="notes">
           <button>
