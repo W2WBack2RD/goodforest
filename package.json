@@ -68,6 +68,7 @@
     "immutable": "^3.8.2",
     "jquery": "^3.6.0",
     "json-style-converter": "^1.0.3",
+    "mailgun.js": "^5.2.1",
     "mongodb": "^4.3.0",
     "mongoose": "^6.0.7",
     "mongoose-auto-increment-reworked": "^1.2.1",
