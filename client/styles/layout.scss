@@ -44,11 +44,11 @@ $Heebo: "Heebo";
 
 #pageTitle {
   position: absolute;
-  width: 157px;
+  //width: 157px;
   height: 59px;
-  left: calc(50% - 157px / 2 + 89px);
+  //left: calc(50% - 157px / 2 + 89px);
   top: 30px;
-
+  right: 20px;
   font-family: $Heebo;
   font-style: normal;
   font-weight: bold;

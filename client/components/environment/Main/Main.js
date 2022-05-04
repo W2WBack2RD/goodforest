@@ -14,6 +14,7 @@ import SettingsRegisterPage from "_pages/SettingsRegisterPage";
 import HomePage from "_pages/HomePage";
 import TodoPage from "_pages/TodoPage";
 import ReportTreePage from "_pages/ReportTreePage";
+import CreateForestPage from "_pages/CreateForestPage";
 import SettingsPage from "_pages/SettingsPage";
 import LostPage from "_pages/LostPage";
 
@@ -58,6 +59,7 @@ export default function Main({ location }) {
             <Route path="/settingsRegister" component={SettingsRegisterPage} />
             <Route path="/settings" component={SettingsPage} />
             <Route path="/reportTree" component={ReportTreePage} />
+            <Route path="/createForest" component={CreateForestPage} />
             <Route path="*" component={LostPage} />
           </Switch>
         </div>
