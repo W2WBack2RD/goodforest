@@ -33,7 +33,8 @@ router.get('/:id', (req, res) => {
         var usersCount = users?.length || 0;
         const forest = {
             id: response.id,
-            forest_name: response.properties['שם השטח'].title[0].plain_text
+            forest_name: response.properties['שם השטח'].title[0].plain_text,
+            treesCount: response.properties['כמות עצים נטועים']?.rollup?.number,
         }
         res.send({ message: 'Forest retrieved successfully', forest, usersCount });
     })

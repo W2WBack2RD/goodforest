@@ -88,9 +88,9 @@ const HomePage = () => {
 
       <InputCircle
         className="inputCircle"
-        inputLeft={responseData.trees ? responseData.trees.length * 0.896 : 0}
+        inputLeft={responseData.treesCount ? parseInt(responseData.treesCount) * 0.896 : 0}
         inputCenter={responseData.usersCount ? responseData.usersCount : 0}
-        inputRight={responseData.trees ? responseData.trees.length : 0}
+        inputRight={responseData.treesCount ? responseData.treesCount : 0}
       />
       <ArrowInput
         nameLeft={nameLeft}
