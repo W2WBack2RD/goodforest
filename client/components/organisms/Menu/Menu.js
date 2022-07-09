@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { push } from "connected-react-router";
 import R from "ramda";
 import closeBtn from "../../../assets/icons/icon_close-small.svg";
-import treeImg from "../../../assets/icons/tree.svg";
 import { Link } from "react-router-dom";
 import { attemptLogout } from "_thunks/auth";
 
@@ -42,26 +40,6 @@ const Menu = ({ open, setOpen, fn }) => {
         <Link to="/settingsRegister">
           <div className="middleLink" >עדכון פרטים אישיים</div>
         </Link>
-        {/* <Link to="/register" id="sign-in">
-          <span className="middleLink">הזמן חברים</span>
-        </Link> */}
-        {/*
-        <a className={forests ? "forestOpen" : "linkName lastLink"}>
-          <span onClick={handleMoreForests}>חורשות נוספות</span>
-          {forests ? (
-            <div className="linkName lastLinkLinks">
-              <span className="openForestLinks">
-                <img className="treeEmpty" src={treeImg} />
-                גאולים
-              </span>
-              <span className="openForestLinks">
-                <img className="treeEmpty" src={treeImg} />
-                הדרים
-              </span>
-            </div>
-          ) : null}
-        </a>
-          */}
       </div>
       <div className="logOutLink">
         <a onClick={logout}>

@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import R from "ramda";
 
 import { attemptGetUser } from "_thunks/user";
-
 import WelcomePage from "_pages/WelcomePage";
 import LoginPage from "_pages/LoginPage";
 import RegisterPage from "_pages/RegisterPage";
@@ -53,6 +52,7 @@ export default function Main({ location }) {
             <Route exact path="/" component={WelcomePage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/register" component={RegisterPage} />
+            <Route path="/home/:forest" component={HomePage} />
             <Route path="/home" component={HomePage} />
             <Route path="/todo" component={TodoPage} />
             <Route path="/settingsRegister" component={SettingsRegisterPage} />

@@ -1,3 +1,3 @@
-import AdminMenuSearch from "../AdminMenuSearch";
+import AdminMenuSearch from "./AdminMenuSearch";
 
 export default AdminMenuSearch;

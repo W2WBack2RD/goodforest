@@ -1,49 +1,35 @@
+import R from "ramda";
 import React, { useState } from "react";
-import closeBtn from "../../../assets/icons/icon_close-small.svg";
-import treeImg from "../../../assets/icons/tree.svg";
-import AdminMenuSearch from "../AdminMenuSearch/AdminMenuSearch";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import closeBtn from "_assets/icons/icon_close-small.svg";
+import { attemptLogout } from "_thunks/auth";
 const AdminMenu = ({ open, setOpen, fn, openMenu, handleMenu }) => {
-  const [moreForests, setMoreForests] = useState(false);
-
-  const handleMoreForests = () => {
-    setMoreForests(!moreForests);
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(attemptLogout())
+      .catch(R.identity);
   };
 
   return (
     <div>
-      {moreForests ? (
-        <AdminMenuSearch moreForests={moreForests} fn={handleMoreForests} />
-      ) : (
-        <div className="menuBG">
-          <div className="closeBtn">
-            <img className="closeImg " src={closeBtn} onClick={fn} />
-            <span>שלום דניאל</span>
-          </div>
-
-          <div className="navLinks">
-            <a className="linkName" href="/home">
-              <span className="middleLink">החורשה שלי</span>
-            </a>
-            <a className="linkName" href="/settingsRegister">
-              <span className="middleLink">עדכון פרטים אישיים</span>
-            </a>
-            <a className=" linkName" href="/">
-              <span className="middleLink">הזמן חברים</span>
-            </a>
-            <a className=" linkName" href="/">
-              <span className="middleLink">יצירת חורשה חדשה</span>
-            </a>
-            <a className="linkName lastLink">
-              <span onClick={handleMoreForests}>חורשות נוספות</span>
-            </a>
-          </div>
-          <div className="logOutLink">
-            <a href="/">
-              <span>התנתקות</span>
-            </a>
-          </div>
+      <div className="menuBG">
+        <div className="closeBtn">
+          <img className="closeImg " src={closeBtn} onClick={fn} />
+          <span>שלום דניאל</span>
         </div>
-      )}
+
+        <div className="navLinks">
+          <Link to="/settingsRegister">
+            <div className="middleLink">עדכון פרטים אישיים</div>
+          </Link>
+        </div>
+        <div className="logOutLink">
+          <a onClick={logout}>
+            <span>התנתקות</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,10 @@
 {
     "compilerOptions": {
       "baseUrl": "../",
+      "include": ["index.d.ts"],
       "paths": {
         "_thunks/*": ["client/store/thunks/*"],
+        "_actions/*": ["client/store/actions/*"],
         "_assets/*": ["client/assets/*"],
         "_styles/*": ["client/styles/*"],
         "_utils/*": ["client/utils/*"],

@@ -1,7 +1,6 @@
 .gallery {
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 375px;
   height: 232px;
   display: flex;
   flex-direction: column;
@@ -11,10 +10,7 @@
 
 .titleBox {
   margin-bottom: 10px;
-  width: 335px;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
   align-items: baseline;
 }
 
@@ -51,7 +47,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 335px;
+  width: 100%;
   height: 214px;
   left: 351px;
   top: 32px;
