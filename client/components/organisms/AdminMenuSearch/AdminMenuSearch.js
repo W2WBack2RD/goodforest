@@ -1,81 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { request } from "_api/request";
+import { Link } from "react-router-dom";
+import { useForestsAndCities } from "_organisms/Register/Register";
 
-import Button from "../../atoms/Button/Button";
-import rightArrow from "../../../assets/icons/icon_chevron-right-white.svg";
-import Select from "react-bulma-companion/lib/Select";
-import { getAllForests } from "../../../api/forest";
-
-const AdminMenuSearch = ({ moreForests, fn }) => {
-  const [forestResponse, setForestResponse] = React.useState("");
-  const [responseData, setResponseData] = React.useState([]);
-
-  useEffect(() => {
-    getAllForests();
-  }, []);
-
-  const getAllForests = () => {
-    request
-      .get("/api/forest/")
-      .send()
-      .then((result) => {
-        console.log("------------------------------------------");
-        setResponseData(result.body.forests[0]);
-        setForestResponse(result.body.message);
-        console.log(responseData);
-      })
-      .catch();
-  };
+const AdminMenuSearch = () => {
+  const [mycity, setMyCity] = useState('');
+  const [forest, setForest] = useState('');
+  const [forests, cities] = useForestsAndCities()
 
   return (
-    <div className="menuBG">
-      <div className="searchStart">
-        <img src={rightArrow} className="backArrow" onClick={fn} />
-        <span className="searchName">חיפוש חורשה</span>
+    <div className="searchForest">
+
+      <div className="selectBox">
+        <label className="labelSearch">עיר</label>
+        <select className="selectSearch"
+          value={mycity}
+          onChange={e => setMyCity(e.target.value)}
+          required>
+
+          <option value="">עיר</option>
+          {cities.map((cityOption) =>
+            (<option value={cityOption.id}>{cityOption.name}</option>))}
+        </select>
       </div>
-      <div className="searchForest">
-        <form action="#" className="searchForestForm">
-          {/* <div className="selectBox">
-            <label className="labelSearch">עיר</label>
-            <Select
-              className="has-background-success-dark	"
-              name="city"
-              fullwidth
-              value={null}
-              onChange={(event) => {}}
-            >
-              <Select.Content>
-                <Select.Option className="placeholder">בחירה</Select.Option>
-                <Select.Option>יש עלים</Select.Option>
-                <Select.Option>בשלכת</Select.Option>
-                <Select.Option>יש ניצנים של עלים חדשים</Select.Option>
-              </Select.Content>
-            </Select>
-          </div>*/}
+      <div className="selectBox">
+        <label className="labelSearch forestLabel">חורשה</label>
+        <select name="forest" onChange={e => setForest(e.target.value)} className="selectSearch" required >
+          <option value="">חורשה</option>
+          {forests.filter(forest => forest.city?.id === mycity).map((forestOption) =>
+            (<option value={forestOption.id}>{forestOption.forest_name}</option>))}
 
-          <div className="selectBox">
-            <label className="labelSearch">עיר</label>
-            <select className="selectSearch" name="city" id="">
-              <option value="">בחירה</option>
-              <option value="">תל אביב - יפו</option>
-              <option value="">הרצליה</option>
-            </select>
-          </div>
-          <div className="selectBox">
-            <label className="labelSearch forestLabel">חורשה</label>
-            <select className="selectSearch" name="forest" id="">
-              <option value="">בחירה</option>
-              <option value="">רקפות</option>
-              <option value="">אלונים</option>
-            </select>
-          </div>
+        </select>
+      </div>
 
-          <div className="selectBox">
-            <button id="submitSearch" value="הצג חורשה">
-              הצג חורשה
-            </button>
-          </div>
-        </form>
+      <div className="displayForestButton">
+        <Link to={`/home/${forest}`} id="submitSearch">
+          הצג חורשה
+        </Link>
       </div>
     </div>
   );

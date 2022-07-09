@@ -1,9 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 .welcome-page {
   text-align: center;
@@ -13,10 +8,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  //margin-left: -300px;
 }
 .welcome-page {
-  // position: absolute;
   position: relative;
   width: 375px;
   height: 800px;

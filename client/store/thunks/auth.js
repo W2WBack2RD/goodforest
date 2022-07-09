@@ -2,7 +2,7 @@ import { push } from 'connected-react-router';
 import { snakeToCamelCase } from 'json-style-converter/es5';
 import { store as RNC } from 'react-notifications-component';
 
-import { postRegister, postSettingsRegister, postLogin, postLogout } from '_api/auth';
+import { postRegister, postLogin, postLogout, postGoogleLogin } from '_api/auth';
 import { login, logout } from '_actions/user';
 
 import { dispatchError } from '_utils/api';
@@ -25,6 +25,28 @@ export const attemptLogin = user => dispatch =>
       });
 
       dispatch(push('/home'));
+      return data;
+    })
+    .catch(dispatchError(dispatch));
+
+export const attemptGoogleLogin = googleData => dispatch =>
+  postGoogleLogin(googleData)
+    .then(data => {
+      dispatch(login(snakeToCamelCase(data.user)));
+
+      RNC.addNotification({
+        title: 'Success!',
+        message: data.message,
+        type: 'success',
+        container: 'top-right',
+        animationIn: ['animated', 'fadeInRight'],
+        animationOut: ['animated', 'fadeOutRight'],
+        dismiss: {
+          duration: 5000,
+        },
+      });
+
+      dispatch(push(data.user.forest || data.user.is_admin ? '/home' : '/settingsRegister'));
       return data;
     })
     .catch(dispatchError(dispatch));

@@ -14,11 +14,20 @@ export const postSettingsRegister = user =>
     .catch(handleError);
 
 
-    export const postLogin = user =>
-    request.post('/api/auth/login')
-      .send(user)
-      .then(handleSuccess)
-      .catch(handleError);
+export const postLogin = user =>
+  request.post('/api/auth/login')
+    .send(user)
+    .then(handleSuccess)
+    .catch(handleError);
+
+export const postGoogleLogin = googleData =>
+  request.post('/api/auth/google')
+    .send({
+      token: googleData.tokenId
+    })
+    .then(handleSuccess)
+    .catch(handleError);
+
 
 export const postLogout = () =>
   request.post('/api/auth/logout')

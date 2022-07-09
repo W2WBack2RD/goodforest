@@ -1,23 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import R from 'ramda';
-
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
-
-import Box from 'react-bulma-companion/lib/Box';
-import Button from 'react-bulma-companion/lib/Button';
-import Title from 'react-bulma-companion/lib/Title';
 import Field from 'react-bulma-companion/lib/Field';
-import Control from 'react-bulma-companion/lib/Control';
-import Icon from 'react-bulma-companion/lib/Icon';
 import Input from 'react-bulma-companion/lib/Input';
 import Label from 'react-bulma-companion/lib/Label';
-import Help from 'react-bulma-companion/lib/Help';
-
 
 
 import useKeyPress from '_hooks/useKeyPress';
@@ -27,6 +13,35 @@ import { attemptRegister } from '_thunks/auth';
 import PageLayout from '../PageLayout';
 import { request } from '_api/request';
 
+export function useForestsAndCities() {
+  const [forests, setForests] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+    getAllForests();
+  }, []);
+
+  const getAllForests = () => {
+    request
+      .get("/api/forest/")
+      .send()
+      .then((result) => {
+        setForests(result.body.forests)
+        var cities = result.body.forests.map((forest) => forest.city)
+        const uniqCities = cities.filter((obj, idx, arr) => (
+          obj && arr.findIndex((o) => o?.id === obj?.id) === idx
+        )).sort(function (a, b) {
+          var textA = a.name;
+          var textB = b.name;
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        })
+        setCities(uniqCities)
+      })
+      .catch();
+  };
+
+  return [forests, cities]
+}
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -44,30 +59,7 @@ export default function Register() {
   const [forest, setForest] = useState('');
   const [acceptedTerms, setAcceptedTerms] = React.useState(false);
 
-  const [forests, setForests] = useState([]);
-  const [cities, setCities] = useState([]);
-
-  useEffect(() => {
-    getAllForests();
-  }, []);
-
-
-
-  const getAllForests = () => {
-    request
-      .get("/api/forest/")
-      .send()
-      .then((result) => {
-        setForests(result.body.forests)
-        var cities = result.body.forests.map((forest) => forest.city)
-        const uniqCities = cities.filter((obj, idx, arr) => (
-          arr.findIndex((o) => o.id === obj.id) === idx
-        ))
-        setCities(uniqCities)
-      })
-      .catch();
-  };
-
+  const [forests, cities] = useForestsAndCities()
 
   const checkPassword = (newUsername, newPassword) => {
     const { valid, message } = validatePassword(newUsername, newPassword);
@@ -156,6 +148,7 @@ export default function Register() {
 
   return (
     <PageLayout
+      showMenu={false}
       treesIcon={true}
       innerPage={true}
       titleStyle={true}
@@ -164,7 +157,7 @@ export default function Register() {
     >
       <form onSubmit={register}>
         <div dir="rtl">
-          <Box className="register">
+          <div className="register">
             <div id="box1">
 
               <Field className="userNameLabel" >
@@ -247,7 +240,7 @@ export default function Register() {
 
                 <option value="">עיר</option>
                 {cities.map((cityOption) =>
-                  (<option value={cityOption}>{cityOption}</option>))}
+                  (<option value={cityOption.id}>{cityOption.name}</option>))}
               </select>
               <Field className="ageLabel">
                 <Label htmlFor="username">
@@ -257,8 +250,8 @@ export default function Register() {
 
               <select name="forest" onChange={e => setForest(e.target.value)} className="inputStyle" required >
                 <option value="">חורשה</option>
-                {forests.map((forestOption) =>
-                  (<option value={forestOption._id}>{forestOption.forest_name}</option>))}
+                {forests.filter(forest => forest.city?.id === mycity).map((forestOption) =>
+                  (<option value={forestOption.id}>{forestOption.forest_name}</option>))}
 
               </select>
 
@@ -266,11 +259,11 @@ export default function Register() {
             <label htmlFor="checkbox1" >
               <input className="formCheck" type="checkbox" name="acceptedTerms"
                 onClick={e => setAcceptedTerms(!acceptedTerms)}
-                required /> <span className="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>
+              /> <span className="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>
             </label>
             <button id="btn-login1" type="submit">שמירה</button>
 
-          </Box>
+          </div>
         </div >
       </form>
     </PageLayout>

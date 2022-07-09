@@ -1,6 +1,7 @@
 const express = require("express");
 const passport = require("passport");
 const { User } = require("../database/schemas");
+const { OAuth2Client } = require('google-auth-library')
 
 const router = express.Router();
 
@@ -109,3 +110,30 @@ router.post("/logout", (req, res) => {
     res.send({ message: "Logged out successfully" });
   });
 });
+
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID || '')
+router.post("/google", async (req, res) => {
+  const { token } = req.body
+  const ticket = await client.verifyIdToken({
+    idToken: token,
+    audience: process.env.GOOGLE_CLIENT_ID || ''
+  });
+  const { name, email } = ticket.getPayload();
+  await User.updateOne(
+    { username: email },
+    { full_name: name, username: email },
+    { upsert: true }
+  )
+  const user = await User.findOne({ username: email })
+
+  req.login(user, (err) => {
+    if (err) {
+      res.status(401).send({ message: "Login failed", err });
+    }
+    res.send({
+      message: "Logged in successfully",
+      user: user.hidePassword(),
+    });
+  });
+})
