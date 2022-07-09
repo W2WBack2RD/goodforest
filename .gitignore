@@ -29,3 +29,5 @@ patches/
 
 # OSX
 .DS_Store
+
+.env
