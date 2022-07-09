@@ -50,6 +50,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
+    "@notionhq/client": "^2.0.0",
     "animate.css": "^4.1.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
