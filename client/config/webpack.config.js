@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 require('dotenv').config({ path: path.join(__dirname, '../../.env') })
 
-
 const resolve = dir => path.join(__dirname, '../../', dir);
 
 const env = process.env.NODE_ENV || 'development';

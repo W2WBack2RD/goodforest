@@ -256,7 +256,7 @@ export default function Register() {
               </select>
 
             </div>
-            <label htmlFor="checkbox1" >
+            <label htmlFor="checkbox1">
               <input className="formCheck" type="checkbox" name="acceptedTerms"
                 onClick={e => setAcceptedTerms(!acceptedTerms)}
               /> <span className="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>

@@ -82,13 +82,13 @@ const HomePage = () => {
       titleStyle={false}
       title={responseData.forest_name}
     >
-      <Link to='/home' id="submitSearch">
-      חזרה לחיפוש חורשות >
-      </Link>
+      {!user.forest && <Link to='/home' id="submitSearch">
+        חזרה לחיפוש חורשות {'>'}
+      </Link>}
 
       <InputCircle
         className="inputCircle"
-        inputLeft={responseData.treesCount ? parseInt(responseData.treesCount) * 0.896 : 0}
+        inputLeft={responseData.treesCount ? parseInt(responseData.treesCount * 0.896) : 0}
         inputCenter={responseData.usersCount ? responseData.usersCount : 0}
         inputRight={responseData.treesCount ? responseData.treesCount : 0}
       />

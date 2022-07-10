@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import R from "ramda";
 import { attemptUpdateUser } from "_thunks/user";
@@ -28,7 +26,6 @@ export default function Register() {
   const [forests, cities] = useForestsAndCities()
 
   const resetState = () => {
-    console.log('I reset according to this ->', user)
     setFullname(user.fullName);
     setPhoneNumber(user.phoneNumber);
     setBirthYear(user.birthYear);
@@ -55,15 +52,6 @@ export default function Register() {
   };
   const updateEmail = (e) => {
     setEmail(e.target.value);
-  };
-  const updateCity = (e) => {
-    setMyCity(e.target.value);
-  };
-  const updateForest = (e) => {
-    setForest(e.target.value);
-  };
-  const updateAcceptedTerms = (e) => {
-    setAcceptedTerms(e.target.value);
   };
 
   const register = async (e) => {
@@ -202,7 +190,7 @@ export default function Register() {
                 </Label>
               </Field>
 
-              <select name="forest" onChange={e => setForest(e.target.value)} className="inputStyle" required >
+              <select value={forest} name="forest" onChange={e => setForest(e.target.value)} className="inputStyle" required >
                 <option value="">חורשה</option>
                 {forests.filter(forest => forest.city?.id === mycity).map((forestOption) =>
                   (<option value={forestOption.id}>{forestOption.forest_name}</option>))}
@@ -214,7 +202,7 @@ export default function Register() {
                 className="formCheck"
                 type="checkbox"
                 name="acceptedTerms"
-                onClick={e => updateAcceptedTerms(!acceptedTerms)}
+                onClick={e => setAcceptedTerms(!acceptedTerms)}
                 checked={acceptedTerms}
               />{" "}
               <span className="spantxt">אשמח לקבל עדכונים על החורשה שלי</span>
