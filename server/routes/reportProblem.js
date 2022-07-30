@@ -23,7 +23,7 @@ router.post("/", (req, res) => {
   const data = {
     // Specify email data
     from: 'יער האקלים <support@goodforest.org>',
-    to: process.env.REPORT_ADMIN_EMAILS || '',
+    to: JSON.parse(process.env.REPORT_ADMIN_EMAILS || ''),
     subject: 'יער האקלים - התקבל דיווח על עץ',
     html
   };
