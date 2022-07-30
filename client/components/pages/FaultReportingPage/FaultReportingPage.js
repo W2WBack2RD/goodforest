@@ -1,65 +1,33 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { push } from "connected-react-router";
+import { useDispatch } from "react-redux";
 import R from "ramda";
-import S3 from "react-aws-s3";
 import PageLayout from "../../organisms/PageLayout";
 import Button from "react-bulma-companion/lib/Button";
 import Select from "react-bulma-companion/lib/Select";
 import Textarea from "react-bulma-companion/lib/Textarea";
-import Buttons from "react-bulma-companion/lib/Buttons";
 import Title from "react-bulma-companion/lib/Title";
-import UpdatingFaultReportingPage from "_pages/UpdatingFaultReportingPage";
 import faultreporting from "_assets/images/faultreporting.svg";
-import treeIcon from "_assets/icons/tree02.svg";
 import { attemptSendReport } from "_thunks/reporterProblem";
 import { Buffer } from "buffer";
-import Input from "react-bulma-companion/lib/Input";
 import { Link } from "react-router-dom";
 import { request } from "_api/request";
 
 window.Buffer = Buffer;
 
-const config = {
-  bucketName: "good-forest-static",
-  dirName: "imgs",
-  region: "us-east-2",
-  accessKeyId: process.env.S3_KEY || "",
-  secretAccessKey: process.env.S3_SECRET || "",
-};
-const ReactS3Client = new S3(config);
-
 export default function ReportTreePage() {
   const dispatch = useDispatch();
-  const { user } = useSelector(R.pick(["user"]));
-
-  const [loading, setLoading] = useState(true);
-  const [locationBy, setLocationBy] = useState("id");
-  const [location, setLocation] = useState("");
-  const [height, setHeight] = useState(3);
-  const [diameter, setDiameter] = useState(3);
-  const [leaves, setLeaves] = useState("");
   const [forest, setForest] = useState("");
   const [subject, setSubject] = useState("");
-  const [generalStatus, setStatus] = useState(3);
   const [description, setDescription] = useState("");
   const [pic, setPic] = useState(null);
   const [picName, setPicName] = useState(null);
   const [errors, setErrors] = useState(null);
 
-  // useEffect(() => {
-  //   if (R.isEmpty(user)) {
-  //     dispatch(push('/login'));
-  //   } else {
-  //     dispatch(attemptGetTodos())
-  //       .catch(R.identity)
-  //       .then(() => setLoading(false));
-  //   }
-  // }, []);
   var status = {
     forest,
     subject,
     description,
+    pic
   };
   const login = () => {
     const userCredentials = { username, password };
@@ -67,16 +35,15 @@ export default function ReportTreePage() {
     dispatch(attemptLogin(userCredentials)).catch(R.identity);
   };
   const upload = (file) => {
-    console.log(file);
     if (file.size > 1000000) {
       setErrors("אין להעלות קבצים גדולים מ1MB");
       return;
     }
 
-    ReactS3Client.uploadFile(file)
+    request.post('/api/report/upload').attach('file', file)
       .then((res) => {
         console.log(res);
-        setPic(res.location);
+        setPic(res.body.Location);
         setPicName(file.name);
       })
       .catch((err) => {
@@ -84,14 +51,11 @@ export default function ReportTreePage() {
       });
   };
 
-  console.log(pic);
-
   const [forests, setForests] = useState([]);
 
   useEffect(() => {
     getAllForests();
   }, []);
-
 
 
   const getAllForests = () => {

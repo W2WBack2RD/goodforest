@@ -3,19 +3,47 @@ const passport = require('passport');
 const { User, TreeReport } = require('../database/schemas');
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
+const AWS = require('aws-sdk');
+const multer = require('multer');
+const os = require('os');
 const mailgun = new Mailgun(formData);
+
+const upload = multer();
+
+const s3 = new AWS.S3({
+  accessKeyId: process.env.S3_KEY,
+  secretAccessKey: process.env.S3_SECRET
+})
 
 
 const router = express.Router();
 
 module.exports = router;
 
+router.post('/upload', upload.single('file'), function (req, res) {
+  const title = req.file.originalname;
+  const file = req.file.buffer;
+
+  const params = {
+    Bucket: "good-forest-static",
+    Key: `imgs/${title}`,
+    Body: file
+  }
+
+  s3.upload(params, (err, data) => {
+    if (err) {
+      res.status(400).send(err)
+    }
+    res.send(data)
+  })
+});
+
 router.post('/tree', (req, res) => {
   const mailgunClient = mailgun.client({ username: 'api', key: process.env.MAILGUN_API_KEY || '' });
-  req.body.user = req.user.id;
+  req.body.user = req.user?.id;
   const report = TreeReport(req.body);
 
-  let html = `<h2>דיווח התקבל מהמשתמש ${req.user.username}</h2>
+  let html = `<h2>דיווח התקבל מהמשתמש ${req.user?.username}</h2>
   <div>מיקום העץ: ${req.body.location}</div>
   <div>גובה העץ מ-1 עד 5: ${req.body.height}</div>
   <div>קוטר העץ מ-1 עד 5: ${req.body.diameter}</div>

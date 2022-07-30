@@ -17,23 +17,12 @@ import leaveStatusSelectedIcon from "../../../assets/icons/leave-staus-selected.
 import { attemptSendReport } from "_thunks/report";
 import { Buffer } from "buffer";
 import Input from "react-bulma-companion/lib/Input";
+import { request } from "_api/request";
 
 window.Buffer = Buffer;
 
-const config = {
-  bucketName: "good-forest-static",
-  dirName: "imgs",
-  region: "us-east-2",
-  accessKeyId: process.env.S3_KEY || "",
-  secretAccessKey: process.env.S3_SECRET || "",
-};
-const ReactS3Client = new S3(config);
-
 export default function ReportTreePage() {
   const dispatch = useDispatch();
-  const { user } = useSelector(R.pick(["user"]));
-
-  const [loading, setLoading] = useState(true);
   const [locationBy, setLocationBy] = useState("id");
   const [location, setLocation] = useState("");
   const [height, setHeight] = useState(3);
@@ -47,15 +36,6 @@ export default function ReportTreePage() {
   const [picName, setPicName] = useState(null);
   const [errors, setErrors] = useState(null);
 
-  // useEffect(() => {
-  //   if (R.isEmpty(user)) {
-  //     dispatch(push('/login'));
-  //   } else {
-  //     dispatch(attemptGetTodos())
-  //       .catch(R.identity)
-  //       .then(() => setLoading(false));
-  //   }
-  // }, []);
   var status = {
     location,
     height,
@@ -69,16 +49,15 @@ export default function ReportTreePage() {
   };
 
   const upload = (file) => {
-    console.log(file);
     if (file.size > 1000000) {
       setErrors("אין להעלות קבצים גדולים מ1MB");
       return;
     }
 
-    ReactS3Client.uploadFile(file)
+    request.post('/api/report/upload').attach('file', file)
       .then((res) => {
         console.log(res);
-        setPic(res.location);
+        setPic(res.body.Location);
         setPicName(file.name);
       })
       .catch((err) => {
@@ -86,14 +65,7 @@ export default function ReportTreePage() {
       });
   };
 
-  console.log(pic);
-
   const sendReport = () => {
-    // errors = {}
-    // if (!location) {
-    //   errors.location = true
-    //   return
-    // }
 
     dispatch(attemptSendReport(status)).catch(R.identity);
   };

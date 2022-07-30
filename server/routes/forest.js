@@ -35,6 +35,7 @@ router.get('/:id', (req, res) => {
             id: response.id,
             forest_name: response.properties['שם השטח'].title[0].plain_text,
             treesCount: response.properties['כמות עצים נטועים']?.rollup?.number,
+            pic: response.properties['תמונה ראשית']?.url,
         }
         res.send({ message: 'Forest retrieved successfully', forest, usersCount });
     })

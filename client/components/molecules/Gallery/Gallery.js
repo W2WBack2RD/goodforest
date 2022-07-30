@@ -7,10 +7,12 @@ const Gallery = (props) => {
         {/* <p className="addImgBtn">הוספת תמונה</p> */}
       </div>
 
-      <div className="emptyGallery">
+      {props.pic && (<img src={props.pic} />)}
+
+      {!props.pic && (<div className="emptyGallery">
         <p className="emptyGalleryTxt">ריק פה בינתיים</p>
         {/* <p className="addImgInsideBtn">הוספת תמונה</p> */}
-      </div>
+      </div>)}
     </div>
   );
 };

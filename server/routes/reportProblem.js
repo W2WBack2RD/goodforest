@@ -11,8 +11,8 @@ module.exports = router;
 
 router.post("/", (req, res) => {
   const mailgunClient = mailgun.client({ username: 'api', key: process.env.MAILGUN_API_KEY || '' });
-  req.body.user = req.user.id;
-  let html = `<h2>דיווח התקבל מהמשתמש ${req.user.username}</h2>
+  req.body.user = req.user?.id;
+  let html = `<h2>דיווח התקבל מהמשתמש ${req.user?.username}</h2>
   <div>נושא: ${req.body.subject}</div>
   <div>חורשה: ${req.body.forest}</div>
   <div>תיאור כללי: ${req.body.description}</div>
