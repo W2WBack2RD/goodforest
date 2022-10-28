@@ -111,7 +111,7 @@ export default function Register() {
         </Help>
       )}
 
-      <div className='center'>
+      {/* <div className='center'>
         <GoogleLogin
           clientId="654838528427-fjnmug2al8h0k0tahll8uormoor5fmok.apps.googleusercontent.com"
           buttonText="Sign-in with Google"
@@ -119,7 +119,7 @@ export default function Register() {
           onFailure={googleLogin}
           cookiePolicy={'single_host_origin'}
         />
-      </div>
+      </div> */}
 
     </PageLayout>
   );

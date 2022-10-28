@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     const citiesResponse = await client.databases.query({ database_id: CITIES_TABLE_ID })
     const cities = citiesResponse.results.map(city => ({
         id: city.id,
-        name: city.properties['שם הרשות'].title[0].plain_text,
+        name: city.properties['שם הרשות'].title[0]?.plain_text,
     }))
 
     client.databases.query({ database_id: FORESTS_TABLE_ID }).then(response => {
